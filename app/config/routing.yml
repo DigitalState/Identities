@@ -1,0 +1,15 @@
+api:
+    resource: .
+    type: api_platform
+
+#ds_anonymous:
+#    resource: "@DsAnonymousBundle/Action/"
+#    type: annotation
+
+#ds_individual:
+#    resource: "@DsIndividualBundle/Action/"
+#    type: annotation
+
+#ds_organization:
+#    resource: "@DsOrganizationBundle/Action/"
+#    type: annotation

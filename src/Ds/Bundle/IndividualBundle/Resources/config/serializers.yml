@@ -1,0 +1,14 @@
+services:
+    ds_individual.serializer.context_builder.individual:
+        decorates: api_platform.serializer.context_builder
+        class: Ds\Bundle\IndividualBundle\Serializer\ContextBuilder\IndividualContextBuilder
+        arguments:
+            - "@ds_individual.serializer.context_builder.individual.inner"
+            - "@security.authorization_checker"
+
+    ds_individual.serializer.context_builder.persona:
+        decorates: api_platform.serializer.context_builder
+        class: Ds\Bundle\IndividualBundle\Serializer\ContextBuilder\PersonaContextBuilder
+        arguments:
+            - "@ds_individual.serializer.context_builder.persona.inner"
+            - "@security.authorization_checker"

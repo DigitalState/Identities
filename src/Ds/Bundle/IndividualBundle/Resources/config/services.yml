@@ -1,0 +1,6 @@
+services:
+    ds_individual.service.individual:
+        class: Ds\Bundle\IndividualBundle\Service\IndividualService
+
+    ds_individual.service.persona:
+        class: Ds\Bundle\IndividualBundle\Service\PersonaService

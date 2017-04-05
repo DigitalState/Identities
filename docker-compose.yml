@@ -1,0 +1,18 @@
+web8013:
+    build: .
+    environment:
+        SYMFONY_ENV: dev
+    links:
+        - database8013
+    volumes:
+        - .:/app
+    ports:
+        - 8013:80
+
+database8013:
+    image: mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: ds_identities
+        MYSQL_USER: ds_identities
+        MYSQL_PASSWORD: ds_identities
