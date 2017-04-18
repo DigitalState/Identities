@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Ds\Bundle\AnonymousBundle\DsAnonymousBundle(),
             new Ds\Bundle\IndividualBundle\DsIndividualBundle(),
             new Ds\Bundle\OrganizationBundle\DsOrganizationBundle(),
+            new Ds\Bundle\BusinessUnitBundle\DsBusinessUnitBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
