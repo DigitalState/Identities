@@ -13,3 +13,7 @@ api:
 #ds_organization:
 #    resource: "@DsOrganizationBundle/Action/"
 #    type: annotation
+
+#ds_business_unit:
+#    resource: "@DsBusinessUnitBundle/Action/"
+#    type: annotation

@@ -1,7 +1,5 @@
 imports:
-    - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: listeners.yml }
     - { resource: services.yml }
 
 parameters:
@@ -9,7 +7,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ["%locale%"] }
+    translator: { fallbacks: ["%locale%"] }
     secret: "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
