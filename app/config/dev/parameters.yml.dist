@@ -1,9 +1,14 @@
 parameters:
-    database_host: database8013
-    database_port: ~
-    database_name: ds_identities
-    database_user: ds_identities
-    database_password: ds_identities
+    database_host: db
+    database_port: 3306
+    database_name: api_platform
+    database_user: api_platform
+    database_password: api_platform
+
+    jwt_private_key_path: "%kernel.root_dir%/../var/jwt/private.pem"
+    jwt_public_key_path: "%kernel.root_dir%/../var/jwt/public.pem"
+    jwt_key_pass_phrase: ""
+    jwt_token_ttl: 3600
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1

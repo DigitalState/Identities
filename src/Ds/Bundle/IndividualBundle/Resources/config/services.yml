@@ -2,5 +2,9 @@ services:
     ds_individual.service.individual:
         class: Ds\Bundle\IndividualBundle\Service\IndividualService
 
-    ds_individual.service.persona:
-        class: Ds\Bundle\IndividualBundle\Service\PersonaService
+    ds_individual.filter.individual:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: ds_individual.filter.individual }

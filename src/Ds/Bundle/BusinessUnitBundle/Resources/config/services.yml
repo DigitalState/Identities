@@ -1,0 +1,10 @@
+services:
+    ds_business_unit.service.business_unit:
+        class: Ds\Bundle\BusinessUnitBundle\Service\BusinessUnitService
+
+    ds_business_unit.filter.business_unit:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: ds_businessUnit.filter.business_unit }

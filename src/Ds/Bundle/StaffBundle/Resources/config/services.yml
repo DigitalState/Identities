@@ -1,0 +1,10 @@
+services:
+    ds_staff.service.staff:
+        class: Ds\Bundle\StaffBundle\Service\StaffService
+
+    ds_staff.filter.staff:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: ds_staff.filter.staff }

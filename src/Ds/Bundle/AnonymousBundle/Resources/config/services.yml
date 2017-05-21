@@ -1,0 +1,10 @@
+services:
+    ds_anonymous.service.anonymous:
+        class: Ds\Bundle\AnonymousBundle\Service\AnonymousService
+
+    ds_anonymous.filter.anonymous:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: ds_anonymous.filter.anonymous }

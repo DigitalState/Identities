@@ -24,11 +24,16 @@ class AppKernel extends Kernel
             new Dunglas\ActionBundle\DunglasActionBundle(),
             new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new Ds\Bundle\AnonymousBundle\DsAnonymousBundle(),
-            new Ds\Bundle\IndividualBundle\DsIndividualBundle(),
-            new Ds\Bundle\OrganizationBundle\DsOrganizationBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+            new Ds\Component\Model\Bridge\Symfony\Bundle\DsModelBundle(),
+            new Ds\Component\Security\Bridge\Symfony\Bundle\DsSecurityBundle(),
+            new Ds\Component\Session\Bridge\Symfony\Bundle\DsSessionBundle(),
             new Ds\Bundle\BusinessUnitBundle\DsBusinessUnitBundle(),
+            new Ds\Bundle\PersonaBundle\DsPersonaBundle(),
+            new Ds\Bundle\StaffBundle\DsStaffBundle(),
+            new Ds\Bundle\IndividualBundle\DsIndividualBundle(),
+            new Ds\Bundle\AnonymousBundle\DsAnonymousBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

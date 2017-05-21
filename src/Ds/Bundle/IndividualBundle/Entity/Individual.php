@@ -2,119 +2,112 @@
 
 namespace Ds\Bundle\IndividualBundle\Entity;
 
-use Ds\Component\Entity\Entity\Uuidentifiable;
-use Ds\Component\Entity\Entity\Accessor;
+use Ds\Component\Model\Type\Identifiable;
+use Ds\Component\Model\Type\Uuidentifiable;
+use Ds\Component\Model\Type\Ownable;
+use Ds\Component\Model\Accessor;
+use Knp\DoctrineBehaviors\Model as Behavior;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
-use Symfony\Component\Serializer\Annotation As Serializer;
-use Gedmo\Mapping\Annotation as Behavior;
+use Symfony\Component\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
+use Ds\Component\Model\Annotation\Translate;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Individual
  *
  * @ApiResource(
  *      attributes={
- *          "filters"={"ds_individual.individual.filter"},
+ *          "filters"={"ds_individual.filter.individual"},
  *          "normalization_context"={"groups"={"individual_output"}},
  *          "denormalization_context"={"groups"={"individual_input"}}
  *      }
  * )
  * @ORM\Entity(repositoryClass="Ds\Bundle\IndividualBundle\Repository\IndividualRepository")
  * @ORM\Table(name="ds_individual")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discriminator", type="string")
  * @ORM\HasLifecycleCallbacks
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Individual implements Uuidentifiable
+class Individual implements Identifiable, Uuidentifiable, Ownable
 {
+    use Behavior\Timestampable\Timestampable;
+    use Behavior\SoftDeletable\SoftDeletable;
+
+    use Accessor\Id;
+    use Accessor\Uuid;
+    use Accessor\Owner;
+    use Accessor\OwnerUuid;
+
     /**
      * @var integer
-     *
-     * @ApiProperty(identifier=false)
-     * @Serializer\Groups({"individual_output_admin"})
+     * @ApiProperty(identifier=false, writable=false)
+     * @Serializer\Groups({"individual_output"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(name="id", type="integer")
      */
-    protected $id; use Accessor\Id;
+    protected $id;
 
     /**
      * @var string
-     *
-     * @ApiProperty(identifier=true)
+     * @ApiProperty(identifier=true, writable=false)
      * @Serializer\Groups({"individual_output"})
      * @ORM\Column(name="uuid", type="guid", unique=true)
      * @Assert\Uuid
      */
-    protected $uuid; use Accessor\Uuid;
+    protected $uuid;
 
     /**
      * @var \DateTime
-     *
-     * @Serializer\Groups({"individual_output_admin"})
-     * @Behavior\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"individual_output"})
      */
-    protected $createdAt; use Accessor\CreatedAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
-     *
-     * @Serializer\Groups({"individual_output_admin"})
-     * @Behavior\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"individual_output"})
      */
-    protected $updatedAt; use Accessor\UpdatedAt;
+    protected $updatedAt;
+
+    /**
+     * @var \DateTime
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"individual_output"})
+     */
+    protected $deletedAt;
+
+    /**
+     * @var string
+     * @ApiProperty
+     * @Serializer\Groups({"individual_output", "individual_input"})
+     * @ORM\Column(name="`owner`", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     */
+    protected $owner;
+
+    /**
+     * @var string
+     * @ApiProperty
+     * @Serializer\Groups({"individual_output", "individual_input"})
+     * @ORM\Column(name="owner_uuid", type="guid", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Uuid
+     */
+    protected $ownerUuid;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     *
+     * @ApiProperty
      * @Serializer\Groups({"individual_output"})
-     * @ORM\OneToMany(targetEntity="Ds\Bundle\IndividualBundle\Entity\Persona", mappedBy="individual", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Ds\Bundle\IndividualBundle\Entity\IndividualPersona", mappedBy="individual", cascade={"persist", "remove"})
      */
-    protected $personas; # region accessors
-
-    /**
-     * Add persona
-     *
-     * @param \Ds\Bundle\IndividualBundle\Entity\Persona $persona
-     * @return \Ds\Bundle\IndividualBundle\Entity\Individual
-     */
-    public function addPersona(Persona $persona)
-    {
-        $persona->setIndividual($this);
-        $this->personas[] = $persona;
-
-        return $this;
-    }
-
-    /**
-     * Remove persona
-     *
-     * @param \Ds\Bundle\IndividualBundle\Entity\Persona $persona
-     */
-    public function removePersona(Persona $persona)
-    {
-        $this->personas->removeElement($persona);
-    }
-
-    /**
-     * Get personas
-     *
-     * @return array
-     */
-    public function getPersonas()
-    {
-        return $this->personas->toArray();
-    }
-
-    # endregion
+    protected $personas;
 
     /**
      * Constructor

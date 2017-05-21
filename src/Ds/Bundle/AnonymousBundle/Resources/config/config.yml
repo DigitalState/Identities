@@ -1,0 +1,5 @@
+ds_security:
+    acl:
+        permissions:
+            anonymous:             { entity: Ds\Bundle\AnonymousBundle\Entity\Anonymous, attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+            anonymous_field:       { field:  Ds\Bundle\AnonymousBundle\Entity\Anonymous.*, attributes: [BROWSE, READ, EDIT] }

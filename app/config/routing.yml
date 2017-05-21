@@ -2,18 +2,13 @@ api:
     resource: .
     type: api_platform
 
-#ds_anonymous:
-#    resource: "@DsAnonymousBundle/Action/"
+ds_security:
+    resource: "@DsSecurityBundle/Resources/config/routing.yml"
+
+#ds_business_unit:
+#    resource: "@DsBusinessUnitBundle/Action/"
 #    type: annotation
 
 #ds_individual:
 #    resource: "@DsIndividualBundle/Action/"
-#    type: annotation
-
-#ds_organization:
-#    resource: "@DsOrganizationBundle/Action/"
-#    type: annotation
-
-#ds_business_unit:
-#    resource: "@DsBusinessUnitBundle/Action/"
 #    type: annotation
