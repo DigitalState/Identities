@@ -1,0 +1,14 @@
+anonymous_personas:
+    -
+        anonymous: d57d855f-59bf-4af8-a420-4868fbb09e54    # John Doe
+        uuid: 0f517997-ec65-4dba-bd9c-ee82818a26a0         # Default
+        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+
+prototype:
+    anonymous: ~
+    uuid: ~
+    owner: ~
+    owner_uuid: ~
+    title:
+        en: Default
+        fr: Défaut

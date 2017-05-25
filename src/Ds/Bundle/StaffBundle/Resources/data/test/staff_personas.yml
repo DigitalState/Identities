@@ -1,0 +1,10 @@
+staff_personas: []
+
+prototype:
+    staff: ~
+    uuid: ~
+    owner: ~
+    owner_uuid: ~
+    title:
+        en: Default
+        fr: Défaut

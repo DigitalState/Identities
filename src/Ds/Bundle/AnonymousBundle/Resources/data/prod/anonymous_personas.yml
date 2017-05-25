@@ -1,0 +1,10 @@
+anonymous_personas: []
+
+prototype:
+    anonymous: ~
+    uuid: ~
+    owner: ~
+    owner_uuid: ~
+    title:
+        en: Default
+        fr: Défaut

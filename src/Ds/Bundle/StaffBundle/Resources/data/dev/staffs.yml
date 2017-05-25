@@ -1,0 +1,34 @@
+staffs:
+    -
+        uuid: 977663e7-c98d-4a51-bcbf-855ff44bd6d0         # Admin
+        owner: Staff
+        owner_uuid: 977663e7-c98d-4a51-bcbf-855ff44bd6d0   # Admin
+
+    -
+        uuid: 4ddbd9b7-8fb3-41db-a053-73a12145ab0c         # Finance Admin
+        owner_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38   # Finance
+
+    -
+        uuid: da066d19-16a7-49f9-8b38-d9eca91ee0ee         # Finance Staff
+        owner_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38   # Finance
+
+    -
+        uuid: 549de645-0dc5-48eb-a527-74fdcd6dda81         # Human Resources Admin
+        owner_uuid: 2b20cb91-d0ef-41f1-b2f8-6c1a9ebc6fd8   # Human Resources
+
+    -
+        uuid: a7c45060-97ce-4a38-ad39-93f7a4dfe107         # Human Resources Staff
+        owner_uuid: 2b20cb91-d0ef-41f1-b2f8-6c1a9ebc6fd8   # Human Resources
+
+    -
+        uuid: 26db6674-ebe5-4511-95b1-e2919e7ab10a         # Public Admin
+        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+
+    -
+        uuid: e0fbc566-6159-4910-8927-f402fe8fc449         # Public Staff
+        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~

@@ -1,0 +1,23 @@
+systems:
+    -
+        uuid: 2a792547-6f96-48fb-a865-abebcce65333         # Assets
+
+    -
+        uuid: 94c98357-1691-4d20-aa43-c083c70b44a7         # Authentication
+
+    -
+        uuid: 3d0abba6-82b2-4c75-88d9-5571d23ca055         # Cases
+
+    -
+        uuid: dd8bbbc5-2554-4a4f-8dd0-e3dc8d86b821         # Identities
+
+    -
+        uuid: bb2c0a92-1b03-4bbf-b61a-dd67d1f8d1dd         # Records
+
+    -
+        uuid: c8ac6bd2-7e3c-430a-bbd0-265e7236a143         # Services
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d       # Administration

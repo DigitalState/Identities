@@ -1,0 +1,10 @@
+individual_personas: []
+
+prototype:
+    individual: ~
+    uuid: ~
+    owner: ~
+    owner_uuid: ~
+    title:
+        en: Default
+        fr: Défaut
