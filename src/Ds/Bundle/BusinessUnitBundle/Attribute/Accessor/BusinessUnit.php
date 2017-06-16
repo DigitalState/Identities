@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\BusinessUnitBundle\Accessor;
+namespace Ds\Bundle\BusinessUnitBundle\Attribute\Accessor;
 
 use Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit as BusinessUnitEntity;
 
