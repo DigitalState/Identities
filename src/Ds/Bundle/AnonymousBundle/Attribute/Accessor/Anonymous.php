@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\AnonymousBundle\Accessor;
+namespace Ds\Bundle\AnonymousBundle\Attribute\Accessor;
 
 use Ds\Bundle\AnonymousBundle\Entity\Anonymous as AnonymousEntity;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\IndividualBundle\Accessor;
+namespace Ds\Bundle\IndividualBundle\Attribute\Accessor;
 
 use Ds\Bundle\IndividualBundle\Entity\Individual as IndividualEntity;
 

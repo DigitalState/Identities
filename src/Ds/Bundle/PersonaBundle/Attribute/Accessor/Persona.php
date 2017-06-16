@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\PersonaBundle\Accessor;
+namespace Ds\Bundle\PersonaBundle\Attribute\Accessor;
 
 use Ds\Bundle\PersonaBundle\Entity\Persona as PersonaEntity;
 

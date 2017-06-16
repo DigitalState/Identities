@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\SystemBundle\Accessor;
+namespace Ds\Bundle\SystemBundle\Attribute\Accessor;
 
 use Ds\Bundle\SystemBundle\Entity\System as SystemEntity;
 

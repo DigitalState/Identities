@@ -3,7 +3,7 @@
 namespace Ds\Bundle\IndividualBundle\Entity;
 
 use Ds\Bundle\PersonaBundle\Entity\Persona;
-use Ds\Bundle\IndividualBundle\Accessor;
+use Ds\Bundle\IndividualBundle\Attribute\Accessor;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
 use ApiPlatform\Core\Annotation\ApiResource;

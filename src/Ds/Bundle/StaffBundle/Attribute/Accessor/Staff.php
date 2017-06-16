@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Bundle\StaffBundle\Accessor;
+namespace Ds\Bundle\StaffBundle\Attribute\Accessor;
 
 use Ds\Bundle\StaffBundle\Entity\Staff as StaffEntity;
 
