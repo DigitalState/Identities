@@ -2,9 +2,11 @@
 
 namespace Ds\Bundle\AnonymousBundle\Service;
 
+use Ds\Component\Entity\Service\EntityService;
+
 /**
  * Class AnonymousService
  */
-class AnonymousService
+class AnonymousService extends EntityService
 {
 }

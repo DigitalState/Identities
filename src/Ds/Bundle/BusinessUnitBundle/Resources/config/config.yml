@@ -1,5 +1,15 @@
+parameters:
+    _business_unit: Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit
+
 ds_security:
-    acl:
-        permissions:
-            business_unit:             { entity: Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit, attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-            business_unit_field:       { field:  Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit.*, attributes: [BROWSE, READ, EDIT] }
+    permissions:
+        business_unit:               { title: Business Unit, entity: '%_business_unit%',              attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        business_unit_field:         { title: All Fields,    field:  '%_business_unit%.*',            attributes: [BROWSE, READ, EDIT] }
+        business_unit_id:            { title: ID,            field:  '%_business_unit%.id',           attributes: [BROWSE, READ, EDIT] }
+        business_unit_uuid:          { title: UUID,          field:  '%_business_unit%.uuid',         attributes: [BROWSE, READ, EDIT] }
+        business_unit_created_at:    { title: Created At,    field:  '%_business_unit%.createdAt',    attributes: [BROWSE, READ, EDIT] }
+        business_unit_updated_at:    { title: Updated At,    field:  '%_business_unit%.updatedAt',    attributes: [BROWSE, READ, EDIT] }
+        business_unit_deleted_at:    { title: Deleted At,    field:  '%_business_unit%.deletedAt',    attributes: [BROWSE, READ, EDIT] }
+        business_unit_owner:         { title: Owner,         field:  '%_business_unit%.owner',        attributes: [BROWSE, READ, EDIT] }
+        business_unit_owner_uuid:    { title: Owner UUID,    field:  '%_business_unit%.ownerUuid',    attributes: [BROWSE, READ, EDIT] }
+        business_unit_title:         { title: Title,         field:  '%_business_unit%.title',        attributes: [BROWSE, READ, EDIT] }

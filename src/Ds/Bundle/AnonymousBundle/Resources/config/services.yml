@@ -1,6 +1,12 @@
 services:
     ds_anonymous.service.anonymous:
         class: Ds\Bundle\AnonymousBundle\Service\AnonymousService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - Ds\Bundle\AnonymousBundle\Entity\Anonymous
+
+    ds_anonymous.service.anonymous_persona:
+        class: Ds\Bundle\AnonymousBundle\Service\AnonymousPersonaService
 
     ds_anonymous.filter.anonymous:
         parent: api_platform.doctrine.orm.search_filter

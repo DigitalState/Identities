@@ -1,5 +1,0 @@
-ds_security:
-    acl:
-        permissions:
-            persona:             { entity: Ds\Bundle\PersonaBundle\Entity\Persona, attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-            persona_field:       { field:  Ds\Bundle\PersonaBundle\Entity\Persona.*, attributes: [BROWSE, READ, EDIT] }

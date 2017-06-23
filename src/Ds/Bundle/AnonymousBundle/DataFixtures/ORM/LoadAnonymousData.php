@@ -35,6 +35,6 @@ class LoadAnonymousData extends ResourceFixture implements OrderedFixtureInterfa
      */
     public function getOrder()
     {
-        return 0;
+        return 10;
     }
 }

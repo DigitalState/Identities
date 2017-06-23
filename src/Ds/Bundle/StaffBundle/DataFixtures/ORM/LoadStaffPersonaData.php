@@ -38,6 +38,6 @@ class LoadStaffPersonaData extends ResourceFixture implements OrderedFixtureInte
      */
     public function getOrder()
     {
-        return 1;
+        return 11;
     }
 }

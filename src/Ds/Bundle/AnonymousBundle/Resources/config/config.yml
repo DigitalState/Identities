@@ -1,5 +1,14 @@
+parameters:
+    _anonymous: Ds\Bundle\AnonymousBundle\Entity\Anonymous
+
 ds_security:
-    acl:
-        permissions:
-            anonymous:             { entity: Ds\Bundle\AnonymousBundle\Entity\Anonymous, attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-            anonymous_field:       { field:  Ds\Bundle\AnonymousBundle\Entity\Anonymous.*, attributes: [BROWSE, READ, EDIT] }
+    permissions:
+        anonymous:               { title: Anonymous,     entity: '%_anonymous%',              attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        anonymous_field:         { title: All Fields,    field:  '%_anonymous%.*',            attributes: [BROWSE, READ, EDIT] }
+        anonymous_id:            { title: ID,            field:  '%_anonymous%.id',           attributes: [BROWSE, READ, EDIT] }
+        anonymous_uuid:          { title: UUID,          field:  '%_anonymous%.uuid',         attributes: [BROWSE, READ, EDIT] }
+        anonymous_created_at:    { title: Created At,    field:  '%_anonymous%.createdAt',    attributes: [BROWSE, READ, EDIT] }
+        anonymous_updated_at:    { title: Updated At,    field:  '%_anonymous%.updatedAt',    attributes: [BROWSE, READ, EDIT] }
+        anonymous_deleted_at:    { title: Deleted At,    field:  '%_anonymous%.deletedAt',    attributes: [BROWSE, READ, EDIT] }
+        anonymous_owner:         { title: Owner,         field:  '%_anonymous%.owner',        attributes: [BROWSE, READ, EDIT] }
+        anonymous_owner_uuid:    { title: Owner UUID,    field:  '%_anonymous%.ownerUuid',    attributes: [BROWSE, READ, EDIT] }

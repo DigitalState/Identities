@@ -38,6 +38,6 @@ class LoadAnonymousPersonaData extends ResourceFixture implements OrderedFixture
      */
     public function getOrder()
     {
-        return 1;
+        return 11;
     }
 }

@@ -1,5 +1,0 @@
-ds_security:
-    acl:
-        permissions:
-            system:             { entity: Ds\Bundle\SystemBundle\Entity\System, attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-            system_field:       { field:  Ds\Bundle\SystemBundle\Entity\System.*, attributes: [BROWSE, READ, EDIT] }

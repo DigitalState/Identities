@@ -1,6 +1,12 @@
 services:
     ds_individual.service.individual:
         class: Ds\Bundle\IndividualBundle\Service\IndividualService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - Ds\Bundle\IndividualBundle\Entity\Individual
+
+    ds_individual.service.individual_persona:
+        class: Ds\Bundle\IndividualBundle\Service\IndividualPersonaService
 
     ds_individual.filter.individual:
         parent: api_platform.doctrine.orm.search_filter

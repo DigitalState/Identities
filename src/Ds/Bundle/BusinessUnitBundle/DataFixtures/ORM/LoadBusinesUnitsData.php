@@ -36,6 +36,6 @@ class LoadBusinessUnitData extends ResourceFixture implements OrderedFixtureInte
      */
     public function getOrder()
     {
-        return 0;
+        return 10;
     }
 }

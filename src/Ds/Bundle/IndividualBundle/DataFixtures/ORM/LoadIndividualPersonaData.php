@@ -38,6 +38,6 @@ class LoadIndividualPersonaData extends ResourceFixture implements OrderedFixtur
      */
     public function getOrder()
     {
-        return 1;
+        return 11;
     }
 }

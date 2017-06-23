@@ -1,6 +1,12 @@
 services:
     ds_staff.service.staff:
         class: Ds\Bundle\StaffBundle\Service\StaffService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - Ds\Bundle\StaffBundle\Entity\Staff
+
+    ds_staff.service.staff_persona:
+        class: Ds\Bundle\StaffBundle\Service\StaffPersonaService
 
     ds_staff.filter.staff:
         parent: api_platform.doctrine.orm.search_filter

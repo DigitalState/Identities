@@ -35,6 +35,6 @@ class LoadIndividualData extends ResourceFixture implements OrderedFixtureInterf
      */
     public function getOrder()
     {
-        return 0;
+        return 10;
     }
 }

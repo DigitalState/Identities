@@ -1,0 +1,22 @@
+permission_entries:
+    -
+        permission: ed778870-9915-42e3-ad21-142c8f655ae5         # morgan
+        business_unit_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38 # Finance
+        key: individual
+        attributes: [BROWSE, READ]
+    -
+        permission: ed778870-9915-42e3-ad21-142c8f655ae5         # morgan
+        business_unit_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38 # Finance
+        key: individual_uuid
+        attributes: [BROWSE, READ]
+    -
+        permission: ed778870-9915-42e3-ad21-142c8f655ae5         # morgan
+        business_unit_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38 # Finance
+        key: individual_title
+        attributes: [BROWSE, READ]
+
+prototype:
+    permission: ~
+    business_unit_uuid: ~
+    key: ~
+    attributes: []

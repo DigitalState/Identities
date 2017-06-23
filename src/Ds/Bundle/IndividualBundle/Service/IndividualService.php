@@ -2,9 +2,11 @@
 
 namespace Ds\Bundle\IndividualBundle\Service;
 
+use Ds\Component\Entity\Service\EntityService;
+
 /**
  * Class IndividualService
  */
-class IndividualService
+class IndividualService extends EntityService
 {
 }
