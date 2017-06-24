@@ -9,6 +9,18 @@ ds_security:
 #    resource: '@DsBusinessUnitBundle/Action/'
 #    type: annotation
 
+#ds_anonymous:
+#    resource: '@DsAnonymousBundle/Action/'
+#    type: annotation
+
 #ds_individual:
 #    resource: '@DsIndividualBundle/Action/'
+#    type: annotation
+
+#ds_staff:
+#    resource: '@DsStaffBundle/Action/'
+#    type: annotation
+
+#ds_system:
+#    resource: '@DsSystemBundle/Action/'
 #    type: annotation
