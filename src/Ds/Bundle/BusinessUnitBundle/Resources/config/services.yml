@@ -1,6 +1,9 @@
 services:
     ds_business_unit.service.business_unit:
         class: Ds\Bundle\BusinessUnitBundle\Service\BusinessUnitService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit
 
     ds_business_unit.filter.business_unit:
         parent: api_platform.doctrine.orm.search_filter
