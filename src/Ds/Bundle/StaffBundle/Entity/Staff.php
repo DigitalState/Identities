@@ -22,9 +22,13 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
  *
  * @ApiResource(
  *      attributes={
- *          "filters"={"ds_staff.filter.staff"},
- *          "normalization_context"={"groups"={"staff_output"}},
- *          "denormalization_context"={"groups"={"staff_input"}}
+ *          "filters"={"ds.staff.search", "ds.staff.date"},
+ *          "normalization_context"={
+ *              "groups"={"staff_output"}
+ *          },
+ *          "denormalization_context"={
+ *              "groups"={"staff_input"}
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="Ds\Bundle\StaffBundle\Repository\StaffRepository")

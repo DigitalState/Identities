@@ -8,9 +8,44 @@ services:
     ds_staff.service.staff_persona:
         class: Ds\Bundle\StaffBundle\Service\StaffPersonaService
 
-    ds_staff.filter.staff:
+    ds_staff.filter.staff.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { uuid: exact }
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
         tags:
-            - { name: api_platform.filter, id: ds_staff.filter.staff }
+            - { name: api_platform.filter, id: ds.staff.search }
+
+    ds_staff.filter.staff.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.staff.date }
+
+    ds_staff.filter.staff_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
+        tags:
+            - { name: api_platform.filter, id: ds.staff_persona.search }
+
+    ds_staff.filter.staff_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.staff_persona.date }
