@@ -5,9 +5,23 @@ services:
             - '@doctrine.orm.entity_manager'
             - Ds\Bundle\BusinessUnitBundle\Entity\BusinessUnit
 
-    ds_business_unit.filter.business_unit:
+    ds_business_unit.filter.business_unit.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { uuid: exact }
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
         tags:
-            - { name: api_platform.filter, id: ds_businessUnit.filter.business_unit }
+            - { name: api_platform.filter, id: ds.business_unit.search }
+
+    ds_business_unit.filter.business_unit.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.business_unit.date }
