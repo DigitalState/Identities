@@ -19,9 +19,13 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
  *
  * @ApiResource(
  *      attributes={
- *          "filters"={"ds_persona.filter.persona"},
- *          "normalization_context"={"groups"={"persona_output"}},
- *          "denormalization_context"={"groups"={"persona_input"}}
+ *          "filters"={"ds.anonymous_persona.search", "ds.anonymous_persona.date"},
+ *          "normalization_context"={
+ *              "groups"={"persona_output"}
+ *          },
+ *          "denormalization_context"={
+ *              "groups"={"persona_input"}
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="Ds\Bundle\AnonymousBundle\Repository\AnonymousPersonaRepository")

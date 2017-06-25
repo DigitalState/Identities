@@ -8,9 +8,44 @@ services:
     ds_anonymous.service.anonymous_persona:
         class: Ds\Bundle\AnonymousBundle\Service\AnonymousPersonaService
 
-    ds_anonymous.filter.anonymous:
+    ds_anonymous.filter.anonymous.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { uuid: exact }
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
         tags:
-            - { name: api_platform.filter, id: ds_anonymous.filter.anonymous }
+            - { name: api_platform.filter, id: ds.anonymous.search }
+
+    ds_anonymous.filter.anonymous.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.anonymous.date }
+
+    ds_anonymous.filter.anonymous_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
+        tags:
+            - { name: api_platform.filter, id: ds.anonymous_persona.search }
+
+    ds_anonymous.filter.anonymous_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.anonymous_persona.date }

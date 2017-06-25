@@ -22,9 +22,13 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
  *
  * @ApiResource(
  *      attributes={
- *          "filters"={"ds_anonymous.filter.anonymous"},
- *          "normalization_context"={"groups"={"anonymous_output"}},
- *          "denormalization_context"={"groups"={"anonymous_input"}}
+ *          "filters"={"ds.anonymous.search", "ds.anonymous.date"},
+ *          "normalization_context"={
+ *              "groups"={"anonymous_output"}
+ *          },
+ *          "denormalization_context"={
+ *              "groups"={"anonymous_input"}
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="Ds\Bundle\AnonymousBundle\Repository\AnonymousRepository")
