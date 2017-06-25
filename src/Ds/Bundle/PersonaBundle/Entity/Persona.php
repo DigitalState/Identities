@@ -6,6 +6,7 @@ use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Translatable;
+use Ds\Component\Model\Type\Versionable;
 use Ds\Component\Model\Attribute\Accessor;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
@@ -20,7 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
 /**
  * Class Persona
  */
-class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable
+class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Versionable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -31,6 +32,7 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use Accessor\Title;
+    use Accessor\Version;
 
     /**
      * @var integer
@@ -100,6 +102,17 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable
      * @Translate
      */
     protected $title;
+
+    /**
+     * @var integer
+     * @ApiProperty
+     * @Serializer\Groups({"persona_output", "persona_input"})
+     * @ORM\Column(name="version", type="integer")
+     * @ORM\Version
+     * @Assert\NotBlank
+     * @Assert\Type("integer")
+     */
+    protected $version;
 
     /**
      * Constructor

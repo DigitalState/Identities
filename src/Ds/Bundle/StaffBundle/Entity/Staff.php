@@ -5,6 +5,7 @@ namespace Ds\Bundle\StaffBundle\Entity;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Ownable;
+use Ds\Component\Model\Type\Versionable;
 use Ds\Component\Model\Attribute\Accessor;
 use Knp\DoctrineBehaviors\Model as Behavior;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -31,7 +32,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
  * @ORM\HasLifecycleCallbacks
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Staff implements Identifiable, Uuidentifiable, Ownable
+class Staff implements Identifiable, Uuidentifiable, Ownable, Versionable
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -40,6 +41,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use Accessor\Version;
 
     /**
      * @var integer
@@ -107,6 +109,17 @@ class Staff implements Identifiable, Uuidentifiable, Ownable
      * @ORM\OneToMany(targetEntity="Ds\Bundle\StaffBundle\Entity\StaffPersona", mappedBy="staff", cascade={"persist", "remove"})
      */
     protected $personas;
+
+    /**
+     * @var integer
+     * @ApiProperty
+     * @Serializer\Groups({"staff_output", "staff_input"})
+     * @ORM\Column(name="version", type="integer")
+     * @ORM\Version
+     * @Assert\NotBlank
+     * @Assert\Type("integer")
+     */
+    protected $version;
 
     /**
      * Constructor
