@@ -7,7 +7,7 @@ anonymous_personas:
 prototype:
     anonymous: ~
     uuid: ~
-    owner: ~
+    owner: BusinessUnit
     owner_uuid: ~
     title:
         en: Default
