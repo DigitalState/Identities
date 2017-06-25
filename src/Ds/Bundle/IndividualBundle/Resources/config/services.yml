@@ -8,9 +8,44 @@ services:
     ds_individual.service.individual_persona:
         class: Ds\Bundle\IndividualBundle\Service\IndividualPersonaService
 
-    ds_individual.filter.individual:
+    ds_individual.filter.individual.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { uuid: exact }
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
         tags:
-            - { name: api_platform.filter, id: ds_individual.filter.individual }
+            - { name: api_platform.filter, id: ds.individual.search }
+
+    ds_individual.filter.individual.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.individual.date }
+
+    ds_individual.filter.individual_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
+        tags:
+            - { name: api_platform.filter, id: ds.individual_persona.search }
+
+    ds_individual.filter.individual_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.individual_persona.date }
