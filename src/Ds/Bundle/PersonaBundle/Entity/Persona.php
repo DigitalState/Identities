@@ -32,6 +32,7 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Ve
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use Accessor\Title;
+    use Accessor\Data;
     use Accessor\Version;
 
     /**
@@ -99,9 +100,22 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Ve
      * @Serializer\Groups({"persona_output", "persona_input"})
      * @Assert\Type("array")
      * @Assert\NotBlank
+     * @Assert\All({
+     *     @Assert\NotBlank,
+     *     @Assert\Length(min=1)
+     * })
      * @Translate
      */
     protected $title;
+
+    /**
+     * @var array
+     * @ApiProperty
+     * @Serializer\Groups({"persona_output", "persona_input"})
+     * @ORM\Column(name="data", type="json_array")
+     * @Assert\Type("array")
+     */
+    protected $data;
 
     /**
      * @var integer
@@ -120,5 +134,6 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Ve
     public function __construct()
     {
         $this->title = [];
+        $this->data = [];
     }
 }

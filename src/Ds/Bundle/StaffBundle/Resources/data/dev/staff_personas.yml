@@ -1,39 +1,53 @@
 staff_personas:
     -
         staff: 977663e7-c98d-4a51-bcbf-855ff44bd6d0        # Admin
-        uuid: c75e7a7d-ed08-4266-869f-05a0e2d10dd1         # Default
+        uuid: c75e7a7d-ed08-4266-869f-05a0e2d10dd1
         owner: Staff
         owner_uuid: 977663e7-c98d-4a51-bcbf-855ff44bd6d0   # Admin
+        data:
+            firstName: Admin
 
     -
         staff: 4ddbd9b7-8fb3-41db-a053-73a12145ab0c        # Finance Admin
-        uuid: 011e4597-ab2b-4bcb-9ffa-f0fe5a3b09a1         # Default
+        uuid: 011e4597-ab2b-4bcb-9ffa-f0fe5a3b09a1
         owner_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38   # Finance
+        data:
+            firstName: Finance Admin
 
     -
         staff: da066d19-16a7-49f9-8b38-d9eca91ee0ee        # Finance Staff
-        uuid: fca5d9f7-0a75-453d-af5f-cf2a3391d6de         # Default
-        owner_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38   #
+        uuid: fca5d9f7-0a75-453d-af5f-cf2a3391d6de
+        owner_uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38   # Finance
+        data:
+            firstName: Finance Staff
 
     -
         staff: 549de645-0dc5-48eb-a527-74fdcd6dda81        # Human Resources Admin
-        uuid: 3290e887-807c-4175-8602-107677ae6bc5         # Default
+        uuid: 3290e887-807c-4175-8602-107677ae6bc5
         owner_uuid: 2b20cb91-d0ef-41f1-b2f8-6c1a9ebc6fd8   # Human Resources
+        data:
+            firstName: Human Resources Admin
 
     -
         staff: a7c45060-97ce-4a38-ad39-93f7a4dfe107        # Human Resources Staff
-        uuid: 42bdd13f-15d8-4bc7-88ca-931f45464481         # Default
+        uuid: 42bdd13f-15d8-4bc7-88ca-931f45464481
         owner_uuid: 2b20cb91-d0ef-41f1-b2f8-6c1a9ebc6fd8   # Human Resources
+        data:
+            firstName: Human Resources Staff
 
     -
         staff: 26db6674-ebe5-4511-95b1-e2919e7ab10a        # Public Admin
-        uuid: 802b4a8f-762c-489a-8da7-e90269b93b72         # Default
+        uuid: 802b4a8f-762c-489a-8da7-e90269b93b72
         owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+        data:
+            firstName: Public Admin
 
     -
         staff: e0fbc566-6159-4910-8927-f402fe8fc449        # Public Staff
-        uuid: 5ddbc19b-dc61-44bd-a138-7f89b4db69fe         # Default
+        uuid: 5ddbc19b-dc61-44bd-a138-7f89b4db69fe
         owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+        data:
+            firstName: Public Staff
 
 prototype:
     staff: ~
@@ -43,3 +57,4 @@ prototype:
     title:
         en: Default
         fr: Défaut
+    data: []

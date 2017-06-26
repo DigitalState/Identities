@@ -27,7 +27,8 @@ class LoadStaffPersonaData extends ResourceFixture implements OrderedFixtureInte
                 ->setUuid($staffPersona['uuid'])
                 ->setOwner($staffPersona['owner'])
                 ->setOwnerUuid($staffPersona['owner_uuid'])
-                ->setTitle($staffPersona['title']);
+                ->setTitle($staffPersona['title'])
+                ->setData($staffPersona['data']);
             $manager->persist($entity);
             $manager->flush();
         }

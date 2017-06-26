@@ -27,7 +27,8 @@ class LoadAnonymousPersonaData extends ResourceFixture implements OrderedFixture
                 ->setUuid($anonymousPersona['uuid'])
                 ->setOwner($anonymousPersona['owner'])
                 ->setOwnerUuid($anonymousPersona['owner_uuid'])
-                ->setTitle($anonymousPersona['title']);
+                ->setTitle($anonymousPersona['title'])
+                ->setData($anonymousPersona['data']);
             $manager->persist($entity);
             $manager->flush();
         }

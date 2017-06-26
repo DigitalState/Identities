@@ -27,7 +27,8 @@ class LoadIndividualPersonaData extends ResourceFixture implements OrderedFixtur
                 ->setUuid($individualPersona['uuid'])
                 ->setOwner($individualPersona['owner'])
                 ->setOwnerUuid($individualPersona['owner_uuid'])
-                ->setTitle($individualPersona['title']);
+                ->setTitle($individualPersona['title'])
+                ->setData($individualPersona['data']);
             $manager->persist($entity);
             $manager->flush();
         }

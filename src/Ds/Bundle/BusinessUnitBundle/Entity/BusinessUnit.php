@@ -96,6 +96,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      * @Serializer\Groups({"business_unit_output", "business_unit_input"})
      * @ORM\Column(name="`owner`", type="string", length=255, nullable=true)
      * @Assert\NotBlank
+     * @Assert\Length(min=1, max=255)
      */
     protected $owner;
 
@@ -115,6 +116,10 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      * @Serializer\Groups({"business_unit_output", "business_unit_input"})
      * @Assert\Type("array")
      * @Assert\NotBlank
+     * @Assert\All({
+     *     @Assert\NotBlank,
+     *     @Assert\Length(min=1)
+     * })
      * @Translate
      */
     protected $title;

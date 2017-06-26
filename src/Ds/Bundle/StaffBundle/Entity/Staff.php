@@ -93,6 +93,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Versionable
      * @Serializer\Groups({"staff_output", "staff_input"})
      * @ORM\Column(name="`owner`", type="string", length=255, nullable=true)
      * @Assert\NotBlank
+     * @Assert\Length(min=1, max=255)
      */
     protected $owner;
 
