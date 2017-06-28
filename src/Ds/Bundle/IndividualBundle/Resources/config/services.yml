@@ -29,6 +29,18 @@ services:
         tags:
             - { name: api_platform.filter, id: ds.individual.date }
 
+    ds_individual.filter.individual.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            -
+                id: ~
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+                owner: ~
+        tags:
+            - { name: api_platform.filter, id: ds.individual.order }
+
     ds_individual.filter.individual_persona.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
@@ -40,6 +52,14 @@ services:
         tags:
             - { name: api_platform.filter, id: ds.individual_persona.search }
 
+    ds_individual.filter.individual_persona.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            -
+                title: partial
+        tags:
+            - { name: api_platform.filter, id: ds.individual_persona.search_translation }
+
     ds_individual.filter.individual_persona.date:
         parent: api_platform.doctrine.orm.date_filter
         arguments:
@@ -49,3 +69,15 @@ services:
                 deletedAt: ~
         tags:
             - { name: api_platform.filter, id: ds.individual_persona.date }
+
+    ds_individual.filter.individual_persona.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            -
+                id: ~
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+                owner: ~
+        tags:
+            - { name: api_platform.filter, id: ds.individual_persona.order }

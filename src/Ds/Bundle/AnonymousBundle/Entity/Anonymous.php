@@ -22,7 +22,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
  *
  * @ApiResource(
  *      attributes={
- *          "filters"={"ds.anonymous.search", "ds.anonymous.date"},
+ *          "filters"={"ds.anonymous.search", "ds.anonymous.date", "ds.anonymous.order"},
  *          "normalization_context"={
  *              "groups"={"anonymous_output"}
  *          },

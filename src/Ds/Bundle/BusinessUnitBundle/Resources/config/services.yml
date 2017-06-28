@@ -16,6 +16,14 @@ services:
         tags:
             - { name: api_platform.filter, id: ds.business_unit.search }
 
+    ds_business_unit.filter.business_unit.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            -
+                title: partial
+        tags:
+            - { name: api_platform.filter, id: ds.business_unit.search_translation }
+
     ds_business_unit.filter.business_unit.date:
         parent: api_platform.doctrine.orm.date_filter
         arguments:
@@ -25,3 +33,15 @@ services:
                 deletedAt: ~
         tags:
             - { name: api_platform.filter, id: ds.business_unit.date }
+
+    ds_business_unit.filter.business_unit.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            -
+                id: ~
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+                owner: ~
+        tags:
+            - { name: api_platform.filter, id: ds.business_unit.order }
