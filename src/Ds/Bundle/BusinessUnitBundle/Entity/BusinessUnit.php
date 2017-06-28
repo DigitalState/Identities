@@ -47,7 +47,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
-    use Accessor\Title;
+    use Accessor\Translation\Title;
     use Accessor\Version;
 
     /**

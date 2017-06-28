@@ -31,7 +31,7 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Ve
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
-    use Accessor\Title;
+    use Accessor\Translation\Title;
     use Accessor\Data;
     use Accessor\Version;
 
