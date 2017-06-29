@@ -1,0 +1,39 @@
+services:
+    ds_admin.service.admin:
+        class: Ds\Bundle\AdminBundle\Service\AdminService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - Ds\Bundle\AdminBundle\Entity\Admin
+
+    ds_admin.filter.admin.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            -
+                id: exact
+                uuid: exact
+                owner: exact
+                ownerUuid: exact
+        tags:
+            - { name: api_platform.filter, id: ds.admin.search }
+
+    ds_admin.filter.admin.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            -
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+        tags:
+            - { name: api_platform.filter, id: ds.admin.date }
+
+    ds_admin.filter.admin.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            -
+                id: ~
+                createdAt: ~
+                updatedAt: ~
+                deletedAt: ~
+                owner: ~
+        tags:
+            - { name: api_platform.filter, id: ds.admin.order }

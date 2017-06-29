@@ -1,6 +1,7 @@
-anonymouses: []
+permissions: []
 
 prototype:
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~
+    user_uuid: ~

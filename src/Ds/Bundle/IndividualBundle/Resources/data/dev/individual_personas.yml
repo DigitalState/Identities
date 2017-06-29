@@ -1,17 +1,10 @@
 individual_personas:
     -
-        individual: 9be0af28-ef41-49b7-86d9-72a2d9beb051   # Morgan
+        individual: 9be0af28-ef41-49b7-86d9-72a2d9beb051 # Morgan
         uuid: aacc9815-7231-4f31-bab3-3385493097fa
-        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
+        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
         data:
             firstName: Morgan
-
-    -
-        individual: cfc5c5ce-cc7b-41ff-8699-fbf1dc92d555   # Cindy
-        uuid: ee0f022f-7d64-4ece-8ddf-c89f6aacd789
-        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024   # Public
-        data:
-            firstName: Cindy
 
 prototype:
     individual: ~

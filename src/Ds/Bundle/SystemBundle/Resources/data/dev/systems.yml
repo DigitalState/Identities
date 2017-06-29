@@ -1,0 +1,10 @@
+systems:
+    -
+        uuid: c8ac6bd2-7e3c-430a-bbd0-265e7236a143 # System
+        owner: System
+        owner_uuid: c8ac6bd2-7e3c-430a-bbd0-265e7236a143 # System
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~

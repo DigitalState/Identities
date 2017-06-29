@@ -1,0 +1,10 @@
+admins:
+    -
+        uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Admin
+        owner: Admin
+        owner_uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Admin
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~

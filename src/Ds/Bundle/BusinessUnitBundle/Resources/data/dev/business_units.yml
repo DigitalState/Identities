@@ -1,29 +1,16 @@
 business_units:
     -
-        uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d         # Administration
-        owner: Staff
-        owner_uuid: 977663e7-c98d-4a51-bcbf-855ff44bd6d0   # Administrator
+        uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d # Administration
+        owner: Admin
+        owner_uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Administrator
         title:
             en: Administration
             fr: Administration
 
     -
-        uuid: 7e105be4-578d-4a1f-bc04-fd85f3ddcc38         # Finance
-        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d   # Administration
-        title:
-            en: Finance
-            fr: Finance
-
-    -
-        uuid: 2b20cb91-d0ef-41f1-b2f8-6c1a9ebc6fd8         # Human Resources
-        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d   # Administration
-        title:
-            en: Human Resources
-            fr: Ressources humaines
-
-    -
-        uuid: ad81abef-6910-4c63-be5c-ad875dea3024         # Public
-        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d   # Administration
+        uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
+        owner: BusinessUnit
+        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d # Administration
         title:
             en: Public
             fr: Publique
