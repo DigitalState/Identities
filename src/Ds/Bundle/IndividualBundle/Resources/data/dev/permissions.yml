@@ -1,8 +1,4 @@
-permissions:
-    -
-        uuid: ed778870-9915-42e3-ad21-142c8f655ae5
-        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d                 # Administration
-        user_uuid: a57ccc4b-6567-4ea5-83b2-5332baf94611                  # morgan
+permissions: []
 
 prototype:
     uuid: ~
