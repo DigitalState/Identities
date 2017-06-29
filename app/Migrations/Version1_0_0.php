@@ -60,11 +60,14 @@ class Version1_0_0 extends AbstractMigration
                 (1, \'bd654051-6a03-488a-a771-bb3bfc646a9f\', \'System\', \'bd654051-6a03-488a-a771-bb3bfc646a9f\', 1, now(), now(), NULL);
         ');
 
+        // 1 - Administration
+        // 2 - Public
         $this->addSql('
             INSERT INTO 
                 `ds_bu` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'ed1fe135-b791-4b8d-a033-acab9daa9853\', \'Admin\', \'59717ce0-5a37-46d8-ad80-66d5b22d2ccf\', 1, now(), now(), NULL);
+                (1, \'ed1fe135-b791-4b8d-a033-acab9daa9853\', \'Admin\', \'59717ce0-5a37-46d8-ad80-66d5b22d2ccf\', 1, now(), now(), NULL),
+                (2, \'194671e9-12aa-41df-8feb-1ba45e4a71e6\', \'BusinessUnit\', \'ed1fe135-b791-4b8d-a033-acab9daa9853\', 1, now(), now(), NULL);
         ');
     }
 
