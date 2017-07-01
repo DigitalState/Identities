@@ -1,0 +1,22 @@
+business_units:
+    -
+        uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d # Administration
+        owner: Admin
+        owner_uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Admin
+        title:
+            en: Administration
+            fr: Administration
+
+    -
+        uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
+        owner: BusinessUnit
+        owner_uuid: 25b88f35-eb37-4dae-9d89-668151e11a0d # Administration
+        title:
+            en: Public
+            fr: Publique
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~
+    title: []

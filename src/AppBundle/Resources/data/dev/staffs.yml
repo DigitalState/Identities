@@ -1,0 +1,9 @@
+staffs:
+    -
+        uuid: b007c755-a9b6-4aa4-8de8-547828bc9a26 # Agent
+        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
+
+prototype:
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~

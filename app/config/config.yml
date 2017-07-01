@@ -48,9 +48,9 @@ doctrine:
         auto_mapping: true
 
 doctrine_migrations:
-    dir_name: '%kernel.root_dir%/Migrations'
-    namespace: Migrations
-    table_name: ds_migration
+    dir_name: '%kernel.root_dir%/../src/AppBundle/Migrations'
+    namespace: AppBundle\Migrations
+    table_name: app_migration
     name: Application Migrations
 
 knp_doctrine_behaviors:
