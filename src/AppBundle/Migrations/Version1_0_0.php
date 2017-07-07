@@ -70,6 +70,8 @@ class Version1_0_0 extends AbstractMigration
             VALUES 
                 (1, \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
         ');
+
+        // @todo permissions
     }
 
     /**
