@@ -1,10 +1,8 @@
 admins:
     -
-        uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Admin
-        owner: Admin
-        owner_uuid: 905686c8-0c86-4ee3-9051-904d1ca46960 # Admin
+        uuid: bda1634e-6028-4cce-bc1a-b7e220cdf609 # Admin
 
 prototype:
     uuid: ~
     owner: BusinessUnit
-    owner_uuid: ~
+    owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration

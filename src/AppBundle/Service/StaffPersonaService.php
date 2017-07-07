@@ -5,6 +5,6 @@ namespace AppBundle\Service;
 /**
  * Class StaffPersonaService
  */
-class StaffPersonaService
+class StaffPersonaService extends PersonaService
 {
 }

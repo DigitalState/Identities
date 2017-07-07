@@ -1,7 +1,7 @@
 individuals:
     -
-        uuid: 9be0af28-ef41-49b7-86d9-72a2d9beb051 # Morgan
-        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
+        uuid: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
+        owner_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
 
 prototype:
     uuid: ~

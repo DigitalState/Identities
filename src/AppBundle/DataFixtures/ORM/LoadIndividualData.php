@@ -2,10 +2,10 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Ds\Component\Migration\Fixture\ORM\ResourceFixture;
+use AppBundle\Entity\Individual;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Individual;
+use Ds\Component\Migration\Fixture\ORM\ResourceFixture;
 
 /**
  * Class LoadIndividualData

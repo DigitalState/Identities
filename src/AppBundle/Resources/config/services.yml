@@ -1,39 +1,9 @@
 services:
-    app.service.business_unit:
-        class: AppBundle\Service\BusinessUnitService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\BusinessUnit
-
-    app.service.system:
-        class: AppBundle\Service\SystemService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\System
-
     app.service.admin:
         class: AppBundle\Service\AdminService
         arguments:
             - '@doctrine.orm.entity_manager'
             - AppBundle\Entity\Admin
-
-    app.service.staff:
-        class: AppBundle\Service\StaffService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Staff
-
-    app.service.staff_persona:
-        class: AppBundle\Service\StaffPersonaService
-
-    app.service.individual:
-        class: AppBundle\Service\IndividualService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Individual
-
-    app.service.individual_persona:
-        class: AppBundle\Service\IndividualPersonaService
 
     app.service.anonymous:
         class: AppBundle\Service\AnonymousService
@@ -43,3 +13,42 @@ services:
 
     app.service.anonymous_persona:
         class: AppBundle\Service\AnonymousPersonaService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\AnonymousPersona
+
+    app.service.business_unit:
+        class: AppBundle\Service\BusinessUnitService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\BusinessUnit
+
+    app.service.individual:
+        class: AppBundle\Service\IndividualService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\Individual
+
+    app.service.individual_persona:
+        class: AppBundle\Service\IndividualPersonaService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\IndividualPersona
+
+    app.service.staff:
+        class: AppBundle\Service\StaffService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\Staff
+
+    app.service.staff_persona:
+        class: AppBundle\Service\StaffPersonaService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\StaffPersona
+
+    app.service.system:
+        class: AppBundle\Service\SystemService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - AppBundle\Entity\System

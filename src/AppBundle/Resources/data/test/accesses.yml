@@ -1,6 +1,8 @@
-admins: []
+accesses: []
 
 prototype:
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~
+    identity: ~
+    identity_uuid: ~

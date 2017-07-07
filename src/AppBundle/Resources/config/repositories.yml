@@ -1,0 +1,54 @@
+services:
+    app.repository.admin:
+        class: AppBundle\Repository\AdminRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Admin
+
+    app.repository.anonymous:
+        class: AppBundle\Repository\AnonymousRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Anonymous
+
+    app.repository.anonymous_persona:
+        class: AppBundle\Repository\AnonymousPersonaRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\AnonymousPersona
+
+    app.repository.business_unit:
+        class: AppBundle\Repository\BusinessUnitRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\BusinessUnit
+
+    app.repository.individual:
+        class: AppBundle\Repository\IndividualRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Individual
+
+    app.repository.individual_persona:
+        class: AppBundle\Repository\IndividualPersonaRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\IndividualPersona
+
+    app.repository.staff:
+        class: AppBundle\Repository\StaffRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Staff
+
+    app.repository.staff_persona:
+        class: AppBundle\Repository\StaffPersonaRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\StaffPersona
+
+    app.repository.system:
+        class: AppBundle\Repository\SystemRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\System

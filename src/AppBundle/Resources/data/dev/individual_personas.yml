@@ -1,8 +1,8 @@
 individual_personas:
     -
-        individual: 9be0af28-ef41-49b7-86d9-72a2d9beb051 # Morgan
-        uuid: aacc9815-7231-4f31-bab3-3385493097fa
-        owner_uuid: ad81abef-6910-4c63-be5c-ad875dea3024 # Public
+        individual: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
+        uuid: df67d9d4-0dc1-4393-972a-a659b24ff117
+        owner_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
         data:
             firstName: Morgan
 

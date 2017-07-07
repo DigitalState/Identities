@@ -2,5 +2,5 @@ business_units: []
 
 prototype:
     uuid: ~
-    owner: ~
+    owner: BusinessUnit
     owner_uuid: ~

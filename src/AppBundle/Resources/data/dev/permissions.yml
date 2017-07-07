@@ -1,7 +1,8 @@
 permissions: []
 
 prototype:
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: ~
-    user_uuid: ~
+    access: ~
+    entity: BusinessUnit
+    entity_uuid: ~
+    key: ~
+    attributes: []

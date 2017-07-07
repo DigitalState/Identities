@@ -2,11 +2,11 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Ds\Component\Migration\Fixture\ORM\ResourceFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Staff;
 use AppBundle\Entity\StaffPersona;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Ds\Component\Migration\Fixture\ORM\ResourceFixture;
 
 /**
  * Class LoadStaffPersonaData

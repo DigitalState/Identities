@@ -3,7 +3,7 @@ individual_personas: []
 prototype:
     individual: ~
     uuid: ~
-    owner: ~
+    owner: BusinessUnit
     owner_uuid: ~
     title:
         en: Default

@@ -2,5 +2,5 @@ staffs: []
 
 prototype:
     uuid: ~
-    owner: ~
+    owner: BusinessUnit
     owner_uuid: ~

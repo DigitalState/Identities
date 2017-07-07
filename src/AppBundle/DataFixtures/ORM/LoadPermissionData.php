@@ -2,8 +2,8 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Ds\Component\Security\Fixture\ORM\PermissionFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Ds\Component\Security\Fixture\ORM\PermissionFixture;
 
 /**
  * Class LoadPermissionData
@@ -15,7 +15,7 @@ class LoadPermissionData extends PermissionFixture implements OrderedFixtureInte
      */
     public function getOrder()
     {
-        return 0;
+        return 1;
     }
 
     /**

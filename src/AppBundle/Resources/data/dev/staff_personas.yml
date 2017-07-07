@@ -3,7 +3,7 @@ staff_personas: []
 prototype:
     staff: ~
     uuid: ~
-    owner: Business Unit
+    owner: BusinessUnit
     owner_uuid: ~
     title:
         en: Default
