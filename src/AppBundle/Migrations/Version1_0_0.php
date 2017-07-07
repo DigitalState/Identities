@@ -53,22 +53,22 @@ class Version1_0_0 extends AbstractMigration
             INSERT INTO 
                 `app_bu` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'ed1fe135-b791-4b8d-a033-acab9daa9853\', \'Admin\', \'59717ce0-5a37-46d8-ad80-66d5b22d2ccf\', 1, now(), now(), NULL),
-                (2, \'194671e9-12aa-41df-8feb-1ba45e4a71e6\', \'BusinessUnit\', \'ed1fe135-b791-4b8d-a033-acab9daa9853\', 1, now(), now(), NULL);
+                (1, \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL),
+                (2, \'e9592ff9-da09-4dd5-a42b-e3cf23373abb\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
         ');
 
         $this->addSql('
             INSERT INTO 
                 `app_admin` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'59717ce0-5a37-46d8-ad80-66d5b22d2ccf\', \'Admin\', \'59717ce0-5a37-46d8-ad80-66d5b22d2ccf\', 1, now(), now(), NULL);
+                (1, \'b7651daf-8ecb-4c23-b703-e7c379791778\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
         ');
 
         $this->addSql('
             INSERT INTO 
                 `app_system` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'bd654051-6a03-488a-a771-bb3bfc646a9f\', \'System\', \'bd654051-6a03-488a-a771-bb3bfc646a9f\', 1, now(), now(), NULL);
+                (1, \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
         ');
     }
 
