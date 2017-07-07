@@ -27,7 +27,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "denormalization_context"={
  *              "groups"={"admin_input"}
  *          },
- *          "filters"={"app.admin.search", "app.admin.date", "app.admin.order"}
+ *          "filters"={
+ *              "app.admin.search",
+ *              "app.admin.date",
+ *              "app.admin.order"
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AdminRepository")

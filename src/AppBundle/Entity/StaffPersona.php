@@ -24,7 +24,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "denormalization_context"={
  *              "groups"={"persona_input"}
  *          },
- *          "filters"={"app.staff_persona.search", "app.staff_persona.search_translation", "app.staff_persona.date", "app.staff_persona.order"}
+ *          "filters"={
+ *              "app.staff_persona.search",
+ *              "app.staff_persona.search_translation",
+ *              "app.staff_persona.date",
+ *              "app.staff_persona.order"
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\StaffPersonaRepository")

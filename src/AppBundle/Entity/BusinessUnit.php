@@ -29,7 +29,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "denormalization_context"={
  *              "groups"={"business_unit_input"}
  *          },
- *         "filters"={"app.business_unit.search", "app.business_unit.search_translation", "app.business_unit.date", "app.business_unit.order"}
+ *          "filters"={
+ *              "app.business_unit.search",
+ *              "app.business_unit.search_translation",
+ *              "app.business_unit.date",
+ *              "app.business_unit.order"
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BusinessUnitRepository")

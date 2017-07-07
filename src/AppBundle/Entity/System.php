@@ -27,7 +27,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "denormalization_context"={
  *              "groups"={"system_input"}
  *          },
- *          "filters"={"app.system.search", "app.system.date", "app.system.order"}
+ *          "filters"={
+ *              "app.system.search",
+ *              "app.system.date",
+ *              "app.system.order"
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SystemRepository")

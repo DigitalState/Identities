@@ -28,7 +28,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          "denormalization_context"={
  *              "groups"={"anonymous_input"}
  *          },
- *          "filters"={"app.anonymous.search", "app.anonymous.date", "app.anonymous.order"}
+ *          "filters"={
+ *              "app.anonymous.search",
+ *              "app.anonymous.date",
+ *              "app.anonymous.order"
+ *          }
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AnonymousRepository")
