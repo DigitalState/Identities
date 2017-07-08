@@ -1,0 +1,11 @@
+items: []
+
+prototype:
+    staff: ~
+    uuid: ~
+    owner: BusinessUnit
+    owner_uuid: ~
+    title:
+        en: Default
+        fr: Défaut
+    data: []

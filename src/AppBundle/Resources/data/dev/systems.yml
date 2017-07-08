@@ -1,8 +1,0 @@
-systems:
-    -
-        uuid: fe1b94ed-783a-48d7-8bf2-2f9cea89f11e # System
-
-prototype:
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration

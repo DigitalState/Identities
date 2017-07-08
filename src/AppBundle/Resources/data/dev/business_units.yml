@@ -1,4 +1,4 @@
-business_units:
+items:
     -
         uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
         owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
