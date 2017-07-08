@@ -7,6 +7,10 @@ items:
         uuid: 9d10157c-f2ce-48fb-a5ab-83faaae952a7 # Agent
         owner_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
 
+    -
+        uuid: 71f285ba-f994-444c-b9e5-fa813295a0b7 # Intern
+        owner_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+
 prototype:
     uuid: ~
     owner: BusinessUnit
