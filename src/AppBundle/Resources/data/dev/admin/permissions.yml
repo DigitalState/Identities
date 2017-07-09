@@ -1,4 +1,15 @@
-items: []
+items:
+    -
+        access: 92dd4b4a-0375-4a1f-b6a9-da84862c7a9a # Any admin
+        entity_uuid: ~ # Any business unit
+        key: entity
+        attributes: [BROWSE, READ, EDIT, ADD, DELETE]
+
+    -
+        access: 92dd4b4a-0375-4a1f-b6a9-da84862c7a9a # Any admin
+        entity_uuid: ~ # Any business unit
+        key: entity_fields
+        attributes: [BROWSE, READ, EDIT]
 
 prototype:
     access: ~

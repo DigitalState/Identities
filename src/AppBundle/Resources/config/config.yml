@@ -1,57 +1,99 @@
 ds_security:
     permissions:
-        business_unit:               { title: Business Unit,    entity:   AppBundle\Entity\BusinessUnit,              attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        business_unit_id:            { title: ID,               property: AppBundle\Entity\BusinessUnit.id,           attributes: [BROWSE, READ, EDIT] }
-        business_unit_uuid:          { title: UUID,             property: AppBundle\Entity\BusinessUnit.uuid,         attributes: [BROWSE, READ, EDIT] }
-        business_unit_created_at:    { title: Created At,       property: AppBundle\Entity\BusinessUnit.createdAt,    attributes: [BROWSE, READ, EDIT] }
-        business_unit_updated_at:    { title: Updated At,       property: AppBundle\Entity\BusinessUnit.updatedAt,    attributes: [BROWSE, READ, EDIT] }
-        business_unit_deleted_at:    { title: Deleted At,       property: AppBundle\Entity\BusinessUnit.deletedAt,    attributes: [BROWSE, READ, EDIT] }
-        business_unit_owner:         { title: Owner,            property: AppBundle\Entity\BusinessUnit.owner,        attributes: [BROWSE, READ, EDIT] }
-        business_unit_owner_uuid:    { title: Owner UUID,       property: AppBundle\Entity\BusinessUnit.ownerUuid,    attributes: [BROWSE, READ, EDIT] }
-        business_unit_title:         { title: Title,            property: AppBundle\Entity\BusinessUnit.title,        attributes: [BROWSE, READ, EDIT] }
-        business_unit_version:       { title: Version,          property: AppBundle\Entity\BusinessUnit.version,      attributes: [BROWSE, READ, EDIT] }
-        admin:                       { title: Admin,            entity:   AppBundle\Entity\Admin,                     attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        admin_id:                    { title: ID,               property: AppBundle\Entity\Admin.id,                  attributes: [BROWSE, READ, EDIT] }
-        admin_uuid:                  { title: UUID,             property: AppBundle\Entity\Admin.uuid,                attributes: [BROWSE, READ, EDIT] }
-        admin_created_at:            { title: Created At,       property: AppBundle\Entity\Admin.createdAt,           attributes: [BROWSE, READ, EDIT] }
-        admin_updated_at:            { title: Updated At,       property: AppBundle\Entity\Admin.updatedAt,           attributes: [BROWSE, READ, EDIT] }
-        admin_deleted_at:            { title: Deleted At,       property: AppBundle\Entity\Admin.deletedAt,           attributes: [BROWSE, READ, EDIT] }
-        admin_owner:                 { title: Owner,            property: AppBundle\Entity\Admin.owner,               attributes: [BROWSE, READ, EDIT] }
-        admin_owner_uuid:            { title: Owner UUID,       property: AppBundle\Entity\Admin.ownerUuid,           attributes: [BROWSE, READ, EDIT] }
-        admin_version:               { title: Version,          property: AppBundle\Entity\Admin.version,             attributes: [BROWSE, READ, EDIT] }
-        system:                      { title: System,           entity:   AppBundle\Entity\System,                    attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        system_id:                   { title: ID,               property: AppBundle\Entity\System.id,                 attributes: [BROWSE, READ, EDIT] }
-        system_uuid:                 { title: UUID,             property: AppBundle\Entity\System.uuid,               attributes: [BROWSE, READ, EDIT] }
-        system_created_at:           { title: Created At,       property: AppBundle\Entity\System.createdAt,          attributes: [BROWSE, READ, EDIT] }
-        system_updated_at:           { title: Updated At,       property: AppBundle\Entity\System.updatedAt,          attributes: [BROWSE, READ, EDIT] }
-        system_deleted_at:           { title: Deleted At,       property: AppBundle\Entity\System.deletedAt,          attributes: [BROWSE, READ, EDIT] }
-        system_owner:                { title: Owner,            property: AppBundle\Entity\System.owner,              attributes: [BROWSE, READ, EDIT] }
-        system_owner_uuid:           { title: Owner UUID,       property: AppBundle\Entity\System.ownerUuid,          attributes: [BROWSE, READ, EDIT] }
-        system_version:              { title: Version,          property: AppBundle\Entity\System.version,            attributes: [BROWSE, READ, EDIT] }
-        staff:                       { title: Staff,            entity:   AppBundle\Entity\Staff,                     attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        staff_id:                    { title: ID,               property: AppBundle\Entity\Staff.id,                  attributes: [BROWSE, READ, EDIT] }
-        staff_uuid:                  { title: UUID,             property: AppBundle\Entity\Staff.uuid,                attributes: [BROWSE, READ, EDIT] }
-        staff_created_at:            { title: Created At,       property: AppBundle\Entity\Staff.createdAt,           attributes: [BROWSE, READ, EDIT] }
-        staff_updated_at:            { title: Updated At,       property: AppBundle\Entity\Staff.updatedAt,           attributes: [BROWSE, READ, EDIT] }
-        staff_deleted_at:            { title: Deleted At,       property: AppBundle\Entity\Staff.deletedAt,           attributes: [BROWSE, READ, EDIT] }
-        staff_owner:                 { title: Owner,            property: AppBundle\Entity\Staff.owner,               attributes: [BROWSE, READ, EDIT] }
-        staff_owner_uuid:            { title: Owner UUID,       property: AppBundle\Entity\Staff.ownerUuid,           attributes: [BROWSE, READ, EDIT] }
-        staff_version:               { title: Version,          property: AppBundle\Entity\Staff.version,             attributes: [BROWSE, READ, EDIT] }
-        individual:                  { title: Individual,       entity:   AppBundle\Entity\Individual,                attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        individual_id:               { title: ID,               property: AppBundle\Entity\Individual.id,             attributes: [BROWSE, READ, EDIT] }
-        individual_uuid:             { title: UUID,             property: AppBundle\Entity\Individual.uuid,           attributes: [BROWSE, READ, EDIT] }
-        individual_created_at:       { title: Created At,       property: AppBundle\Entity\Individual.createdAt,      attributes: [BROWSE, READ, EDIT] }
-        individual_updated_at:       { title: Updated At,       property: AppBundle\Entity\Individual.updatedAt,      attributes: [BROWSE, READ, EDIT] }
-        individual_deleted_at:       { title: Deleted At,       property: AppBundle\Entity\Individual.deletedAt,      attributes: [BROWSE, READ, EDIT] }
-        individual_owner:            { title: Owner,            property: AppBundle\Entity\Individual.owner,          attributes: [BROWSE, READ, EDIT] }
-        individual_owner_uuid:       { title: Owner UUID,       property: AppBundle\Entity\Individual.ownerUuid,      attributes: [BROWSE, READ, EDIT] }
-        individual_version:          { title: Version,          property: AppBundle\Entity\Individual.version,        attributes: [BROWSE, READ, EDIT] }
-        anonymous:                   { title: Anonymous,        entity:   AppBundle\Entity\Anonymous,                 attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        anonymous_id:                { title: ID,               property: AppBundle\Entity\Anonymous.id,              attributes: [BROWSE, READ, EDIT] }
-        anonymous_uuid:              { title: UUID,             property: AppBundle\Entity\Anonymous.uuid,            attributes: [BROWSE, READ, EDIT] }
-        anonymous_created_at:        { title: Created At,       property: AppBundle\Entity\Anonymous.createdAt,       attributes: [BROWSE, READ, EDIT] }
-        anonymous_updated_at:        { title: Updated At,       property: AppBundle\Entity\Anonymous.updatedAt,       attributes: [BROWSE, READ, EDIT] }
-        anonymous_deleted_at:        { title: Deleted At,       property: AppBundle\Entity\Anonymous.deletedAt,       attributes: [BROWSE, READ, EDIT] }
-        anonymous_owner:             { title: Owner,            property: AppBundle\Entity\Anonymous.owner,           attributes: [BROWSE, READ, EDIT] }
-        anonymous_owner_uuid:        { title: Owner UUID,       property: AppBundle\Entity\Anonymous.ownerUuid,       attributes: [BROWSE, READ, EDIT] }
-        anonymous_version:           { title: Version,          property: AppBundle\Entity\Anonymous.version,         attributes: [BROWSE, READ, EDIT] }
+        business_unit:                   { title: Business Unit,        entity:   AppBundle\Entity\BusinessUnit,                     attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        business_unit_field:             { title: All Fields,           property: AppBundle\Entity\BusinessUnit.*,                   attributes: [BROWSE, READ, EDIT] }
+        business_unit_id:                { title: ID,                   property: AppBundle\Entity\BusinessUnit.id,                  attributes: [BROWSE, READ, EDIT] }
+        business_unit_uuid:              { title: UUID,                 property: AppBundle\Entity\BusinessUnit.uuid,                attributes: [BROWSE, READ, EDIT] }
+        business_unit_created_at:        { title: Created At,           property: AppBundle\Entity\BusinessUnit.createdAt,           attributes: [BROWSE, READ, EDIT] }
+        business_unit_updated_at:        { title: Updated At,           property: AppBundle\Entity\BusinessUnit.updatedAt,           attributes: [BROWSE, READ, EDIT] }
+        business_unit_deleted_at:        { title: Deleted At,           property: AppBundle\Entity\BusinessUnit.deletedAt,           attributes: [BROWSE, READ, EDIT] }
+        business_unit_owner:             { title: Owner,                property: AppBundle\Entity\BusinessUnit.owner,               attributes: [BROWSE, READ, EDIT] }
+        business_unit_owner_uuid:        { title: Owner UUID,           property: AppBundle\Entity\BusinessUnit.ownerUuid,           attributes: [BROWSE, READ, EDIT] }
+        business_unit_title:             { title: Title,                property: AppBundle\Entity\BusinessUnit.title,               attributes: [BROWSE, READ, EDIT] }
+        business_unit_version:           { title: Version,              property: AppBundle\Entity\BusinessUnit.version,             attributes: [BROWSE, READ, EDIT] }
+        admin:                           { title: Admin,                entity:   AppBundle\Entity\Admin,                            attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        admin_fields:                    { title: All Fields,           property: AppBundle\Entity\Admin.*,                          attributes: [BROWSE, READ, EDIT] }
+        admin_id:                        { title: ID,                   property: AppBundle\Entity\Admin.id,                         attributes: [BROWSE, READ, EDIT] }
+        admin_uuid:                      { title: UUID,                 property: AppBundle\Entity\Admin.uuid,                       attributes: [BROWSE, READ, EDIT] }
+        admin_created_at:                { title: Created At,           property: AppBundle\Entity\Admin.createdAt,                  attributes: [BROWSE, READ, EDIT] }
+        admin_updated_at:                { title: Updated At,           property: AppBundle\Entity\Admin.updatedAt,                  attributes: [BROWSE, READ, EDIT] }
+        admin_deleted_at:                { title: Deleted At,           property: AppBundle\Entity\Admin.deletedAt,                  attributes: [BROWSE, READ, EDIT] }
+        admin_owner:                     { title: Owner,                property: AppBundle\Entity\Admin.owner,                      attributes: [BROWSE, READ, EDIT] }
+        admin_owner_uuid:                { title: Owner UUID,           property: AppBundle\Entity\Admin.ownerUuid,                  attributes: [BROWSE, READ, EDIT] }
+        admin_version:                   { title: Version,              property: AppBundle\Entity\Admin.version,                    attributes: [BROWSE, READ, EDIT] }
+        system:                          { title: System,               entity:   AppBundle\Entity\System,                           attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        system_fields:                   { title: All Fields,           property: AppBundle\Entity\System.*,                         attributes: [BROWSE, READ, EDIT] }
+        system_id:                       { title: ID,                   property: AppBundle\Entity\System.id,                        attributes: [BROWSE, READ, EDIT] }
+        system_uuid:                     { title: UUID,                 property: AppBundle\Entity\System.uuid,                      attributes: [BROWSE, READ, EDIT] }
+        system_created_at:               { title: Created At,           property: AppBundle\Entity\System.createdAt,                 attributes: [BROWSE, READ, EDIT] }
+        system_updated_at:               { title: Updated At,           property: AppBundle\Entity\System.updatedAt,                 attributes: [BROWSE, READ, EDIT] }
+        system_deleted_at:               { title: Deleted At,           property: AppBundle\Entity\System.deletedAt,                 attributes: [BROWSE, READ, EDIT] }
+        system_owner:                    { title: Owner,                property: AppBundle\Entity\System.owner,                     attributes: [BROWSE, READ, EDIT] }
+        system_owner_uuid:               { title: Owner UUID,           property: AppBundle\Entity\System.ownerUuid,                 attributes: [BROWSE, READ, EDIT] }
+        system_version:                  { title: Version,              property: AppBundle\Entity\System.version,                   attributes: [BROWSE, READ, EDIT] }
+        staff:                           { title: Staff,                entity:   AppBundle\Entity\Staff,                            attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        staff_id:                        { title: ID,                   property: AppBundle\Entity\Staff.id,                         attributes: [BROWSE, READ, EDIT] }
+        staff_fields:                    { title: All Fields,           property: AppBundle\Entity\Staff.*,                          attributes: [BROWSE, READ, EDIT] }
+        staff_uuid:                      { title: UUID,                 property: AppBundle\Entity\Staff.uuid,                       attributes: [BROWSE, READ, EDIT] }
+        staff_created_at:                { title: Created At,           property: AppBundle\Entity\Staff.createdAt,                  attributes: [BROWSE, READ, EDIT] }
+        staff_updated_at:                { title: Updated At,           property: AppBundle\Entity\Staff.updatedAt,                  attributes: [BROWSE, READ, EDIT] }
+        staff_deleted_at:                { title: Deleted At,           property: AppBundle\Entity\Staff.deletedAt,                  attributes: [BROWSE, READ, EDIT] }
+        staff_owner:                     { title: Owner,                property: AppBundle\Entity\Staff.owner,                      attributes: [BROWSE, READ, EDIT] }
+        staff_owner_uuid:                { title: Owner UUID,           property: AppBundle\Entity\Staff.ownerUuid,                  attributes: [BROWSE, READ, EDIT] }
+        staff_version:                   { title: Version,              property: AppBundle\Entity\Staff.version,                    attributes: [BROWSE, READ, EDIT] }
+        staff_persona:                   { title: Staff Persona,        entity:   AppBundle\Entity\StaffPersona,                     attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        staff_persona_fields:            { title: All Fields,           property: AppBundle\Entity\StaffPersona.*,                   attributes: [BROWSE, READ, EDIT] }
+        staff_persona_id:                { title: ID,                   property: AppBundle\Entity\StaffPersona.id,                  attributes: [BROWSE, READ, EDIT] }
+        staff_persona_uuid:              { title: UUID,                 property: AppBundle\Entity\StaffPersona.uuid,                attributes: [BROWSE, READ, EDIT] }
+        staff_persona_created_at:        { title: Created At,           property: AppBundle\Entity\StaffPersona.createdAt,           attributes: [BROWSE, READ, EDIT] }
+        staff_persona_updated_at:        { title: Updated At,           property: AppBundle\Entity\StaffPersona.updatedAt,           attributes: [BROWSE, READ, EDIT] }
+        staff_persona_deleted_at:        { title: Deleted At,           property: AppBundle\Entity\StaffPersona.deletedAt,           attributes: [BROWSE, READ, EDIT] }
+        staff_persona_owner:             { title: Owner,                property: AppBundle\Entity\StaffPersona.owner,               attributes: [BROWSE, READ, EDIT] }
+        staff_persona_owner_uuid:        { title: Owner UUID,           property: AppBundle\Entity\StaffPersona.ownerUuid,           attributes: [BROWSE, READ, EDIT] }
+        staff_persona_title:             { title: Title,                property: AppBundle\Entity\StaffPersona.title,               attributes: [BROWSE, READ, EDIT] }
+        staff_persona_data:              { title: Data,                 property: AppBundle\Entity\StaffPersona.data,                attributes: [BROWSE, READ, EDIT] }
+        staff_persona_version:           { title: Version,              property: AppBundle\Entity\StaffPersona.version,             attributes: [BROWSE, READ, EDIT] }
+        individual:                      { title: Individual,           entity:   AppBundle\Entity\Individual,                       attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        individual_fields:               { title: All Fields,           property: AppBundle\Entity\Individual.*,                     attributes: [BROWSE, READ, EDIT] }
+        individual_id:                   { title: ID,                   property: AppBundle\Entity\Individual.id,                    attributes: [BROWSE, READ, EDIT] }
+        individual_uuid:                 { title: UUID,                 property: AppBundle\Entity\Individual.uuid,                  attributes: [BROWSE, READ, EDIT] }
+        individual_created_at:           { title: Created At,           property: AppBundle\Entity\Individual.createdAt,             attributes: [BROWSE, READ, EDIT] }
+        individual_updated_at:           { title: Updated At,           property: AppBundle\Entity\Individual.updatedAt,             attributes: [BROWSE, READ, EDIT] }
+        individual_deleted_at:           { title: Deleted At,           property: AppBundle\Entity\Individual.deletedAt,             attributes: [BROWSE, READ, EDIT] }
+        individual_owner:                { title: Owner,                property: AppBundle\Entity\Individual.owner,                 attributes: [BROWSE, READ, EDIT] }
+        individual_owner_uuid:           { title: Owner UUID,           property: AppBundle\Entity\Individual.ownerUuid,             attributes: [BROWSE, READ, EDIT] }
+        individual_version:              { title: Version,              property: AppBundle\Entity\Individual.version,               attributes: [BROWSE, READ, EDIT] }
+        individual_persona:              { title: Individual Persona,   entity:   AppBundle\Entity\IndividualPersona,                attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        individual_persona_fields:       { title: All Fields,           property: AppBundle\Entity\IndividualPersona.*,              attributes: [BROWSE, READ, EDIT] }
+        individual_persona_id:           { title: ID,                   property: AppBundle\Entity\IndividualPersona.id,             attributes: [BROWSE, READ, EDIT] }
+        individual_persona_uuid:         { title: UUID,                 property: AppBundle\Entity\IndividualPersona.uuid,           attributes: [BROWSE, READ, EDIT] }
+        individual_persona_created_at:   { title: Created At,           property: AppBundle\Entity\IndividualPersona.createdAt,      attributes: [BROWSE, READ, EDIT] }
+        individual_persona_updated_at:   { title: Updated At,           property: AppBundle\Entity\IndividualPersona.updatedAt,      attributes: [BROWSE, READ, EDIT] }
+        individual_persona_deleted_at:   { title: Deleted At,           property: AppBundle\Entity\IndividualPersona.deletedAt,      attributes: [BROWSE, READ, EDIT] }
+        individual_persona_owner:        { title: Owner,                property: AppBundle\Entity\IndividualPersona.owner,          attributes: [BROWSE, READ, EDIT] }
+        individual_persona_owner_uuid:   { title: Owner UUID,           property: AppBundle\Entity\IndividualPersona.ownerUuid,      attributes: [BROWSE, READ, EDIT] }
+        individual_persona_title:        { title: Title,                property: AppBundle\Entity\IndividualPersona.title,          attributes: [BROWSE, READ, EDIT] }
+        individual_persona_data:         { title: Data,                 property: AppBundle\Entity\IndividualPersona.data,           attributes: [BROWSE, READ, EDIT] }
+        individual_persona_version:      { title: Version,              property: AppBundle\Entity\IndividualPersona.version,        attributes: [BROWSE, READ, EDIT] }
+        anonymous:                       { title: Anonymous,            entity:   AppBundle\Entity\Anonymous,                        attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        anonymous_fields:                { title: All Fields,           property: AppBundle\Entity\Anonymous.*,                      attributes: [BROWSE, READ, EDIT] }
+        anonymous_id:                    { title: ID,                   property: AppBundle\Entity\Anonymous.id,                     attributes: [BROWSE, READ, EDIT] }
+        anonymous_uuid:                  { title: UUID,                 property: AppBundle\Entity\Anonymous.uuid,                   attributes: [BROWSE, READ, EDIT] }
+        anonymous_created_at:            { title: Created At,           property: AppBundle\Entity\Anonymous.createdAt,              attributes: [BROWSE, READ, EDIT] }
+        anonymous_updated_at:            { title: Updated At,           property: AppBundle\Entity\Anonymous.updatedAt,              attributes: [BROWSE, READ, EDIT] }
+        anonymous_deleted_at:            { title: Deleted At,           property: AppBundle\Entity\Anonymous.deletedAt,              attributes: [BROWSE, READ, EDIT] }
+        anonymous_owner:                 { title: Owner,                property: AppBundle\Entity\Anonymous.owner,                  attributes: [BROWSE, READ, EDIT] }
+        anonymous_owner_uuid:            { title: Owner UUID,           property: AppBundle\Entity\Anonymous.ownerUuid,              attributes: [BROWSE, READ, EDIT] }
+        anonymous_version:               { title: Version,              property: AppBundle\Entity\Anonymous.version,                attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona:               { title: Anonymous Persona,    entity:   AppBundle\Entity\AnonymousPersona,                 attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
+        anonymous_persona_fields:        { title: All Fields,           property: AppBundle\Entity\AnonymousPersona.*,               attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_id:            { title: ID,                   property: AppBundle\Entity\AnonymousPersona.id,              attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_uuid:          { title: UUID,                 property: AppBundle\Entity\AnonymousPersona.uuid,            attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_created_at:    { title: Created At,           property: AppBundle\Entity\AnonymousPersona.createdAt,       attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_updated_at:    { title: Updated At,           property: AppBundle\Entity\AnonymousPersona.updatedAt,       attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_deleted_at:    { title: Deleted At,           property: AppBundle\Entity\AnonymousPersona.deletedAt,       attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_owner:         { title: Owner,                property: AppBundle\Entity\AnonymousPersona.owner,           attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_owner_uuid:    { title: Owner UUID,           property: AppBundle\Entity\AnonymousPersona.ownerUuid,       attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_title:         { title: Title,                property: AppBundle\Entity\AnonymousPersona.title,           attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_data:          { title: Data,                 property: AppBundle\Entity\AnonymousPersona.data,            attributes: [BROWSE, READ, EDIT] }
+        anonymous_persona_version:       { title: Version,              property: AppBundle\Entity\AnonymousPersona.version,         attributes: [BROWSE, READ, EDIT] }
