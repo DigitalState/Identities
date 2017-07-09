@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
@@ -21,19 +22,20 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Staff
  *
  * @ApiResource(
- *      attributes={
- *          "normalization_context"={
- *              "groups"={"staff_output"}
- *          },
- *          "denormalization_context"={
- *              "groups"={"staff_input"}
- *          },
- *          "filters"={
- *              "app.staff.search",
- *              "app.staff.date",
- *              "app.staff.order"
- *          }
- *      }
+ *     shortName="staffs",
+ *     attributes={
+ *         "normalization_context"={
+ *             "groups"={"staff_output"}
+ *         },
+ *         "denormalization_context"={
+ *             "groups"={"staff_input"}
+ *         },
+ *         "filters"={
+ *             "app.staff.search",
+ *             "app.staff.date",
+ *             "app.staff.order"
+ *         }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\StaffRepository")
  * @ORM\Table(name="app_staff")
@@ -48,6 +50,8 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Versionable
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use EntityAccessor\Personas;
+    use EntityAccessor\BusinessUnits;
     use Accessor\Version;
 
     /**
@@ -114,9 +118,26 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Versionable
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ApiProperty
      * @Serializer\Groups({"staff_output"})
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\StaffPersona", mappedBy="staff", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="StaffPersona", mappedBy="staff", cascade={"persist", "remove"})
      */
     protected $personas;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @Serializer\Groups({"staff_output"})
+     * @ORM\ManyToMany(targetEntity="BusinessUnit", inversedBy="staffs")
+     * @ORM\JoinTable(
+     *     name="app_staff_bu",
+     *     joinColumns={
+     *         @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="bu_id", referencedColumnName="id")
+     *     }
+     * )
+     */
+    protected $businessUnits;
 
     /**
      * @var integer
@@ -135,5 +156,6 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Versionable
     public function __construct()
     {
         $this->personas = new ArrayCollection;
+        $this->businessUnits = new ArrayCollection;
     }
 }

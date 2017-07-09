@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
+use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
@@ -52,6 +54,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use Accessor\Translation\Title;
+    use EntityAccessor\Staffs;
     use Accessor\Version;
 
     /**
@@ -129,6 +132,13 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     protected $title;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @ORM\ManyToMany(targetEntity="Staff", mappedBy="businessUnits")
+     */
+    protected $staffs;
+
+    /**
      * @var integer
      * @ApiProperty
      * @Serializer\Groups({"business_unit_output", "business_unit_input"})
@@ -145,5 +155,6 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     public function __construct()
     {
         $this->title = [];
+        $this->staffs = new ArrayCollection;
     }
 }

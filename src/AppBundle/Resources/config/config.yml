@@ -10,6 +10,7 @@ ds_security:
         business_unit_owner:             { title: Owner,                property: AppBundle\Entity\BusinessUnit.owner,               attributes: [BROWSE, READ, EDIT] }
         business_unit_owner_uuid:        { title: Owner UUID,           property: AppBundle\Entity\BusinessUnit.ownerUuid,           attributes: [BROWSE, READ, EDIT] }
         business_unit_title:             { title: Title,                property: AppBundle\Entity\BusinessUnit.title,               attributes: [BROWSE, READ, EDIT] }
+        business_unit_staffs:            { title: Staffs,               property: AppBundle\Entity\BusinessUnit.staffs,              attributes: [BROWSE, READ, EDIT] }
         business_unit_version:           { title: Version,              property: AppBundle\Entity\BusinessUnit.version,             attributes: [BROWSE, READ, EDIT] }
         admin:                           { title: Admin,                entity:   AppBundle\Entity\Admin,                            attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
         admin_fields:                    { title: All Fields,           property: AppBundle\Entity\Admin.*,                          attributes: [BROWSE, READ, EDIT] }
@@ -40,6 +41,7 @@ ds_security:
         staff_deleted_at:                { title: Deleted At,           property: AppBundle\Entity\Staff.deletedAt,                  attributes: [BROWSE, READ, EDIT] }
         staff_owner:                     { title: Owner,                property: AppBundle\Entity\Staff.owner,                      attributes: [BROWSE, READ, EDIT] }
         staff_owner_uuid:                { title: Owner UUID,           property: AppBundle\Entity\Staff.ownerUuid,                  attributes: [BROWSE, READ, EDIT] }
+        staff_business_units:            { title: Business Units,       property: AppBundle\Entity\Staff.businessUnits,              attributes: [BROWSE, READ, EDIT] }
         staff_version:                   { title: Version,              property: AppBundle\Entity\Staff.version,                    attributes: [BROWSE, READ, EDIT] }
         staff_persona:                   { title: Staff Persona,        entity:   AppBundle\Entity\StaffPersona,                     attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
         staff_persona_fields:            { title: All Fields,           property: AppBundle\Entity\StaffPersona.*,                   attributes: [BROWSE, READ, EDIT] }

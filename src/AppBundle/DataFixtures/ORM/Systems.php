@@ -15,7 +15,7 @@ class Systems extends SystemFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 10;
+        return 11;
     }
 
     /**

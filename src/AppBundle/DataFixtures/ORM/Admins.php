@@ -15,7 +15,7 @@ class Admins extends AdminFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 10;
+        return 11;
     }
 
     /**

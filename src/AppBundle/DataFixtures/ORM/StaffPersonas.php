@@ -15,7 +15,7 @@ class StaffPersonas extends StaffPersonaFixture implements OrderedFixtureInterfa
      */
     public function getOrder()
     {
-        return 11;
+        return 12;
     }
 
     /**

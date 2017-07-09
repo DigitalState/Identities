@@ -114,7 +114,7 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Versionable
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ApiProperty
      * @Serializer\Groups({"anonymous_output"})
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AnonymousPersona", mappedBy="anonymous", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="AnonymousPersona", mappedBy="anonymous", cascade={"persist", "remove"})
      */
     protected $personas;
 

@@ -15,7 +15,7 @@ class AnonymousPersonas extends AnonymousPersonaFixture implements OrderedFixtur
      */
     public function getOrder()
     {
-        return 11;
+        return 12;
     }
 
     /**

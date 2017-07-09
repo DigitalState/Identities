@@ -15,7 +15,7 @@ class IndividualPersonas extends IndividualPersonaFixture implements OrderedFixt
      */
     public function getOrder()
     {
-        return 11;
+        return 12;
     }
 
     /**

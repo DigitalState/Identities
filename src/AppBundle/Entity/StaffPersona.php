@@ -47,7 +47,7 @@ class StaffPersona extends Persona
      * @var \AppBundle\Entity\Staff
      * @ApiProperty
      * @Serializer\Groups({"persona_output", "persona_input"})
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Staff", inversedBy="personas")
+     * @ORM\ManyToOne(targetEntity="Staff", inversedBy="personas")
      * @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
      * @Assert\Valid
      */

@@ -47,7 +47,7 @@ class IndividualPersona extends Persona
      * @var \AppBundle\Entity\Individual
      * @ApiProperty
      * @Serializer\Groups({"persona_output", "persona_input"})
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Individual", inversedBy="personas")
+     * @ORM\ManyToOne(targetEntity="Individual", inversedBy="personas")
      * @ORM\JoinColumn(name="individual_id", referencedColumnName="id")
      * @Assert\Valid
      */
