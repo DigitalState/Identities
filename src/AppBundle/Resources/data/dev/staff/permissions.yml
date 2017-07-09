@@ -2,73 +2,37 @@ items:
     -
         access: 81aaab53-4bf9-4d7a-8654-3800292d3f6e # Any staff
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff
-        attributes: [BROWSE, READ]
-
-    -
-        access: 81aaab53-4bf9-4d7a-8654-3800292d3f6e # Any staff
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff_fields
-        attributes: [BROWSE, READ]
-
-    -
-        access: 81aaab53-4bf9-4d7a-8654-3800292d3f6e # Any staff
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual
-        attributes: [BROWSE, READ]
-
-    -
-        access: 81aaab53-4bf9-4d7a-8654-3800292d3f6e # Any staff
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual_fields
+        key:
+            - staff
+            - staff_fields
+            - individual
+            - individual_fields
         attributes: [BROWSE, READ]
 
     -
         access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff
+        key:
+            - staff
+            - individual
         attributes: [EDIT, ADD, DELETE]
 
     -
         access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff_fields
-        attributes: [EDIT]
-
-    -
-        access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual
-        attributes: [EDIT, ADD, DELETE]
-
-    -
-        access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual_fields
+        key:
+            - staff_fields
+            - individual_fields
         attributes: [EDIT]
 
     -
         access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff
-        attributes: [EDIT]
-
-    -
-        access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: staff_fields
-        attributes: [EDIT]
-
-    -
-        access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual
-        attributes: [EDIT]
-
-    -
-        access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
-        key: individual_fields
+        key:
+            - staff
+            - staff_fields
+            - individual
+            - individual_fields
         attributes: [EDIT]
 
 prototype:
