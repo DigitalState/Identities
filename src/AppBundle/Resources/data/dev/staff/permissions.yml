@@ -4,9 +4,9 @@ items:
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
         key:
             - staff
-            - staff_fields
+            - staff_property
             - individual
-            - individual_fields
+            - individual_property
         attributes: [BROWSE, READ]
 
     -
@@ -21,8 +21,8 @@ items:
         access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
         key:
-            - staff_fields
-            - individual_fields
+            - staff_property
+            - individual_property
         attributes: [EDIT]
 
     -
@@ -30,9 +30,9 @@ items:
         entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
         key:
             - staff
-            - staff_fields
+            - staff_property
             - individual
-            - individual_fields
+            - individual_property
         attributes: [EDIT]
 
 prototype:
