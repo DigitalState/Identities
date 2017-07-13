@@ -8,7 +8,7 @@ items:
     -
         access: 92dd4b4a-0375-4a1f-b6a9-da84862c7a9a # Any admin
         entity_uuid: ~ # Any business unit
-        key: entity_property
+        key: property
         attributes: [BROWSE, READ, EDIT]
 
     -
