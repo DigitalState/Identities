@@ -93,7 +93,7 @@ services:
     app.filter.staff_persona.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, staff.uuid: exact }
         tags:
             - { name: api_platform.filter, id: app.staff_persona.search }
 
@@ -142,7 +142,7 @@ services:
     app.filter.individual_persona.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, individual.uuid: exact }
         tags:
             - { name: api_platform.filter, id: app.individual_persona.search }
 

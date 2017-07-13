@@ -1,4 +1,26 @@
-items: []
+items:
+    -
+        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        key:
+            - individual
+            - individual_uuid
+            - individual_persona
+            - individual_persona_uuid
+            - individual_persona_title
+            - individual_persona_data
+            - individual_persona_version
+        attributes: [BROWSE, READ]
+
+    -
+        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        key:
+            - individual
+            - individual_persona
+            - individual_persona_data
+            - individual_persona_version
+        attributes: [EDIT]
 
 prototype:
     access: ~
