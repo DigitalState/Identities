@@ -13,14 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class PersonaTranslation
 {
     use Behavior\Translatable\Translation;
-    use Behavior\Timestampable\Timestampable;
-    use Behavior\SoftDeletable\SoftDeletable;
 
     use Accessor\Title;
 
     /**
      * @var string
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     protected $title;
 }

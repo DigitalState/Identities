@@ -106,11 +106,9 @@ api_platform:
     enable_swagger: false
     enable_swagger_ui: false
 
-ds_model:
+ds_entity:
     behavior:
         uuidentifiable: true
-        translatable: true
-        localizable: true
 
 ds_security:
     acl: true

@@ -1,54 +1,36 @@
 services:
     app.service.admin:
         class: AppBundle\Service\AdminService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Admin
+        parent: ds_entity.service.entity
 
     app.service.anonymous:
         class: AppBundle\Service\AnonymousService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Anonymous
+        parent: ds_entity.service.entity
 
     app.service.anonymous_persona:
         class: AppBundle\Service\AnonymousPersonaService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\AnonymousPersona
+        parent: ds_entity.service.entity
 
     app.service.business_unit:
         class: AppBundle\Service\BusinessUnitService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\BusinessUnit
+        parent: ds_entity.service.entity
 
     app.service.individual:
         class: AppBundle\Service\IndividualService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Individual
+        parent: ds_entity.service.entity
 
     app.service.individual_persona:
         class: AppBundle\Service\IndividualPersonaService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\IndividualPersona
+        parent: ds_entity.service.entity
 
     app.service.staff:
         class: AppBundle\Service\StaffService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\Staff
+        parent: ds_entity.service.entity
 
     app.service.staff_persona:
         class: AppBundle\Service\StaffPersonaService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\StaffPersona
+        parent: ds_entity.service.entity
 
     app.service.system:
         class: AppBundle\Service\SystemService
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - AppBundle\Entity\System
+        parent: ds_entity.service.entity

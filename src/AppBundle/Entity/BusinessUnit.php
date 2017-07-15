@@ -4,18 +4,20 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Doctrine\Common\Collections\ArrayCollection;
+use Ds\Component\Locale\Model\Type\Localizable;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
-use Ds\Component\Model\Type\Translatable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
+use Ds\Component\Translation\Model\Attribute\Accessor as TranslationAccessor;
+use Ds\Component\Translation\Model\Type\Translatable;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Doctrine\ORM\Mapping as ORM;
-use Ds\Component\Model\Annotation\Translate;
+use Ds\Component\Locale\Model\Annotation\Localized;
 use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
 use Symfony\Component\Serializer\Annotation As Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -43,7 +45,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_bu")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatable, Versionable
+class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Versionable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -53,7 +55,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
-    use Accessor\Translation\Title;
+    use TranslationAccessor\Title;
     use EntityAccessor\Staffs;
     use Accessor\Version;
 
@@ -127,7 +129,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      *     @Assert\NotBlank,
      *     @Assert\Length(min=1)
      * })
-     * @Translate
+     * @Localized
      */
     protected $title;
 
