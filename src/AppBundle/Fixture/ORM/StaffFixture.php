@@ -5,7 +5,7 @@ namespace AppBundle\Fixture\ORM;
 use AppBundle\Entity\BusinessUnit;
 use AppBundle\Entity\Staff;
 use Doctrine\Common\Persistence\ObjectManager;
-use Ds\Component\Migration\Fixture\ORM\ResourceFixture;
+use Ds\Component\Database\Fixture\ORM\ResourceFixture;
 use LogicException;
 
 /**

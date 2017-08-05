@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Ds\Component\Model\Attribute\Accessor;
+use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
@@ -38,7 +39,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_system")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class System implements Identifiable, Uuidentifiable, Ownable, Versionable
+class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versionable
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -47,6 +48,7 @@ class System implements Identifiable, Uuidentifiable, Ownable, Versionable
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use Accessor\Deleted;
     use Accessor\Version;
 
     /**

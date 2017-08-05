@@ -23,6 +23,6 @@ class Staffs extends StaffFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/staff/identities.yml';
+        return __DIR__.'/../../Resources/data/{env}/staff/identities.yml';
     }
 }

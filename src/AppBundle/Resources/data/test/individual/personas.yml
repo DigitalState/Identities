@@ -1,7 +1,7 @@
-anonymous_personas: []
+items: []
 
 prototype:
-    anonymous: ~
+    individual: ~
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~

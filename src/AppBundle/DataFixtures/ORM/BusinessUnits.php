@@ -23,6 +23,6 @@ class BusinessUnits extends BusinessUnitFixture implements OrderedFixtureInterfa
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/business_units.yml';
+        return __DIR__.'/../../Resources/data/{env}/business_units.yml';
     }
 }

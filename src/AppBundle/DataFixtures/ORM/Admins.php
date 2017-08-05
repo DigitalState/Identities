@@ -23,6 +23,6 @@ class Admins extends AdminFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/admin/identities.yml';
+        return __DIR__.'/../../Resources/data/{env}/admin/identities.yml';
     }
 }

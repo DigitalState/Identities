@@ -23,6 +23,6 @@ class StaffPersonas extends StaffPersonaFixture implements OrderedFixtureInterfa
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/staff/personas.yml';
+        return __DIR__.'/../../Resources/data/{env}/staff/personas.yml';
     }
 }

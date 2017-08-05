@@ -1,7 +1,7 @@
-individual_personas: []
+items: []
 
 prototype:
-    individual: ~
+    staff: ~
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~

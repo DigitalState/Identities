@@ -23,6 +23,6 @@ class AnonymousPersonas extends AnonymousPersonaFixture implements OrderedFixtur
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/anonymous/personas.yml';
+        return __DIR__.'/../../Resources/data/{env}/anonymous/personas.yml';
     }
 }

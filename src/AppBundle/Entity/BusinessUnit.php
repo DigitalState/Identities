@@ -6,6 +6,7 @@ use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Locale\Model\Type\Localizable;
 use Ds\Component\Model\Attribute\Accessor;
+use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
@@ -46,7 +47,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_bu")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Versionable
+class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -58,6 +59,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use Accessor\OwnerUuid;
     use TranslationAccessor\Title;
     use EntityAccessor\Staffs;
+    use Accessor\Deleted;
     use Accessor\Version;
 
     /**

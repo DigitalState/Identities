@@ -23,6 +23,6 @@ class Systems extends SystemFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{server}/system/identities.yml';
+        return __DIR__.'/../../Resources/data/{env}/system/identities.yml';
     }
 }
