@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
@@ -49,6 +50,8 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Deletable, Ve
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use EntityAccessor\Personas;
+    use EntityAccessor\BusinessUnits;
     use Accessor\Deleted;
     use Accessor\Version;
 
@@ -121,6 +124,23 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Deletable, Ve
     protected $personas;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @Serializer\Groups({"individual_output"})
+     * @ORM\ManyToMany(targetEntity="BusinessUnit", inversedBy="individuals")
+     * @ORM\JoinTable(
+     *     name="app_individual_bu",
+     *     joinColumns={
+     *         @ORM\JoinColumn(name="individual_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="bu_id", referencedColumnName="id")
+     *     }
+     * )
+     */
+    protected $businessUnits;
+
+    /**
      * @var integer
      * @ApiProperty
      * @Serializer\Groups({"individual_output", "individual_input"})
@@ -137,5 +157,6 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Deletable, Ve
     public function __construct()
     {
         $this->personas = new ArrayCollection;
+        $this->businessUnits = new ArrayCollection;
     }
 }

@@ -64,6 +64,7 @@ ds_security:
         individual_deleted_at:           { title: app.permissions.individual.deleted_at,          property: AppBundle\Entity\Individual.deletedAt,             attributes: [BROWSE, READ, EDIT] }
         individual_owner:                { title: app.permissions.individual.owner,               property: AppBundle\Entity\Individual.owner,                 attributes: [BROWSE, READ, EDIT] }
         individual_owner_uuid:           { title: app.permissions.individual.owner_uuid,          property: AppBundle\Entity\Individual.ownerUuid,             attributes: [BROWSE, READ, EDIT] }
+        individual_business_units:       { title: app.permissions.individual.business_units,      property: AppBundle\Entity\Individual.businessUnits,         attributes: [BROWSE, READ, EDIT] }
         individual_version:              { title: app.permissions.individual.version,             property: AppBundle\Entity\Individual.version,               attributes: [BROWSE, READ, EDIT] }
         individual_persona:              { title: app.permissions.individual_persona,             entity:   AppBundle\Entity\IndividualPersona,                attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
         individual_persona_property:     { title: app.permissions.individual_persona.property,    property: AppBundle\Entity\IndividualPersona.*,              attributes: [BROWSE, READ, EDIT] }
