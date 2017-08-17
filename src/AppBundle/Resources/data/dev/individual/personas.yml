@@ -4,7 +4,17 @@ items:
         uuid: df67d9d4-0dc1-4393-972a-a659b24ff117
         owner_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
         data:
+            subffix: Mr
             firstName: Morgan
+            lastName: Cole
+            address:
+                street: 90 Wellington St
+                city: Ottawa
+                province: Ontario
+                country: Canada
+                postalCode: K1A 0A4
+            phone: 1-888-111-2222
+            email: morgan@site.com
 
 prototype:
     individual: ~
