@@ -1,7 +1,7 @@
 items:
     -
         access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - individual
             - individual_uuid
@@ -15,7 +15,7 @@ items:
 
     -
         access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - individual
             - individual_persona

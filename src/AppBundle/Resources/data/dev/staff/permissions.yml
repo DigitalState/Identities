@@ -1,7 +1,7 @@
 items:
     -
         access: 81aaab53-4bf9-4d7a-8654-3800292d3f6e # Any staff
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - staff
             - staff_property
@@ -11,7 +11,7 @@ items:
 
     -
         access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - staff
             - individual
@@ -19,7 +19,7 @@ items:
 
     -
         access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - staff_property
             - individual_property
@@ -27,7 +27,7 @@ items:
 
     -
         access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
-        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        entity_uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         key:
             - staff
             - staff_property

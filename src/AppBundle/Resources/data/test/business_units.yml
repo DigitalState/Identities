@@ -1,4 +1,17 @@
-items: []
+items:
+    -
+        uuid: d5de44e0-d727-4f69-a8b3-c3afbf75eda3 # Administration
+        owner_uuid: d5de44e0-d727-4f69-a8b3-c3afbf75eda3 # Administration
+        title:
+            en: Administration
+            fr: Administration
+
+    -
+        uuid: 14da4a8c-aee1-43b3-bbac-e3e81a853e0e # Public Works
+        owner_uuid: d5de44e0-d727-4f69-a8b3-c3afbf75eda3 # Administration
+        title:
+            en: Public Works
+            fr: Travaux publics
 
 prototype:
     uuid: ~

@@ -7,11 +7,11 @@ items:
             fr: Administration
 
     -
-        uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public
+        uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
         title:
-            en: Public
-            fr: Publique
+            en: Public Works
+            fr: Travaux publics
 
 prototype:
     uuid: ~
