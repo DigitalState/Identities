@@ -1,15 +1,15 @@
-@entity @system @delete
-Feature: Delete systems
-  In order to delete systems
+@entity @anonymous @delete
+Feature: Delete anonymouses
+  In order to delete anonymouses
   As an admin identity
-  I should be able to send api requests related to systems
+  I should be able to send api requests related to anonymouses
 
   Background:
     Given I am authenticated as an "admin" identity
 
   @createSchema @loadFixtures @dropSchema
-  Scenario: Delete an system
+  Scenario: Delete an anonymous
     When I add "Accept" header equal to "application/json"
-    And I send a "DELETE" request to "/systems/5386e249-8ad0-45f1-a30e-d5a055cc5993"
+    And I send a "DELETE" request to "/anonymouses/73aab537-f174-4bf9-b986-afedbb23b7bc"
     Then the response status code should be 204
     And the response should be empty

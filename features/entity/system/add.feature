@@ -1,7 +1,7 @@
 @entity @system @add
 Feature: Add systems
   In order to add systems
-  As an system identity
+  As an admin identity
   I should be able to send api requests related to systems
 
   Background:
