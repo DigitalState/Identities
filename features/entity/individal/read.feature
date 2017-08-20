@@ -25,6 +25,6 @@ Feature: Read individuals
     And the JSON node "owner" should exist
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should exist
-    And the JSON node "ownerUuid" should be equal to the string "14da4a8c-aee1-43b3-bbac-e3e81a853e0e"
+    And the JSON node "ownerUuid" should be equal to the string "a8357843-470d-4e3a-8014-5fec0306e017"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1

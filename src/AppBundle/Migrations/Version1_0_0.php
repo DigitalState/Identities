@@ -54,7 +54,8 @@ class Version1_0_0 extends AbstractMigration
             INSERT INTO 
                 `app_bu` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
+                (1, \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL),
+                (2, \'447a62c0-7043-41f7-8540-d57aa15070de\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
         ');
 
         $this->addSql('
@@ -62,7 +63,9 @@ class Version1_0_0 extends AbstractMigration
                 `app_bu_trans` (`id`, `translatable_id`, `title`, `created_at`, `updated_at`, `deleted_at`, `locale`)
             VALUES 
                 (1, 1, \'Administration\', now(), now(), NULL, \'en\'),
-                (2, 1, \'Administration\', now(), now(), NULL, \'fr\');
+                (2, 1, \'Administration\', now(), now(), NULL, \'fr\'),
+                (3, 2, \'Portal\', now(), now(), NULL, \'en\'),
+                (4, 2, \'Portail\', now(), now(), NULL, \'fr\');
         ');
 
         $this->addSql('

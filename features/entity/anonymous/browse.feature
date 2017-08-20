@@ -82,7 +82,7 @@ Feature: Browse anonymouses
 
   Scenario: Browse anonymouses with a specific owner uuid
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/anonymouses?ownerUuid=14da4a8c-aee1-43b3-bbac-e3e81a853e0e"
+    And I send a "GET" request to "/anonymouses?ownerUuid=a8357843-470d-4e3a-8014-5fec0306e017"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
@@ -91,7 +91,7 @@ Feature: Browse anonymouses
 
   Scenario: Browse anonymouses with specific owner uuids
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/anonymouses?ownerUuid[0]=14da4a8c-aee1-43b3-bbac-e3e81a853e0e"
+    And I send a "GET" request to "/anonymouses?ownerUuid[0]=a8357843-470d-4e3a-8014-5fec0306e017"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON

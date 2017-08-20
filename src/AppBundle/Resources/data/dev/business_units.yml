@@ -7,6 +7,13 @@ items:
             fr: Administration
 
     -
+        uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+        title:
+            en: Portal
+            fr: Portail
+
+    -
         uuid: 8454c987-cbc5-4a24-ba1a-d420283caabd # Public Works
         owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
         title:
