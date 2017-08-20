@@ -5,7 +5,6 @@ items:
         key:
             - individual
             - individual_uuid
-            - individual_business_units
             - individual_persona
             - individual_persona_uuid
             - individual_persona_title
