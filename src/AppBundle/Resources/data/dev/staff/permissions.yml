@@ -5,6 +5,8 @@ items:
         key:
             - individual
             - individual_property
+            - individual_persona
+            - individual_persona_property
         attributes: [BROWSE, READ]
 
     -

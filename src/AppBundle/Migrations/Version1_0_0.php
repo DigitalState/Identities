@@ -94,7 +94,8 @@ class Version1_0_0 extends AbstractMigration
                 `ds_access` (`id`, `uuid`, `owner`, `owner_uuid`, `identity`, `identity_uuid`, `version`, `created_at`, `updated_at`)
             VALUES 
                 (1, \'4dce41aa-3cd5-4ab9-9720-399b301c2572\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'Admin\', NULL, 1, now(), now()),
-                (2, \'488ebf9b-6999-4ca6-9537-1d203222fc09\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'System\', NULL, 1, now(), now());
+                (2, \'488ebf9b-6999-4ca6-9537-1d203222fc09\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'System\', NULL, 1, now(), now()),
+                (3, \'a34d968b-9d27-41f5-9313-ad2641125208\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'Individual\', NULL, 1, now(), now());
         ');
 
         $this->addSql('
@@ -106,7 +107,18 @@ class Version1_0_0 extends AbstractMigration
                 (3, 1, \'BusinessUnit\', NULL, \'custom\', \'["BROWSE","READ","EDIT","ADD","DELETE","EXECUTE"]\'),
                 (4, 2, \'BusinessUnit\', NULL, \'entity\', \'["BROWSE","READ","EDIT","ADD","DELETE"]\'),
                 (5, 2, \'BusinessUnit\', NULL, \'property\', \'["BROWSE","READ","EDIT"]\'),
-                (6, 2, \'BusinessUnit\', NULL, \'custom\', \'["BROWSE","READ","EDIT","ADD","DELETE","EXECUTE"]\');
+                (6, 2, \'BusinessUnit\', NULL, \'custom\', \'["BROWSE","READ","EDIT","ADD","DELETE","EXECUTE"]\'),
+                (7, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual\', \'["BROWSE","READ"]\'),
+                (8, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_uuid\', \'["BROWSE","READ"]\'),
+                (9, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["BROWSE","READ"]\'),
+                (10, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_uuid\', \'["BROWSE","READ"]\'),
+                (11, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["BROWSE","READ"]\'),
+                (12, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["BROWSE","READ"]\'),
+                (13, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["BROWSE","READ"]\'),
+                (14, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["EDIT"]\'),
+                (15, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["EDIT"]\'),
+                (16, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["EDIT"]\'),
+                (17, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["EDIT"]\');
         ');
     }
 

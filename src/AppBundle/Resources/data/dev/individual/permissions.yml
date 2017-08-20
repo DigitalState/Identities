@@ -16,8 +16,8 @@ items:
         access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
         entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
         key:
-            - individual
             - individual_persona
+            - individual_persona_title
             - individual_persona_data
             - individual_persona_version
         attributes: [EDIT]
