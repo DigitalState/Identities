@@ -1,4 +1,4 @@
-@entity @anonymous @edit
+@app @entity @anonymous @edit
 Feature: Edit anonymouses
   In order to edit anonymouses
   As an admin identity

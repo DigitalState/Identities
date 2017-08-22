@@ -1,4 +1,4 @@
-@entity @admin @read
+@app @entity @admin @read
 Feature: Read admins
   In order to read admins
   As an admin identity

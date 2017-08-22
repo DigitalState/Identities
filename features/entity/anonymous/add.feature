@@ -1,4 +1,4 @@
-@entity @anonymous @add
+@app @entity @anonymous @add
 Feature: Add anonymouses
   In order to add anonymouses
   As an admin identity

@@ -1,4 +1,4 @@
-@entity @individual @delete
+@app @entity @individual @delete
 Feature: Delete individuals
   In order to delete individuals
   As an admin identity

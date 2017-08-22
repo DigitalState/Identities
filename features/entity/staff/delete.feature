@@ -1,4 +1,4 @@
-@entity @staff @delete
+@app @entity @staff @delete
 Feature: Delete staffs
   In order to delete staffs
   As an admin identity

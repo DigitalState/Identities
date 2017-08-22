@@ -1,4 +1,4 @@
-@entity @admin @browse
+@app @entity @admin @browse
 Feature: Browse admins
   In order to browse admins
   As an admin identity

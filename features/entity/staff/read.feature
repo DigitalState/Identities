@@ -1,4 +1,4 @@
-@entity @staff @read
+@app @entity @staff @read
 Feature: Read staffs
   In order to read staffs
   As an admin identity

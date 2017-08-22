@@ -1,4 +1,4 @@
-@entity @anonymous @delete
+@app @entity @anonymous @delete
 Feature: Delete anonymouses
   In order to delete anonymouses
   As an admin identity

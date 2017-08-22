@@ -1,4 +1,4 @@
-@entity @anonymous @read
+@app @entity @anonymous @read
 Feature: Read anonymouses
   In order to read anonymouses
   As an admin identity

@@ -1,4 +1,4 @@
-@entity @admin @add
+@app @entity @admin @add
 Feature: Add admins
   In order to add admins
   As an admin identity

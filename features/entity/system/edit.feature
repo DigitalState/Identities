@@ -1,4 +1,4 @@
-@entity @system @edit
+@app @entity @system @edit
 Feature: Edit systems
   In order to edit systems
   As an admin identity

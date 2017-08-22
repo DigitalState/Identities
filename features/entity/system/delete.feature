@@ -1,4 +1,4 @@
-@entity @system @delete
+@app @entity @system @delete
 Feature: Delete systems
   In order to delete systems
   As an admin identity

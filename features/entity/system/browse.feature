@@ -1,4 +1,4 @@
-@entity @system @browse
+@app @entity @system @browse
 Feature: Browse systems
   In order to browse systems
   As an admin identity

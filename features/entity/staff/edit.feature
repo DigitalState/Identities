@@ -1,4 +1,4 @@
-@entity @staff @edit
+@app @entity @staff @edit
 Feature: Edit staffs
   In order to edit staffs
   As an admin identity

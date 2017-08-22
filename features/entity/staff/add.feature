@@ -1,4 +1,4 @@
-@entity @staff @add
+@app @entity @staff @add
 Feature: Add staffs
   In order to add staffs
   As an admin identity

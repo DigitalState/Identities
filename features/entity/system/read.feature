@@ -1,4 +1,4 @@
-@entity @system @read
+@app @entity @system @read
 Feature: Read systems
   In order to read systems
   As an admin identity

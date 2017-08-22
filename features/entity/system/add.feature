@@ -1,4 +1,4 @@
-@entity @system @add
+@app @entity @system @add
 Feature: Add systems
   In order to add systems
   As an admin identity

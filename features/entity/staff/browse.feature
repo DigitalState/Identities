@@ -1,4 +1,4 @@
-@entity @staff @browse
+@app @entity @staff @browse
 Feature: Browse staffs
   In order to browse staffs
   As an admin identity

@@ -1,4 +1,4 @@
-@entity @anonymous @browse
+@app @entity @anonymous @browse
 Feature: Browse anonymouses
   In order to browse anonymouses
   As an admin identity
