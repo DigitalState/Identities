@@ -1,5 +1,23 @@
 items:
     -
+        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
+        entity_uuid: ~ # Any business unit
+        key: entity
+        attributes: [BROWSE, READ, EDIT, ADD, DELETE]
+
+    -
+        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
+        entity_uuid: ~ # Any business unit
+        key: property
+        attributes: [BROWSE, READ, EDIT]
+
+    -
+        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
+        entity_uuid: ~ # Any business unit
+        key: custom
+        attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
+
+    -
         access: 75b9bd2a-9c25-4e65-8743-0a153bffb151 # Any staff
         entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
         key:
