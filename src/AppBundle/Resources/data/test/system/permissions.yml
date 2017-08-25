@@ -1,4 +1,21 @@
-items: []
+items:
+    -
+        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        entity_uuid: ~ # Any business unit
+        key: entity
+        attributes: [BROWSE, READ, EDIT, ADD, DELETE]
+
+    -
+        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        entity_uuid: ~ # Any business unit
+        key: property
+        attributes: [BROWSE, READ, EDIT]
+
+    -
+        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        entity_uuid: ~ # Any business unit
+        key: custom
+        attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
 
 prototype:
     access: ~

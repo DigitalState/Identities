@@ -1,10 +1,4 @@
 services:
-    app.repository.admin:
-        class: AppBundle\Repository\AdminRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - AppBundle\Entity\Admin
-
     app.repository.anonymous:
         class: AppBundle\Repository\AnonymousRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]

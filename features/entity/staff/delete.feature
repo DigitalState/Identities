@@ -1,11 +1,11 @@
 @app @entity @staff @delete
 Feature: Delete staffs
   In order to delete staffs
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to staffs
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Delete an staff

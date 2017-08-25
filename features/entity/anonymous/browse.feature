@@ -1,11 +1,11 @@
 @app @entity @anonymous @browse
 Feature: Browse anonymouses
   In order to browse anonymouses
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to anonymouses
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures
   Scenario: Browse all anonymouses

@@ -27,27 +27,6 @@ services:
         tags:
             - { name: api_platform.filter, id: app.business_unit.order }
 
-    app.filter.admin.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.admin.search }
-
-    app.filter.admin.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.admin.date }
-
-    app.filter.admin.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.admin.order }
-
     app.filter.system.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:

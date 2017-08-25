@@ -1,11 +1,11 @@
 @app @entity @individual @add
 Feature: Add individuals
   In order to add individuals
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to individuals
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Add an individual

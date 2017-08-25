@@ -12,16 +12,6 @@ ds_security:
         business_unit_title:             { title: app.permissions.business_unit.title,            property: AppBundle\Entity\BusinessUnit.title,               attributes: [BROWSE, READ, EDIT] }
         business_unit_staffs:            { title: app.permissions.business_unit.staffs,           property: AppBundle\Entity\BusinessUnit.staffs,              attributes: [BROWSE, READ, EDIT] }
         business_unit_version:           { title: app.permissions.business_unit.version,          property: AppBundle\Entity\BusinessUnit.version,             attributes: [BROWSE, READ, EDIT] }
-        admin:                           { title: app.permissions.admin,                          entity:   AppBundle\Entity\Admin,                            attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
-        admin_property:                  { title: app.permissions.admin.property,                 property: AppBundle\Entity\Admin.*,                          attributes: [BROWSE, READ, EDIT] }
-        admin_id:                        { title: app.permissions.admin.id,                       property: AppBundle\Entity\Admin.id,                         attributes: [BROWSE, READ, EDIT] }
-        admin_uuid:                      { title: app.permissions.admin.uuid,                     property: AppBundle\Entity\Admin.uuid,                       attributes: [BROWSE, READ, EDIT] }
-        admin_created_at:                { title: app.permissions.admin.created_at,               property: AppBundle\Entity\Admin.createdAt,                  attributes: [BROWSE, READ, EDIT] }
-        admin_updated_at:                { title: app.permissions.admin.updated_at,               property: AppBundle\Entity\Admin.updatedAt,                  attributes: [BROWSE, READ, EDIT] }
-        admin_deleted_at:                { title: app.permissions.admin.deleted_at,               property: AppBundle\Entity\Admin.deletedAt,                  attributes: [BROWSE, READ, EDIT] }
-        admin_owner:                     { title: app.permissions.admin.owner,                    property: AppBundle\Entity\Admin.owner,                      attributes: [BROWSE, READ, EDIT] }
-        admin_owner_uuid:                { title: app.permissions.admin.owner_uuid,               property: AppBundle\Entity\Admin.ownerUuid,                  attributes: [BROWSE, READ, EDIT] }
-        admin_version:                   { title: app.permissions.admin.version,                  property: AppBundle\Entity\Admin.version,                    attributes: [BROWSE, READ, EDIT] }
         system:                          { title: app.permissions.system,                         entity:   AppBundle\Entity\System,                           attributes: [BROWSE, READ, EDIT, ADD, DELETE] }
         system_property:                 { title: app.permissions.system.property,                property: AppBundle\Entity\System.*,                         attributes: [BROWSE, READ, EDIT] }
         system_id:                       { title: app.permissions.system.id,                      property: AppBundle\Entity\System.id,                        attributes: [BROWSE, READ, EDIT] }

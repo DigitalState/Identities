@@ -1,11 +1,11 @@
 @app @entity @individual @read
 Feature: Read individuals
   In order to read individuals
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to individuals
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Read a individual

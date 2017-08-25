@@ -1,11 +1,11 @@
 @app @entity @anonymous @add
 Feature: Add anonymouses
   In order to add anonymouses
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to anonymouses
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Add an anonymous

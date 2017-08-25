@@ -22,7 +22,6 @@ class Version1_0_0 extends AbstractMigration
         $this->addSql('CREATE TABLE ds_config (id INT AUTO_INCREMENT NOT NULL, uuid CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', `owner` VARCHAR(255) DEFAULT NULL, owner_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', `key` VARCHAR(255) NOT NULL, `value` LONGTEXT DEFAULT NULL, enabled TINYINT(1) NOT NULL, version INT DEFAULT 1 NOT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_758C45F4D17F50A6 (uuid), UNIQUE INDEX UNIQ_758C45F44E645A7E (`key`), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE ds_access (id INT AUTO_INCREMENT NOT NULL, uuid CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', `owner` VARCHAR(255) DEFAULT NULL, owner_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', identity VARCHAR(255) DEFAULT NULL, identity_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', version INT DEFAULT 1 NOT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_A76F41DCD17F50A6 (uuid), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE ds_access_permission (id INT AUTO_INCREMENT NOT NULL, access_id INT DEFAULT NULL, entity VARCHAR(255) DEFAULT NULL, entity_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', `key` VARCHAR(255) NOT NULL, attributes LONGTEXT NOT NULL COMMENT \'(DC2Type:json_array)\', INDEX IDX_D46DD4D04FEA67CF (access_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE app_admin (id INT AUTO_INCREMENT NOT NULL, uuid CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', `owner` VARCHAR(255) DEFAULT NULL, owner_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', version INT DEFAULT 1 NOT NULL, deleted_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_5EDD80BBD17F50A6 (uuid), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE app_anonymous (id INT AUTO_INCREMENT NOT NULL, uuid CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', `owner` VARCHAR(255) DEFAULT NULL, owner_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', version INT DEFAULT 1 NOT NULL, deleted_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_6A5EB29BD17F50A6 (uuid), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE app_anonymous_persona (id INT AUTO_INCREMENT NOT NULL, anonymous_id INT DEFAULT NULL, uuid CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', `owner` VARCHAR(255) DEFAULT NULL, owner_uuid CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', data LONGTEXT NOT NULL COMMENT \'(DC2Type:json_array)\', version INT DEFAULT 1 NOT NULL, deleted_at DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_5ABA7A3D17F50A6 (uuid), INDEX IDX_5ABA7A3FA93803 (anonymous_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE app_anonymous_persona_trans (id INT AUTO_INCREMENT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) DEFAULT NULL, locale VARCHAR(255) NOT NULL, INDEX IDX_3B378E082C2AC5D3 (translatable_id), UNIQUE INDEX app_anonymous_persona_trans_unique_translation (translatable_id, locale), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -70,13 +69,6 @@ class Version1_0_0 extends AbstractMigration
 
         $this->addSql('
             INSERT INTO 
-                `app_admin` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
-            VALUES 
-                (1, \'b7651daf-8ecb-4c23-b703-e7c379791778\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
-        ');
-
-        $this->addSql('
-            INSERT INTO 
                 `app_system` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
                 (1, \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
@@ -93,9 +85,8 @@ class Version1_0_0 extends AbstractMigration
             INSERT INTO 
                 `ds_access` (`id`, `uuid`, `owner`, `owner_uuid`, `identity`, `identity_uuid`, `version`, `created_at`, `updated_at`)
             VALUES 
-                (1, \'4dce41aa-3cd5-4ab9-9720-399b301c2572\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'Admin\', NULL, 1, now(), now()),
-                (2, \'488ebf9b-6999-4ca6-9537-1d203222fc09\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'System\', NULL, 1, now(), now()),
-                (3, \'a34d968b-9d27-41f5-9313-ad2641125208\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'Individual\', NULL, 1, now(), now());
+                (1, \'488ebf9b-6999-4ca6-9537-1d203222fc09\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'System\', NULL, 1, now(), now()),
+                (2, \'a34d968b-9d27-41f5-9313-ad2641125208\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'Individual\', NULL, 1, now(), now());
         ');
 
         $this->addSql('
@@ -105,20 +96,17 @@ class Version1_0_0 extends AbstractMigration
                 (1, 1, \'BusinessUnit\', NULL, \'entity\', \'["BROWSE","READ","EDIT","ADD","DELETE"]\'),
                 (2, 1, \'BusinessUnit\', NULL, \'property\', \'["BROWSE","READ","EDIT"]\'),
                 (3, 1, \'BusinessUnit\', NULL, \'custom\', \'["BROWSE","READ","EDIT","ADD","DELETE","EXECUTE"]\'),
-                (4, 2, \'BusinessUnit\', NULL, \'entity\', \'["BROWSE","READ","EDIT","ADD","DELETE"]\'),
-                (5, 2, \'BusinessUnit\', NULL, \'property\', \'["BROWSE","READ","EDIT"]\'),
-                (6, 2, \'BusinessUnit\', NULL, \'custom\', \'["BROWSE","READ","EDIT","ADD","DELETE","EXECUTE"]\'),
-                (7, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual\', \'["BROWSE","READ"]\'),
-                (8, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_uuid\', \'["BROWSE","READ"]\'),
-                (9, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["BROWSE","READ"]\'),
-                (10, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_uuid\', \'["BROWSE","READ"]\'),
-                (11, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["BROWSE","READ"]\'),
-                (12, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["BROWSE","READ"]\'),
-                (13, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["BROWSE","READ"]\'),
-                (14, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["EDIT"]\'),
-                (15, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["EDIT"]\'),
-                (16, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["EDIT"]\'),
-                (17, 3, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["EDIT"]\');
+                (4, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual\', \'["BROWSE","READ"]\'),
+                (5, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_uuid\', \'["BROWSE","READ"]\'),
+                (6, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["BROWSE","READ"]\'),
+                (7, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_uuid\', \'["BROWSE","READ"]\'),
+                (8, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["BROWSE","READ"]\'),
+                (9, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["BROWSE","READ"]\'),
+                (10, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["BROWSE","READ"]\'),
+                (11, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona\', \'["EDIT"]\'),
+                (12, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_title\', \'["EDIT"]\'),
+                (13, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_data\', \'["EDIT"]\'),
+                (14, 2, \'BusinessUnit\', \'447a62c0-7043-41f7-8540-d57aa15070de\', \'individual_persona_version\', \'["EDIT"]\');
         ');
     }
 
@@ -145,7 +133,6 @@ class Version1_0_0 extends AbstractMigration
         $this->addSql('DROP TABLE ds_config');
         $this->addSql('DROP TABLE ds_access');
         $this->addSql('DROP TABLE ds_access_permission');
-        $this->addSql('DROP TABLE app_admin');
         $this->addSql('DROP TABLE app_anonymous');
         $this->addSql('DROP TABLE app_anonymous_persona');
         $this->addSql('DROP TABLE app_anonymous_persona_trans');

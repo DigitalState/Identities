@@ -1,8 +1,10 @@
 items:
     -
         uuid: 5386e249-8ad0-45f1-a30e-d5a055cc5993 # System
+        owner: System
+        owner_uuid: 5386e249-8ad0-45f1-a30e-d5a055cc5993 # System
 
 prototype:
     uuid: ~
     owner: BusinessUnit
-    owner_uuid: d5de44e0-d727-4f69-a8b3-c3afbf75eda3 # Administration
+    owner_uuid: ~

@@ -1,8 +1,4 @@
 services:
-    app.service.admin:
-        class: AppBundle\Service\AdminService
-        parent: ds_entity.service.entity
-
     app.service.anonymous:
         class: AppBundle\Service\AnonymousService
         parent: ds_entity.service.entity

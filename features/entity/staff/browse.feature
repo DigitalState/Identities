@@ -1,11 +1,11 @@
 @app @entity @staff @browse
 Feature: Browse staffs
   In order to browse staffs
-  As an admin identity
+  As a system identity
   I should be able to send api requests related to staffs
 
   Background:
-    Given I am authenticated as an "admin" identity
+    Given I am authenticated as a "system" identity
 
   @createSchema @loadFixtures
   Scenario: Browse all staffs

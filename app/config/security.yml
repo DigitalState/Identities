@@ -19,8 +19,6 @@ security:
         - { path: ^/accesses,             role: IS_AUTHENTICATED_FULLY }
         - { path: ^/configs,              role: IS_AUTHENTICATED_FULLY }
         - { path: ^/business-units,       role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/admins,               role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/systems,              role: IS_AUTHENTICATED_FULLY }
         - { path: ^/staffs,               role: IS_AUTHENTICATED_FULLY }
         - { path: ^/staff-personas,       role: IS_AUTHENTICATED_FULLY }
         - { path: ^/individuals,          role: IS_AUTHENTICATED_FULLY }
