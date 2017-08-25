@@ -71,7 +71,7 @@ class Version1_0_0 extends AbstractMigration
             INSERT INTO 
                 `app_system` (`id`, `uuid`, `owner`, `owner_uuid`, `version`, `created_at`, `updated_at`, `deleted_at`)
             VALUES 
-                (1, \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', 1, now(), now(), NULL);
+                (1, \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'System\', \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', 1, now(), now(), NULL);
         ');
 
         $this->addSql('
