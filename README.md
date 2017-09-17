@@ -6,6 +6,8 @@ The DigitalState Identities microservice provides the storage and control for Go
 1. Organizations
 1. Staff
 1. Business Units
+1. Systems
+1. Anonymous
 
 The identities microservice does not contain any authentication mechanism for logging in as a Individual, Organization or Staff.  All Authentication activities are preforms by the [DigitalState Authentication Microservice](https://github.com/DigitalState/Authentication)
 
@@ -57,6 +59,16 @@ A Business Unit is a flat or hierarchical representation of a business group ins
 Business Units are typically used as a 'owner' for various data in other DigitalState microservices.  A best practice is to ensure that ownership is assigned to a Business Unit rather than a Staffer.
 
 Business Units can be thought of as "groups" but a business unit is much more business oriented and enabled with persona, and other control features.
+
+### Systems
+
+Systems are "Service Accounts" that typically are system-to-system interactions.
+
+### Anonymous
+
+Anonymous (sometimes referred to Anonymous Contacts) is anyone or anything that interacts with the DigitalState API.  Depending on the configuration of the security, all Anonymous can require a JWT token.  Anonymous can also be given a Persona to store data about the Anonymous. The Persona can additionally allow future reconciliation of Individual's and Organiations with past Anonymous activity:
+Example usage:  An Individual creates 3 service requests as a Anonymous, and later creates a Individual
+s Account.  Using Anonymous Personas', the Anonymous Activity can be related/linked/consolidated to the Individual's new account.
 
 ## Installation
 
