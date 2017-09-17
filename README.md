@@ -2,12 +2,12 @@
 
 The DigitalState Identities microservice provides the storage and control for Government Identities:
 
-1. Individuals
-1. Organizations
-1. Staff
-1. Business Units
-1. Systems
-1. Anonymous
+1. [Individuals](#individuals)
+1. [Organizations](#organizations)
+1. [Staff](#staff)
+1. [Business Units](#business-units)
+1. [Systems](#systems)
+1. [Anonymous](#anonymous)
 
 The identities microservice does not contain any authentication mechanism for logging in as a Individual, Organization or Staff.  All Authentication activities are preforms by the [DigitalState Authentication Microservice](https://github.com/DigitalState/Authentication)
 
