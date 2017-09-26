@@ -20,6 +20,13 @@ items:
             en: Public Works
             fr: Travaux publics
 
+    -
+        uuid: 9ce729fe-303b-420c-830a-bc7dd1cc407e # Environment
+        owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+        title:
+            en: Environment
+            fr: Environnement
+
 prototype:
     uuid: ~
     owner: BusinessUnit
