@@ -26,6 +26,8 @@ abstract class AnonymousPersonaFixture extends ResourceFixture
                 ->setUuid($anonymousPersona['uuid'])
                 ->setOwner($anonymousPersona['owner'])
                 ->setOwnerUuid($anonymousPersona['owner_uuid'])
+                ->setIdentity($anonymousPersona['identity'])
+                ->setIdentityUuid($anonymousPersona['identity_uuid'])
                 ->setTitle($anonymousPersona['title'])
                 ->setData($anonymousPersona['data']);
             $manager->persist($entity);

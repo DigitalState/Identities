@@ -6,6 +6,7 @@ use Ds\Component\Locale\Model\Type\Localizable;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
+use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
@@ -25,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class Persona
  */
-class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable
+class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -35,6 +36,8 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Lo
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use Accessor\Identity;
+    use Accessor\IdentityUuid;
     use TranslationAccessor\Title;
     use Accessor\Data;
     use Accessor\Deleted;
@@ -98,6 +101,27 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Translatable, Lo
      * @Assert\Uuid
      */
     protected $ownerUuid;
+
+
+    /**
+     * @var string
+     * @ApiProperty
+     * @Serializer\Groups({"persona_output", "persona_input"})
+     * @ORM\Column(name="identity", type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(min=1, max=255)
+     */
+    protected $identity;
+
+    /**
+     * @var string
+     * @ApiProperty
+     * @Serializer\Groups({"persona_output", "persona_input"})
+     * @ORM\Column(name="identity_uuid", type="guid", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Uuid
+     */
+    protected $identityUuid;
 
     /**
      * @var array

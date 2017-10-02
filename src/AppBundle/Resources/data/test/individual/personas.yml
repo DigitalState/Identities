@@ -5,6 +5,8 @@ prototype:
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~
+    identity: Individual
+    identity_uuid: ~
     title:
         en: Default
         fr: Défaut

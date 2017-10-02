@@ -26,6 +26,8 @@ abstract class StaffPersonaFixture extends ResourceFixture
                 ->setUuid($staffPersona['uuid'])
                 ->setOwner($staffPersona['owner'])
                 ->setOwnerUuid($staffPersona['owner_uuid'])
+                ->setIdentity($staffPersona['identity'])
+                ->setIdentityUuid($staffPersona['identity_uuid'])
                 ->setTitle($staffPersona['title'])
                 ->setData($staffPersona['data']);
             $manager->persist($entity);
