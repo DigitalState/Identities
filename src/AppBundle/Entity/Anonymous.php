@@ -114,7 +114,7 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Deletable, Ver
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ApiProperty
+     * @ApiProperty(writable=false)
      * @Serializer\Groups({"anonymous_output"})
      * @ORM\OneToMany(targetEntity="AnonymousPersona", mappedBy="anonymous", cascade={"persist", "remove"})
      */

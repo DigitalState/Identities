@@ -147,7 +147,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
+     * @ApiProperty(writable=false)
      * @ORM\ManyToMany(targetEntity="Individual", mappedBy="businessUnits")
      */
     protected $individuals;

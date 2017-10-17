@@ -118,7 +118,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Deletable, Version
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ApiProperty
+     * @ApiProperty(writable=false)
      * @Serializer\Groups({"staff_output"})
      * @ORM\OneToMany(targetEntity="StaffPersona", mappedBy="staff", cascade={"persist", "remove"})
      */

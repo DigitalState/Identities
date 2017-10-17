@@ -116,7 +116,7 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Deletable, Ve
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ApiProperty
+     * @ApiProperty(writable=false)
      * @Serializer\Groups({"individual_output"})
      * @ORM\OneToMany(targetEntity="IndividualPersona", mappedBy="individual", cascade={"persist", "remove"})
      */
