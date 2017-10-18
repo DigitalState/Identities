@@ -8,7 +8,6 @@ use Knp\DoctrineBehaviors\Model as Behavior;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Doctrine\ORM\Mapping as ORM;
-use Ds\Component\Model\Annotation\Translate;
 use Symfony\Bridge\Doctrine\Validator\Constraints as ORMAssert;
 use Symfony\Component\Serializer\Annotation As Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
