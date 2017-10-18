@@ -19,6 +19,14 @@ services:
         class: AppBundle\Service\IndividualPersonaService
         parent: ds_entity.service.entity
 
+    app.service.organization:
+        class: AppBundle\Service\OrganizationService
+        parent: ds_entity.service.entity
+
+    app.service.organization_persona:
+        class: AppBundle\Service\OrganizationPersonaService
+        parent: ds_entity.service.entity
+
     app.service.staff:
         class: AppBundle\Service\StaffService
         parent: ds_entity.service.entity

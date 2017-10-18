@@ -29,6 +29,18 @@ services:
         arguments:
             - AppBundle\Entity\IndividualPersona
 
+    app.repository.organization:
+        class: AppBundle\Repository\OrganizationRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Organization
+
+    app.repository.organization_persona:
+        class: AppBundle\Repository\OrganizationPersonaRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\OrganizationPersona
+
     app.repository.staff:
         class: AppBundle\Repository\StaffRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]

@@ -194,3 +194,52 @@ services:
             - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
         tags:
             - { name: api_platform.filter, id: app.anonymous_persona.order }
+
+    app.filter.organization.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.organization.search }
+
+    app.filter.organization.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.organization.date }
+
+    app.filter.organization.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.organization.order }
+
+    app.filter.organization_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, organization.uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.organization_persona.search }
+
+    app.filter.organization_persona.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            - { title: partial }
+        tags:
+            - { name: api_platform.filter, id: app.organization_persona.search_translation }
+
+    app.filter.organization_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.organization_persona.date }
+
+    app.filter.organization_persona.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.organization_persona.order }
