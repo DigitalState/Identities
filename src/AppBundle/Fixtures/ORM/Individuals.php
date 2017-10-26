@@ -1,14 +1,14 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace AppBundle\Fixtures\ORM;
 
-use AppBundle\Fixture\ORM\SystemFixture;
+use AppBundle\Fixture\ORM\IndividualFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**
- * Class Systems
+ * Class Individuals
  */
-class Systems extends SystemFixture implements OrderedFixtureInterface
+class Individuals extends IndividualFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritdoc}
@@ -23,6 +23,6 @@ class Systems extends SystemFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{env}/system/identities.yml';
+        return __DIR__.'/../../Resources/data/{env}/individual/identities.yml';
     }
 }
