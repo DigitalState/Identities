@@ -1,45 +1,44 @@
 version: '2.1'
 
 volumes:
-    db_data:
+    identities_db_data:
         driver: local
 
 services:
-    db:
+    identities_db:
         image: mysql:5.7
         environment:
             MYSQL_DATABASE: api_platform
             MYSQL_USER: api_platform
             MYSQL_PASSWORD: api_platform
             MYSQL_RANDOM_ROOT_PASSWORD: 'true'
-            VIRTUAL_HOST: db.identities.ds
         volumes:
-            - db_data:/var/lib/mysql
+            - identities_db_data:/var/lib/mysql
         healthcheck:
             test: ['CMD-SHELL', 'mysql --user=api_platform --password=api_platform -e "SHOW TABLES" api_platform']
             interval: 5s
             timeout: 1s
             retries: 10
 
-    php:
+    identities_php:
         build: .
         depends_on:
-            db:
+            identities_db:
                 condition: service_healthy
         environment:
             SYMFONY_ENV: dev
         volumes:
             - ./:/srv/api-platform
 
-    nginx:
+    identities_nginx:
         image: nginx:1.11-alpine
         depends_on:
-            php:
+            identities_php:
                 condition: service_started
         environment:
             VIRTUAL_HOST: api.identities.ds
         volumes_from:
-            - php
+            - identities_php
         volumes:
             - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
 
