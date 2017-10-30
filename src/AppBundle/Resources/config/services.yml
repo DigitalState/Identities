@@ -1,40 +1,50 @@
 services:
     app.service.anonymous:
         class: AppBundle\Service\AnonymousService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.anonymous_persona:
         class: AppBundle\Service\AnonymousPersonaService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.business_unit:
         class: AppBundle\Service\BusinessUnitService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.individual:
         class: AppBundle\Service\IndividualService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.individual_persona:
         class: AppBundle\Service\IndividualPersonaService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.organization:
         class: AppBundle\Service\OrganizationService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.organization_persona:
         class: AppBundle\Service\OrganizationPersonaService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.staff:
         class: AppBundle\Service\StaffService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.staff_persona:
         class: AppBundle\Service\StaffPersonaService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
 
     app.service.system:
         class: AppBundle\Service\SystemService
-        parent: ds_entity.service.entity
+        arguments:
+            - '@doctrine.orm.entity_manager'
