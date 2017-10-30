@@ -89,6 +89,17 @@ class Version1_0_0 extends AbstractMigration
 
         $this->addSql('
             INSERT INTO 
+                `ds_config` (`id`, `uuid`, `owner`, `owner_uuid`, `key`, `value`, `enabled`, `version`, `created_at`, `updated_at`)
+            VALUES 
+                (1, \'022a5d20-8296-431f-bfae-a8b3b9171983\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'ds_api.user.uuid\', \'b496655f-8fe6-4340-9a77-1bc3eeabab53\', 1, 1, now(), now()),
+                (2, \'50dedeec-a9c7-4f53-b9f8-0a5ece814386\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'ds_api.user.roles\', \'ROLE_SYSTEM\', 1, 1, now(), now()),
+                (3, \'57591774-a6d0-4bd0-a8c6-df15ac5464a5\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'ds_api.user.identity\', \'System\', 1, 1, now(), now()),
+                (4, \'57bd1518-de1e-42dc-969a-ecf0ebe5c31d\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'ds_api.user.identity_uuid\', \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', 1, 1, now(), now()),
+                (5, \'7354a747-bcc3-4a20-b71e-20085f02a912\', \'BusinessUnit\', \'11bec012-a73f-45c1-8d2e-53502fa58c23\', \'ds_api.api.host\', \'127.0.0.1\', 1, 1, now(), now());
+        ');
+
+        $this->addSql('
+            INSERT INTO 
                 `ds_access` (`id`, `uuid`, `owner`, `owner_uuid`, `identity`, `identity_uuid`, `version`, `created_at`, `updated_at`)
             VALUES 
                 (1, \'488ebf9b-6999-4ca6-9537-1d203222fc09\', \'System\', \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', \'System\', \'df5fd904-aa47-452f-9c4a-d6b52fe5ace4\', 1, now(), now()),
