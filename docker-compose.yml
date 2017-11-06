@@ -36,7 +36,7 @@ services:
             identities_php:
                 condition: service_started
         environment:
-            VIRTUAL_HOST: api.identities.ds
+            - VIRTUAL_HOST
         volumes_from:
             - identities_php
         volumes:
