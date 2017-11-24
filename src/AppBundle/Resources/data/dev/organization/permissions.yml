@@ -1,4 +1,26 @@
-items: []
+items:
+    -
+        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
+        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        key:
+            - organization
+            - organization_uuid
+            - organization_persona
+            - organization_persona_uuid
+            - organization_persona_title
+            - organization_persona_data
+            - organization_persona_version
+        attributes: [BROWSE, READ]
+
+    -
+        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
+        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        key:
+            - organization_persona
+            - organization_persona_title
+            - organization_persona_data
+            - organization_persona_version
+        attributes: [EDIT]
 
 prototype:
     access: ~
