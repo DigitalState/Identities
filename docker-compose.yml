@@ -29,6 +29,8 @@ services:
             SYMFONY_ENV: dev
         volumes:
             - '${DIRECTORY}:/srv/api-platform'
+        links:
+              - db:identities_db
         extra_hosts:
             - 'api.assets.ds:${PROXY_HOST}'
             - 'api.authentication.ds:${PROXY_HOST}'
@@ -56,6 +58,9 @@ services:
             - php
         volumes:
             - '${DIRECTORY}/docker/nginx/conf.d:/etc/nginx/conf.d:ro'
+        links:
+              - php:identities_php
+              - db:identities_db
 
 networks:
     default:
