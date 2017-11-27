@@ -23,6 +23,6 @@ class Organizations extends OrganizationFixture implements OrderedFixtureInterfa
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{env}/organization/identities.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/data/{env}/organization/identities.yml';
     }
 }

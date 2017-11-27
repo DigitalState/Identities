@@ -23,6 +23,6 @@ class Individuals extends IndividualFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{env}/individual/identities.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/data/{env}/individual/identities.yml';
     }
 }

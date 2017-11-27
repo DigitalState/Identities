@@ -23,6 +23,6 @@ class IndividualPersonas extends IndividualPersonaFixture implements OrderedFixt
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{env}/individual/personas.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/data/{env}/individual/personas.yml';
     }
 }

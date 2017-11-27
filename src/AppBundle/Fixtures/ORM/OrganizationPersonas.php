@@ -23,6 +23,6 @@ class OrganizationPersonas extends OrganizationPersonaFixture implements Ordered
      */
     protected function getResource()
     {
-        return __DIR__.'/../../Resources/data/{env}/organization/personas.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/data/{env}/organization/personas.yml';
     }
 }
