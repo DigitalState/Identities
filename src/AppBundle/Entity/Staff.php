@@ -6,6 +6,7 @@ use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
+use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
@@ -42,7 +43,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_staff")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Staff implements Identifiable, Uuidentifiable, Ownable, Deletable, Versionable
+class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -51,6 +52,8 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Deletable, Version
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use EntityAccessor\Identity;
+    use EntityAccessor\IdentityUuid;
     use EntityAccessor\Personas;
     use EntityAccessor\BusinessUnits;
     use Accessor\Deleted;

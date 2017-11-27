@@ -2,10 +2,12 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
+use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
@@ -40,7 +42,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_anonymous")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Anonymous implements Identifiable, Uuidentifiable, Ownable, Deletable, Versionable
+class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -49,6 +51,8 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Deletable, Ver
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use EntityAccessor\Identity;
+    use EntityAccessor\IdentityUuid;
     use Accessor\Deleted;
     use Accessor\Version;
 
