@@ -1,7 +1,7 @@
 items:
     -
         access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
-        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        entity_uuid: 8acf2710-eec3-4a7a-a665-33f77ba424fa # Corporation Management
         key:
             - organization
             - organization_uuid
@@ -14,7 +14,7 @@ items:
 
     -
         access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
-        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        entity_uuid: 8acf2710-eec3-4a7a-a665-33f77ba424fa # Corporation Management
         key:
             - organization_persona
             - organization_persona_title
