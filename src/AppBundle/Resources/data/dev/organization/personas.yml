@@ -7,14 +7,14 @@ items:
         data:
             name: Acme Corporation
             description: The Acme Corporation is a fictional corporation.
-            business_number: 123456
+            businessNumber: 123456
             anniversary: 1999-01-01
             address:
                 street: 90 Wellington St
                 city: Ottawa
                 province: Ontario
                 country: Canada
-                postal_code: K1A 0A4
+                postalCode: K1A 0A4
             phone: 1-888-111-2222
             email: acme@organization
 
