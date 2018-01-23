@@ -2,7 +2,7 @@ items:
     -
         individual: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
         uuid: df67d9d4-0dc1-4393-972a-a659b24ff117
-        owner_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
         identity_uuid: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
         data:
             suffix: Mr
@@ -15,7 +15,7 @@ items:
                 country: Canada
                 postalCode: K1A 0A4
             phone: 1-888-111-2222
-            email: morgan@site.com
+            email: morgan@individual
             birthDate: 1972-01-08
 
 prototype:

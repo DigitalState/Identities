@@ -1,12 +1,11 @@
 items:
     -
         uuid: 974905b2-e725-46ea-b4d6-57f99d9b7ed4
-        owner_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
-        identity_uuid: ~ # Any individual
+        identity_uuid: ~ # Any Individual
 
 prototype:
     uuid: ~
     owner: BusinessUnit
-    owner_uuid: ~
+    owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
     identity: Individual
     identity_uuid: ~

@@ -1,22 +1,29 @@
 items:
     -
-        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
-        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any Individual
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
         key:
             - individual
             - individual_uuid
+            - individual_created_at
             - individual_persona
             - individual_persona_uuid
+            - individual_persona_created_at
             - individual_persona_title
             - individual_persona_data
             - individual_persona_version
         attributes: [BROWSE, READ]
 
     -
-        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any individual
-        entity_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any Individual
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
         key:
             - individual_persona
+        attributes: [EDIT, ADD]
+    -
+        access: 974905b2-e725-46ea-b4d6-57f99d9b7ed4 # Any Individual
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+        key:
             - individual_persona_title
             - individual_persona_data
             - individual_persona_version

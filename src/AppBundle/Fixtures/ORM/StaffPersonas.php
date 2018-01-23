@@ -23,6 +23,6 @@ class StaffPersonas extends StaffPersonaFixture implements OrderedFixtureInterfa
      */
     protected function getResource()
     {
-        return '/srv/api-platform/src/AppBundle/Resources/data/{env}/staff/personas.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/staff/personas.yml';
     }
 }

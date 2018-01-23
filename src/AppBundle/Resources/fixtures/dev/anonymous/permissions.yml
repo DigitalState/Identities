@@ -1,0 +1,23 @@
+items:
+    -
+        access: 18094f29-5ef2-49ad-95c5-96001594f267 # Any Anonymous
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+        key:
+            - anonymous
+            - anonymous_uuid
+            - anonymous_created_at
+            - anonymous_version
+            - anonymous_persona
+            - anonymous_persona_uuid
+            - anonymous_persona_created_at
+            - anonymous_persona_title
+            - anonymous_persona_data
+            - anonymous_persona_version
+        attributes: [BROWSE, READ]
+
+prototype:
+    access: ~
+    entity: BusinessUnit
+    entity_uuid: ~
+    key: ~
+    attributes: []

@@ -1,22 +1,29 @@
 items:
     -
-        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
-        entity_uuid: 8acf2710-eec3-4a7a-a665-33f77ba424fa # Corporation Management
+        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any Organization
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
         key:
             - organization
             - organization_uuid
+            - organization_created_at
             - organization_persona
             - organization_persona_uuid
+            - organization_persona_created_at
             - organization_persona_title
             - organization_persona_data
             - organization_persona_version
         attributes: [BROWSE, READ]
 
     -
-        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any organization
-        entity_uuid: 8acf2710-eec3-4a7a-a665-33f77ba424fa # Corporation Management
+        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any Organization
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
         key:
             - organization_persona
+        attributes: [EDIT, ADD]
+    -
+        access: e5bcd7f3-b9be-46d2-adc1-fe5aeb80d4a0 # Any Organization
+        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+        key:
             - organization_persona_title
             - organization_persona_data
             - organization_persona_version

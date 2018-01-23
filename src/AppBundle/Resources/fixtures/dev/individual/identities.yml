@@ -1,9 +1,8 @@
 items:
     -
         uuid: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
-        owner_uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
 
 prototype:
     uuid: ~
     owner: BusinessUnit
-    owner_uuid: ~
+    owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
