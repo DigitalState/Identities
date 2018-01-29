@@ -1,15 +1,28 @@
 items:
     -
         uuid: e32f09b7-e1cf-4a91-a0e1-6822bf47a662 # Admin
-
+        owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+        business_units:
+            - c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+            - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+            - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
     -
         uuid: 47a5a9cb-496f-4db7-8999-489ec404887f # Manager
+        business_units:
+            - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+            - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
 
     -
         uuid: 9d10157c-f2ce-48fb-a5ab-83faaae952a7 # Agent
+        business_units:
+            - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+            - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
 
     -
         uuid: 71f285ba-f994-444c-b9e5-fa813295a0b7 # Intern
+        business_units:
+            - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+            - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
 
 prototype:
     uuid: ~
