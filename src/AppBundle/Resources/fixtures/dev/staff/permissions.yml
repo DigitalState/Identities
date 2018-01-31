@@ -20,6 +20,7 @@ items:
             - staff_persona
             - staff_persona_property
             - business_unit
+            - business_unit_property
         attributes: [BROWSE, READ]
 
     -
