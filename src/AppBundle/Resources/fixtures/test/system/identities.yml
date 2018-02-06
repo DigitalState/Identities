@@ -1,8 +1,8 @@
 items:
     -
-        uuid: 5386e249-8ad0-45f1-a30e-d5a055cc5993 # System
+        uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
         owner: System
-        owner_uuid: 5386e249-8ad0-45f1-a30e-d5a055cc5993 # System
+        owner_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
 
 prototype:
     uuid: ~

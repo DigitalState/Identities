@@ -5,7 +5,7 @@ Feature: Edit staffs
   I should be able to send api requests related to staffs
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
   @createSchema @loadFixtures
   Scenario: Edit a staff
@@ -14,13 +14,13 @@ Feature: Edit staffs
     And I send a "PUT" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82" with body:
     """
     {
-      "ownerUuid": "eb7e015e-d9bc-444c-8dda-aac786abdd74"
+      "ownerUuid": "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
     }
     """
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "eb7e015e-d9bc-444c-8dda-aac786abdd74"
+    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
 
   Scenario: Confirm the edited staff
     When I add "Accept" header equal to "application/json"
@@ -28,7 +28,7 @@ Feature: Edit staffs
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "eb7e015e-d9bc-444c-8dda-aac786abdd74"
+    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
 
   Scenario: Edit a staff's read-only properties
     When I add "Accept" header equal to "application/json"

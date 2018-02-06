@@ -5,7 +5,7 @@ Feature: Edit organizations
   I should be able to send api requests related to organizations
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
   @createSchema @loadFixtures
   Scenario: Edit a organization
@@ -14,13 +14,13 @@ Feature: Edit organizations
     And I send a "PUT" request to "/organizations/a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3" with body:
     """
     {
-      "ownerUuid": "8cdbf6e7-5f90-4ae1-b86e-57a3890a38fa"
+      "ownerUuid": "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
     }
     """
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "8cdbf6e7-5f90-4ae1-b86e-57a3890a38fa"
+    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
 
   Scenario: Confirm the edited organization
     When I add "Accept" header equal to "application/json"
@@ -28,7 +28,7 @@ Feature: Edit organizations
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "8cdbf6e7-5f90-4ae1-b86e-57a3890a38fa"
+    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
 
   Scenario: Edit a organization's read-only properties
     When I add "Accept" header equal to "application/json"

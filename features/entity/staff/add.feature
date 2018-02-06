@@ -5,9 +5,9 @@ Feature: Add staffs
   I should be able to send api requests related to staffs
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
-  @createSchema @loadFixtures @dropSchema
+  @createSchema @loadFixtures
   Scenario: Add an staff
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
@@ -15,7 +15,7 @@ Feature: Add staffs
     """
     {
       "owner": "BusinessUnit",
-      "ownerUuid": "d5de44e0-d727-4f69-a8b3-c3afbf75eda3",
+      "ownerUuid": "83bf8f26-7181-4bed-92f3-3ce5e4c286d7",
       "version": 1
     }
     """
@@ -32,6 +32,16 @@ Feature: Add staffs
     And the JSON node "owner" should exist
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should exist
-    And the JSON node "ownerUuid" should be equal to the string "d5de44e0-d727-4f69-a8b3-c3afbf75eda3"
+    And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1
+
+  @dropSchema
+  Scenario: Read the added data
+    When I add "Accept" header equal to "application/json"
+    And I send a "GET" request to "/staffs?id=2"
+    Then the response status code should be 200
+    And the header "Content-Type" should be equal to "application/json; charset=utf-8"
+    And the response should be in JSON
+    And the response should be a collection
+    And the response collection should count 1 items

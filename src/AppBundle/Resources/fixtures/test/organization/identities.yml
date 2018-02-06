@@ -1,7 +1,7 @@
 items:
     -
         uuid: a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3 # Acme
-        owner_uuid: 490ca57a-c944-49a8-9586-ca402ac1bbdb # Corporation Management
+        owner_uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
 
 prototype:
     uuid: ~

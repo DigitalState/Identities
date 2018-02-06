@@ -5,11 +5,24 @@ Feature: Delete individuals
   I should be able to send api requests related to individuals
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
-  @createSchema @loadFixtures @dropSchema
+  @createSchema @loadFixtures
   Scenario: Delete an individual
     When I add "Accept" header equal to "application/json"
-    And I send a "DELETE" request to "/individuals/605289e0-9371-42d4-b9fe-5308c348a6a4"
+    And I send a "DELETE" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     Then the response status code should be 204
     And the response should be empty
+
+  Scenario: Read the deleted individual
+    When I add "Accept" header equal to "application/json"
+    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
+    Then the response status code should be 404
+    And the header "Content-Type" should be equal to "application/problem+json; charset=utf-8"
+
+  @dropSchema
+  Scenario: Delete a deleted individual
+    When I add "Accept" header equal to "application/json"
+    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
+    Then the response status code should be 404
+    And the header "Content-Type" should be equal to "application/problem+json; charset=utf-8"

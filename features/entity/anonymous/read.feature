@@ -5,7 +5,7 @@ Feature: Read anonymouses
   I should be able to send api requests related to anonymouses
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Read a anonymous
@@ -25,6 +25,6 @@ Feature: Read anonymouses
     And the JSON node "owner" should exist
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should exist
-    And the JSON node "ownerUuid" should be equal to the string "a8357843-470d-4e3a-8014-5fec0306e017"
+    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1

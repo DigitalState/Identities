@@ -5,7 +5,7 @@ Feature: Read organizations
   I should be able to send api requests related to organizations
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Read a organization
@@ -25,6 +25,6 @@ Feature: Read organizations
     And the JSON node "owner" should exist
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should exist
-    And the JSON node "ownerUuid" should be equal to the string "490ca57a-c944-49a8-9586-ca402ac1bbdb"
+    And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1

@@ -5,7 +5,7 @@ Feature: Edit anonymouses
   I should be able to send api requests related to anonymouses
 
   Background:
-    Given I am authenticated as a "system" identity
+    Given I am authenticated as the "system" identity
 
   @createSchema @loadFixtures
   Scenario: Edit a anonymous
@@ -14,13 +14,13 @@ Feature: Edit anonymouses
     And I send a "PUT" request to "/anonymouses/73aab537-f174-4bf9-b986-afedbb23b7bc" with body:
     """
     {
-      "ownerUuid": "089b0cd7-b4cb-496c-b41f-e5522f5db526"
+      "ownerUuid": "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     }
     """
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "089b0cd7-b4cb-496c-b41f-e5522f5db526"
+    And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
 
   Scenario: Confirm the edited anonymous
     When I add "Accept" header equal to "application/json"
@@ -28,7 +28,7 @@ Feature: Edit anonymouses
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
-    And the JSON node "ownerUuid" should be equal to the string "089b0cd7-b4cb-496c-b41f-e5522f5db526"
+    And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
 
   Scenario: Edit a anonymous's read-only properties
     When I add "Accept" header equal to "application/json"
