@@ -8,6 +8,7 @@ use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
+use Ds\Component\Security\Model\Type\Secured;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -39,7 +40,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_system")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versionable
+class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versionable, Secured
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;

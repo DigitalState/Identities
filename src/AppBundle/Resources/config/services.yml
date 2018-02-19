@@ -34,6 +34,14 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
 
+    app.service.role:
+        class: AppBundle\Service\RoleService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@ds_security.service.access'
+            - '@ds_security.service.permission'
+            - '@ds_api.api'
+
     app.service.staff:
         class: AppBundle\Service\StaffService
         arguments:

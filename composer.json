@@ -29,7 +29,8 @@
         "phpdocumentor/reflection-docblock": "^3.0",
         "knplabs/doctrine-behaviors": "~1.1",
         "dunglas/doctrine-json-odm": "0.1.1",
-        "digitalstate/core": "dev-develop"
+        "digitalstate/core": "dev-develop",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "api-platform/schema-generator": "^1.2",

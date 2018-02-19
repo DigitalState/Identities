@@ -1,0 +1,7 @@
+services:
+    app.validator.constraints.role.permissions.valid:
+        class: AppBundle\Validator\Constraints\Role\Permissions\ValidValidator
+        arguments:
+            - '@ds_api.api'
+        tags:
+            - { name: validator.constraint_validator }

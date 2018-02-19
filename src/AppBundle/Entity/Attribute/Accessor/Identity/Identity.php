@@ -1,8 +1,6 @@
 <?php
 
-namespace AppBundle\Entity\Attribute\Accessor;
-
-use LogicException;
+namespace AppBundle\Entity\Attribute\Accessor\Identity;
 
 /**
  * Trait Identity
@@ -14,11 +12,9 @@ trait Identity
      *
      * @param string $identity
      * @return object
-     * @throws \LogicException
      */
     public function setIdentity($identity)
     {
-        throw new LogicException('Method call not allowed.');
     }
 
     /**

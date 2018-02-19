@@ -1,4 +1,53 @@
 services:
+    app.filter.anonymous.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous.search }
+
+    app.filter.anonymous.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous.date }
+
+    app.filter.anonymous.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous.order }
+
+    app.filter.anonymous_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous_persona.search }
+
+    app.filter.anonymous_persona.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            - { title: partial }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous_persona.search_translation }
+
+    app.filter.anonymous_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous_persona.date }
+
+    app.filter.anonymous_persona.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.anonymous_persona.order }
+
     app.filter.business_unit.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
@@ -27,80 +76,10 @@ services:
         tags:
             - { name: api_platform.filter, id: app.business_unit.order }
 
-    app.filter.system.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.system.search }
-
-    app.filter.system.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.system.date }
-
-    app.filter.system.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.system.order }
-
-    app.filter.staff.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.staff.search }
-
-    app.filter.staff.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.staff.date }
-
-    app.filter.staff.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.staff.order }
-
-    app.filter.staff_persona.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, staff.uuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.staff_persona.search }
-
-    app.filter.staff_persona.search_translation:
-        parent: ds_translation.doctrine.orm.filter.search
-        arguments:
-            - { title: partial }
-        tags:
-            - { name: api_platform.filter, id: app.staff_persona.search_translation }
-
-    app.filter.staff_persona.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.staff_persona.date }
-
-    app.filter.staff_persona.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.staff_persona.order }
-
     app.filter.individual.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact }
         tags:
             - { name: api_platform.filter, id: app.individual.search }
 
@@ -114,14 +93,14 @@ services:
     app.filter.individual.order:
         parent: api_platform.doctrine.orm.order_filter
         arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
         tags:
             - { name: api_platform.filter, id: app.individual.order }
 
     app.filter.individual_persona.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, individual.uuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact, individual.uuid: exact }
         tags:
             - { name: api_platform.filter, id: app.individual_persona.search }
 
@@ -142,63 +121,14 @@ services:
     app.filter.individual_persona.order:
         parent: api_platform.doctrine.orm.order_filter
         arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
         tags:
             - { name: api_platform.filter, id: app.individual_persona.order }
-
-    app.filter.anonymous.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous.search }
-
-    app.filter.anonymous.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous.date }
-
-    app.filter.anonymous.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous.order }
-
-    app.filter.anonymous_persona.search:
-        parent: api_platform.doctrine.orm.search_filter
-        arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous_persona.search }
-
-    app.filter.anonymous_persona.search_translation:
-        parent: ds_translation.doctrine.orm.filter.search
-        arguments:
-            - { title: partial }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous_persona.search_translation }
-
-    app.filter.anonymous_persona.date:
-        parent: api_platform.doctrine.orm.date_filter
-        arguments:
-            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous_persona.date }
-
-    app.filter.anonymous_persona.order:
-        parent: api_platform.doctrine.orm.order_filter
-        arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
-        tags:
-            - { name: api_platform.filter, id: app.anonymous_persona.order }
 
     app.filter.organization.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact }
         tags:
             - { name: api_platform.filter, id: app.organization.search }
 
@@ -212,14 +142,14 @@ services:
     app.filter.organization.order:
         parent: api_platform.doctrine.orm.order_filter
         arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
         tags:
             - { name: api_platform.filter, id: app.organization.order }
 
     app.filter.organization_persona.search:
         parent: api_platform.doctrine.orm.search_filter
         arguments:
-            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, organization.uuid: exact }
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact, organization.uuid: exact }
         tags:
             - { name: api_platform.filter, id: app.organization_persona.search }
 
@@ -240,6 +170,104 @@ services:
     app.filter.organization_persona.order:
         parent: api_platform.doctrine.orm.order_filter
         arguments:
-            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
         tags:
             - { name: api_platform.filter, id: app.organization_persona.order }
+
+    app.filter.role.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.role.search }
+
+    app.filter.role.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            - { title: partial }
+        tags:
+            - { name: api_platform.filter, id: app.role.search_translation }
+
+    app.filter.role.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.role.date }
+
+    app.filter.role.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.role.order }
+
+    app.filter.staff.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.staff.search }
+
+    app.filter.staff.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.staff.date }
+
+    app.filter.staff.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.staff.order }
+
+    app.filter.staff_persona.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact, possessor: exact, possessorUuid: exact, staff.uuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.staff_persona.search }
+
+    app.filter.staff_persona.search_translation:
+        parent: ds_translation.doctrine.orm.filter.search
+        arguments:
+            - { title: partial }
+        tags:
+            - { name: api_platform.filter, id: app.staff_persona.search_translation }
+
+    app.filter.staff_persona.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.staff_persona.date }
+
+    app.filter.staff_persona.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~, possessor: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.staff_persona.order }
+
+    app.filter.system.search:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - { id: exact, uuid: exact, owner: exact, ownerUuid: exact }
+        tags:
+            - { name: api_platform.filter, id: app.system.search }
+
+    app.filter.system.date:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - { createdAt: ~, updatedAt: ~, deletedAt: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.system.date }
+
+    app.filter.system.order:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - { id: ~, createdAt: ~, updatedAt: ~, deletedAt: ~, owner: ~ }
+        tags:
+            - { name: api_platform.filter, id: app.system.order }

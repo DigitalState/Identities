@@ -26,8 +26,6 @@ abstract class OrganizationPersonaFixture extends ResourceFixture
                 ->setUuid($organizationPersona['uuid'])
                 ->setOwner($organizationPersona['owner'])
                 ->setOwnerUuid($organizationPersona['owner_uuid'])
-                ->setIdentity($organizationPersona['identity'])
-                ->setIdentityUuid($organizationPersona['identity_uuid'])
                 ->setTitle($organizationPersona['title'])
                 ->setData($organizationPersona['data']);
             $manager->persist($entity);

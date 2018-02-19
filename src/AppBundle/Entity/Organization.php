@@ -11,6 +11,7 @@ use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
+use Ds\Component\Security\Model\Type\Secured;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -42,7 +43,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_organization")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable
+class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Secured
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -51,8 +52,8 @@ class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiabl
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
-    use EntityAccessor\Identity;
-    use EntityAccessor\IdentityUuid;
+    use EntityAccessor\Identity\Identity;
+    use EntityAccessor\Identity\IdentityUuid;
     use EntityAccessor\Personas;
     use Accessor\Deleted;
     use Accessor\Version;

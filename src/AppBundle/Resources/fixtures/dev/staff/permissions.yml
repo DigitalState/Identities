@@ -1,81 +1,9 @@
-items:
-    -
-        access: 75b9bd2a-9c25-4e65-8743-0a153bffb151 # Any Staff
-        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-        key:
-            - anonymous
-            - anonymous_property
-            - anonymous_persona
-            - anonymous_persona_property
-            - individual
-            - individual_property
-            - individual_persona
-            - individual_persona_property
-            - organization
-            - organization_property
-            - organization_persona
-            - organization_persona_property
-            - staff
-            - staff_property
-            - staff_persona
-            - staff_persona_property
-            - business_unit
-            - business_unit_property
-        attributes: [BROWSE, READ]
-
-    -
-        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
-        entity_uuid: ~ # Any BusinessUnit
-        key: entity
-        attributes: [BROWSE, READ, EDIT, ADD, DELETE]
-
-    -
-        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
-        entity_uuid: ~ # Any BusinessUnit
-        key: property
-        attributes: [BROWSE, READ, EDIT]
-
-    -
-        access: 3bb7d8c8-8fb8-4c0b-bad9-b643485d6ffa # Admin
-        entity_uuid: ~ # Any BusinessUnit
-        key: custom
-        attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
-
-    -
-        access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-        key:
-            - anonymous
-            - individual
-            - organization
-            - staff
-        attributes: [EDIT, ADD, DELETE]
-
-    -
-        access: dd1502c4-7459-404d-ac49-b0f7a5028d2a # Manager
-        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-        key:
-            - anonymous_property
-            - individual_property
-            - organization_property
-            - staff_property
-        attributes: [EDIT]
-
-    -
-        access: 7d3dff90-f8a4-463b-9860-3affa3d37522 # Agent
-        entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-        key:
-            - anonymous
-            - anonymous_property
-            - individual
-            - individual_property
-            - organization
-            - organization_property
-        attributes: [EDIT]
+items: []
 
 prototype:
     access: ~
-    entity: BusinessUnit
+    scope: ~
+    entity: ~
     entity_uuid: ~
     key: ~
     attributes: []

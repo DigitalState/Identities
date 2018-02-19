@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Ds\Component\Locale\Model\Type\Localizable;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
@@ -10,6 +11,7 @@ use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
+use Ds\Component\Security\Model\Type\Secured;
 use Ds\Component\Translation\Model\Attribute\Accessor as TranslationAccessor;
 use Ds\Component\Translation\Model\Type\Translatable;
 use Knp\DoctrineBehaviors\Model as Behavior;
@@ -26,7 +28,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class Persona
  */
-class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable
+class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable, Secured
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -36,8 +38,8 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Tr
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
-    use Accessor\Identity;
-    use Accessor\IdentityUuid;
+    use EntityAccessor\Persona\Identity;
+    use EntityAccessor\Persona\IdentityUuid;
     use TranslationAccessor\Title;
     use Accessor\Data;
     use Accessor\Deleted;
@@ -101,27 +103,6 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Tr
      * @Assert\Uuid
      */
     protected $ownerUuid;
-
-
-    /**
-     * @var string
-     * @ApiProperty
-     * @Serializer\Groups({"persona_output", "persona_input"})
-     * @ORM\Column(name="identity", type="string", length=255, nullable=true)
-     * @Assert\NotBlank
-     * @Assert\Length(min=1, max=255)
-     */
-    protected $identity;
-
-    /**
-     * @var string
-     * @ApiProperty
-     * @Serializer\Groups({"persona_output", "persona_input"})
-     * @ORM\Column(name="identity_uuid", type="guid", nullable=true)
-     * @Assert\NotBlank
-     * @Assert\Uuid
-     */
-    protected $identityUuid;
 
     /**
      * @var array

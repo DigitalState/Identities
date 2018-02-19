@@ -3,10 +3,8 @@ items: []
 prototype:
     anonymous: ~
     uuid: ~
-    owner: BusinessUnit
+    owner: ~
     owner_uuid: ~
-    identity: Anonymous
-    identity_uuid: ~
     title:
         en: Default
         fr: Défaut

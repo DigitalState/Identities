@@ -26,8 +26,6 @@ abstract class IndividualPersonaFixture extends ResourceFixture
                 ->setUuid($individualPersona['uuid'])
                 ->setOwner($individualPersona['owner'])
                 ->setOwnerUuid($individualPersona['owner_uuid'])
-                ->setIdentity($individualPersona['identity'])
-                ->setIdentityUuid($individualPersona['identity_uuid'])
                 ->setTitle($individualPersona['title'])
                 ->setData($individualPersona['data']);
             $manager->persist($entity);

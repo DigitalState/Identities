@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity\Attribute\Accessor;
+namespace AppBundle\Entity\Attribute\Accessor\Persona;
 
 use LogicException;
 
@@ -28,6 +28,8 @@ trait IdentityUuid
      */
     public function getIdentityUuid()
     {
-        return $this->uuid;
+        $identity = substr(basename(str_replace('\\', '/', get_class($this))), 0, -7);
+
+        return $this->{'get'.$identity}()->getIdentityUuid();
     }
 }

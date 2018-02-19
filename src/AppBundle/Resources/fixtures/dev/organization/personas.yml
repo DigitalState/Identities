@@ -3,7 +3,6 @@ items:
         organization: c9599da5-35a8-494c-9181-975d78be9694 # Acme
         uuid: 1b23a845-873a-4e74-b086-497f06d34930
         owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-        identity_uuid: c9599da5-35a8-494c-9181-975d78be9694 # Acme
         data:
             name: Acme Corporation
             description: The Acme Corporation is a fictional corporation.
@@ -23,8 +22,6 @@ prototype:
     uuid: ~
     owner: BusinessUnit
     owner_uuid: ~
-    identity: Organization
-    identity_uuid: ~
     title:
         en: Default
         fr: Défaut
