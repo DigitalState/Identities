@@ -1,16 +1,16 @@
 items:
     -
-        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        access: 71d3cc4a-a4e5-4a89-8611-c811f6e88fee # System
         key: entity
         attributes: [BROWSE, READ, EDIT, ADD, DELETE]
 
     -
-        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        access: 71d3cc4a-a4e5-4a89-8611-c811f6e88fee # System
         key: property
         attributes: [BROWSE, READ, EDIT]
 
     -
-        access: 3e45abc2-cda2-4066-b8ce-442804c1d05b # System
+        access: 71d3cc4a-a4e5-4a89-8611-c811f6e88fee # System
         key: generic
         attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
 
