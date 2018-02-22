@@ -23,8 +23,8 @@ Feature: Read anonymouses
     And the JSON node "deletedAt" should exist
     And the JSON node "deletedAt" should be null
     And the JSON node "owner" should exist
-    And the JSON node "owner" should be equal to the string "BusinessUnit"
+    And the JSON node "owner" should be equal to the string "System"
     And the JSON node "ownerUuid" should exist
-    And the JSON node "ownerUuid" should be equal to the string "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
+    And the JSON node "ownerUuid" should be equal to the string "aa18b644-a503-49fa-8f53-10f4c1f8e3a1"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1
