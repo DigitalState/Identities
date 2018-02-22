@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Attribute\Accessor;
+use Ds\Component\Security\Model\Type\Secured;
 use Knp\DoctrineBehaviors\Model as Behavior;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -35,7 +36,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_anonymous_persona")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class AnonymousPersona extends Persona
+class AnonymousPersona extends Persona implements Secured
 {
     // This behavior must be included at the same level as the child class.
     use Behavior\Translatable\Translatable;

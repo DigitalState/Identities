@@ -11,7 +11,6 @@ use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
-use Ds\Component\Security\Model\Type\Secured;
 use Ds\Component\Translation\Model\Attribute\Accessor as TranslationAccessor;
 use Ds\Component\Translation\Model\Type\Translatable;
 use Knp\DoctrineBehaviors\Model as Behavior;
@@ -28,7 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class Persona
  */
-class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable, Secured
+class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
