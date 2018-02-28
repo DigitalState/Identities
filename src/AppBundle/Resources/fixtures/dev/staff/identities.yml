@@ -13,13 +13,7 @@ items:
             - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
 
     -
-        uuid: 9d10157c-f2ce-48fb-a5ab-83faaae952a7 # Agent
-        business_units:
-            - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
-            - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
-
-    -
-        uuid: 71f285ba-f994-444c-b9e5-fa813295a0b7 # Intern
+        uuid: 5449ce65-5df0-440d-aead-21a77907e59a # Agent
         business_units:
             - a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
             - b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
