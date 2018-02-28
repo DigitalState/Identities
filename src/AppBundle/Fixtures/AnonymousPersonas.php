@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\Fixtures\ORM;
+namespace AppBundle\Fixtures;
 
-use AppBundle\Fixture\ORM\AnonymousPersonaFixture;
+use AppBundle\Fixture\AnonymousPersonaFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**

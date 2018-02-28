@@ -24,56 +24,6 @@ items:
         key: ds_api.user.identity_uuid
         value: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
 
-    -
-        uuid: 42fdc62b-e564-480f-b41a-a3e028a5ba9c
-        key: ds_api.api.assets.host
-        value: http://api.assets.ds
-
-    -
-        uuid: 13b46350-b9d1-46cf-96ab-e9870db8a14b
-        key: ds_api.api.authentication.host
-        value: http://api.authentication.ds
-
-    -
-        uuid: 56b44983-1b15-4daf-af74-053da7ef60c3
-        key: ds_api.api.camunda.host
-        value: http://api.camunda.ds/engine-rest
-
-    -
-        uuid: 5294521b-b320-482d-a9fb-807e78248686
-        key: ds_api.api.cases.host
-        value: http://api.cases.ds
-
-    -
-        uuid: 0ee47afb-da22-4532-9f99-5bd6c7c0bef6
-        key: ds_api.api.cms.host
-        value: http://api.cms.ds
-
-    -
-        uuid: b2da2ee9-aff3-46b9-813a-687869aab1c4
-        key: ds_api.api.formio.host
-        value: http://api.formio.ds
-
-    -
-        uuid: 6ce7d184-f88f-4f17-a8ba-63d8b6eafa6b
-        key: ds_api.api.identities.host
-        value: http://api.identities.ds
-
-    -
-        uuid: ee0f7cce-f7fc-4b14-a640-4ff8a7434ba3
-        key: ds_api.api.records.host
-        value: http://api.records.ds
-
-    -
-        uuid: 41a6d91f-6c4f-4277-b825-9b4b7ec40764
-        key: ds_api.api.services.host
-        value: http://api.services.ds
-
-    -
-        uuid: 0c5f3b43-3bd1-4ce9-ad6a-56cf4fed463d
-        key: ds_api.api.tasks.host
-        value: http://api.tasks.ds
-
 prototype:
     uuid: ~
     owner: BusinessUnit
