@@ -15,7 +15,7 @@ items:
                 country: Canada
                 postalCode: K1A 0A4
             phone: 1-888-111-2222
-            email: acme@organization
+            email: acme@organization.ds
 
 prototype:
     individual: ~

@@ -14,7 +14,7 @@ items:
                 country: Canada
                 postalCode: K1A 0A4
             phone: 1-888-111-2222
-            email: morgan@individual
+            email: morgan@individual.ds
             birthDate: 1972-01-08
 
     -
@@ -32,7 +32,7 @@ items:
                 country: Canada
                 postalCode: K1A 0J1
             phone: 1-888-333-4444
-            email: taylor@individual
+            email: taylor@individual.ds
             birthDate: 1976-02-02
 
 prototype:
