@@ -23,6 +23,6 @@ class OrganizationPersonas extends OrganizationPersonaFixture implements Ordered
      */
     protected function getResource()
     {
-        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/organization/personas.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/identity/organization/personas.yml';
     }
 }

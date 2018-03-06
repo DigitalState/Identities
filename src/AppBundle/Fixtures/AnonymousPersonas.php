@@ -23,6 +23,6 @@ class AnonymousPersonas extends AnonymousPersonaFixture implements OrderedFixtur
      */
     protected function getResource()
     {
-        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/anonymous/personas.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/identity/anonymous/personas.yml';
     }
 }

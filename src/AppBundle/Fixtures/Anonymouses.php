@@ -23,6 +23,6 @@ class Anonymouses extends AnonymousFixture implements OrderedFixtureInterface
      */
     protected function getResource()
     {
-        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/anonymous/identities.yml';
+        return '/srv/api-platform/src/AppBundle/Resources/fixtures/{env}/identity/anonymous/identities.yml';
     }
 }
