@@ -41,6 +41,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AnonymousRepository")
  * @ORM\Table(name="app_anonymous")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
 class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Secured
@@ -122,6 +123,7 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, 
      * @ApiProperty(writable=false)
      * @Serializer\Groups({"anonymous_output"})
      * @ORM\OneToMany(targetEntity="AnonymousPersona", mappedBy="anonymous", cascade={"persist", "remove"})
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $personas;
 

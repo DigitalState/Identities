@@ -34,6 +34,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\IndividualPersonaRepository")
  * @ORM\Table(name="app_individual_persona")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
 class IndividualPersona extends Persona implements Secured
@@ -49,6 +50,7 @@ class IndividualPersona extends Persona implements Secured
      * @Serializer\Groups({"persona_output", "persona_input"})
      * @ORM\ManyToOne(targetEntity="Individual", inversedBy="personas")
      * @ORM\JoinColumn(name="individual_id", referencedColumnName="id")
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      * @Assert\Valid
      */
     protected $individual;

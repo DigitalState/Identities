@@ -41,6 +41,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\IndividualRepository")
  * @ORM\Table(name="app_individual")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
 class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Secured
@@ -123,6 +124,7 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
      * @ApiProperty(writable=false)
      * @Serializer\Groups({"individual_output"})
      * @ORM\OneToMany(targetEntity="IndividualPersona", mappedBy="individual", cascade={"persist", "remove"})
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $personas;
 

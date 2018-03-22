@@ -46,6 +46,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BusinessUnitRepository")
  * @ORM\Table(name="app_bu")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
 class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable, Secured
@@ -143,6 +144,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
      * @ORM\ManyToMany(targetEntity="Staff", mappedBy="businessUnits")
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $staffs;
 
@@ -150,6 +152,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty(writable=false)
      * @ORM\ManyToMany(targetEntity="Individual", mappedBy="businessUnits")
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $individuals;
 

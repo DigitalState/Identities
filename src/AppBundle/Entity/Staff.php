@@ -42,6 +42,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\StaffRepository")
  * @ORM\Table(name="app_staff")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
 class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Secured
@@ -125,6 +126,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
      * @ApiProperty(writable=false)
      * @Serializer\Groups({"staff_output"})
      * @ORM\OneToMany(targetEntity="StaffPersona", mappedBy="staff", cascade={"persist", "remove"})
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $personas;
 
@@ -142,6 +144,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
      *         @ORM\JoinColumn(name="bu_id", referencedColumnName="id")
      *     }
      * )
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     protected $businessUnits;
 
