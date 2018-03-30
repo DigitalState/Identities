@@ -35,6 +35,7 @@ class AppExtension extends Extension implements PrependExtensionInterface
         $loader->load('event_listeners.yml');
         $loader->load('repositories.yml');
         $loader->load('services.yml');
+        $loader->load('stats.yml');
         $loader->load('validators.yml');
     }
 }

@@ -1,0 +1,28 @@
+services:
+    app.stat.anonymous.count:
+        class: AppBundle\Stat\Anonymous\CountStat
+        arguments:
+            - '@app.service.anonymous'
+        tags:
+            - { name: ds_statistic.stat, alias: anonymous.count }
+
+    app.stat.individual.count:
+        class: AppBundle\Stat\Individual\CountStat
+        arguments:
+            - '@app.service.individual'
+        tags:
+            - { name: ds_statistic.stat, alias: individual.count }
+
+    app.stat.organization.count:
+        class: AppBundle\Stat\Organization\CountStat
+        arguments:
+            - '@app.service.organization'
+        tags:
+            - { name: ds_statistic.stat, alias: organization.count }
+
+    app.stat.staff.count:
+        class: AppBundle\Stat\Staff\CountStat
+        arguments:
+            - '@app.service.staff'
+        tags:
+            - { name: ds_statistic.stat, alias: staff.count }
