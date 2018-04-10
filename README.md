@@ -12,6 +12,7 @@ The DigitalState Identities microservice provides the storage and control for Go
 The identities microservice does not contain any authentication mechanism for logging in as a Individual, Organization or Staff.  All Authentication activities are preforms by the [DigitalState Authentication Microservice](https://github.com/DigitalState/Authentication)
 
 [![Build Status](https://travis-ci.org/DigitalState/Identities.svg?branch=develop)](https://travis-ci.org/DigitalState/Identities)
+[![Coverage Status](https://coveralls.io/repos/github/DigitalState/Identities/badge.svg?branch=develop)](https://coveralls.io/github/DigitalState/Identities?branch=develop)
 
 ## Table of Contents
 
