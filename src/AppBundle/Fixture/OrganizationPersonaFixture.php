@@ -17,26 +17,19 @@ abstract class OrganizationPersonaFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $organizationPersonas = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($organizationPersonas as $organizationPersona) {
-            $entity = new OrganizationPersona;
-            $entity
-                ->setOrganization($manager->getRepository(Organization::class)->findOneBy(['uuid' => $organizationPersona['organization']]))
-                ->setUuid($organizationPersona['uuid'])
-                ->setOwner($organizationPersona['owner'])
-                ->setOwnerUuid($organizationPersona['owner_uuid'])
-                ->setTitle($organizationPersona['title'])
-                ->setData($organizationPersona['data']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $organizationPersona = new OrganizationPersona;
+            $organizationPersona
+                ->setOrganization($manager->getRepository(Organization::class)->findOneBy(['uuid' => $object->organization]))
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTitle((array) $object->title)
+                ->setData((array) $object->data);
+            $manager->persist($organizationPersona);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

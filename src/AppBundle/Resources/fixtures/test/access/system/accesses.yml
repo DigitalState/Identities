@@ -1,12 +1,11 @@
-items:
-    -
-        uuid: 71d3cc4a-a4e5-4a89-8611-c811f6e88fee
-        owner_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
-        assignee_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
+fixtures:
+  - uuid: 71d3cc4a-a4e5-4a89-8611-c811f6e88fee
+    owner_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
+    assignee_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
 
 prototype:
-    uuid: ~
-    owner: System
-    owner_uuid: ~
-    assignee: System
-    assignee_uuid: ~
+  uuid: ~
+  owner: System
+  owner_uuid: ~
+  assignee: System
+  assignee_uuid: ~

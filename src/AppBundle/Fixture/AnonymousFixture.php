@@ -16,23 +16,16 @@ abstract class AnonymousFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $anonymouses = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($anonymouses as $anonymous) {
-            $entity = new Anonymous;
-            $entity
-                ->setUuid($anonymous['uuid'])
-                ->setOwner($anonymous['owner'])
-                ->setOwnerUuid($anonymous['owner_uuid']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $anonymous = new Anonymous;
+            $anonymous
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid);
+            $manager->persist($anonymous);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

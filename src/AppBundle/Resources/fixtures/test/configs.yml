@@ -1,38 +1,32 @@
-items:
-    -
-        uuid: 4929eeb7-fb76-480f-9bee-599bc94b2787
-        key: ds_api.user.username
-        value: system@system.ds
+fixtures:
+  - uuid: 4929eeb7-fb76-480f-9bee-599bc94b2787
+    key: ds_api.user.username
+    value: system@system.ds
 
-    -
-        uuid: 45d30b83-5691-40b6-9a97-9ba2208dcbca
-        key: ds_api.user.password
-        value: system
+  - uuid: 45d30b83-5691-40b6-9a97-9ba2208dcbca
+    key: ds_api.user.password
+    value: system
 
-    -
-        uuid: a6584fc3-7aac-4734-9053-1c257f015e5d
-        key: ds_api.user.uuid
-        value: 85726ec8-7685-4655-ac91-4746ae71c2cc # System
+  - uuid: a6584fc3-7aac-4734-9053-1c257f015e5d
+    key: ds_api.user.uuid
+    value: 85726ec8-7685-4655-ac91-4746ae71c2cc # System
 
-    -
-        uuid: 71e507c2-8562-4713-a7ec-28582b07c5cc
-        key: ds_api.user.roles
-        value: ROLE_SYSTEM
+  - uuid: 71e507c2-8562-4713-a7ec-28582b07c5cc
+    key: ds_api.user.roles
+    value: ROLE_SYSTEM
 
-    -
-        uuid: 7cf5bc76-7b1b-407e-b628-86a27cfd554f
-        key: ds_api.user.identity
-        value: System
+  - uuid: 7cf5bc76-7b1b-407e-b628-86a27cfd554f
+    key: ds_api.user.identity
+    value: System
 
-    -
-        uuid: 12b0d3c0-f8b1-4b13-8be4-4d5836485b33
-        key: ds_api.user.identity_uuid
-        value: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
+  - uuid: 12b0d3c0-f8b1-4b13-8be4-4d5836485b33
+    key: ds_api.user.identity_uuid
+    value: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
 
 prototype:
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
-    key: ~
-    value: ~
-    enabled: true
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+  key: ~
+  value: ~
+  enabled: true

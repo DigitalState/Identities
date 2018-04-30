@@ -1,11 +1,11 @@
-items: []
+fixtures: []
 
 prototype:
-    individual: ~
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: ~
-    title:
-        en: Default
-        fr: Défaut
-    data: []
+  individual: ~
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: ~
+  title:
+    en: Default
+    fr: Défaut
+  data: {}

@@ -17,26 +17,19 @@ abstract class StaffPersonaFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $staffPersonas = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($staffPersonas as $staffPersona) {
-            $entity = new StaffPersona;
-            $entity
-                ->setStaff($manager->getRepository(Staff::class)->findOneBy(['uuid' => $staffPersona['staff']]))
-                ->setUuid($staffPersona['uuid'])
-                ->setOwner($staffPersona['owner'])
-                ->setOwnerUuid($staffPersona['owner_uuid'])
-                ->setTitle($staffPersona['title'])
-                ->setData($staffPersona['data']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $staffPersona = new StaffPersona;
+            $staffPersona
+                ->setStaff($manager->getRepository(Staff::class)->findOneBy(['uuid' => $object->staff]))
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTitle((array) $object->title)
+                ->setData((array) $object->data);
+            $manager->persist($staffPersona);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

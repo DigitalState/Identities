@@ -16,25 +16,18 @@ abstract class RoleFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $roles = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($roles as $role) {
-            $entity = new Role;
-            $entity
-                ->setUuid($role['uuid'])
-                ->setOwner($role['owner'])
-                ->setOwnerUuid($role['owner_uuid'])
-                ->setTitle($role['title'])
-                ->setPermissions($role['permissions']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $role = new Role;
+            $role
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTitle((array) $object->title)
+                ->setPermissions((array) $object->permissions);
+            $manager->persist($role);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

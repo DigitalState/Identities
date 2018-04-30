@@ -1,9 +1,8 @@
-items:
-    -
-        uuid: 9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42 # Morgan
-        owner_uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
+fixtures:
+  - uuid: 9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42 # Morgan
+    owner_uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
 
 prototype:
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: ~
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: ~

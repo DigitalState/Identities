@@ -1,9 +1,8 @@
-items:
-    -
-        uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
-        owner_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
+fixtures:
+  - uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
+    owner_uuid: aa18b644-a503-49fa-8f53-10f4c1f8e3a1 # System
 
 prototype:
-    uuid: ~
-    owner: System
-    owner_uuid: ~
+  uuid: ~
+  owner: System
+  owner_uuid: ~

@@ -16,23 +16,16 @@ abstract class SystemFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $systems = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($systems as $system) {
-            $entity = new System;
-            $entity
-                ->setUuid($system['uuid'])
-                ->setOwner($system['owner'])
-                ->setOwnerUuid($system['owner_uuid']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $system = new System;
+            $system
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid);
+            $manager->persist($system);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

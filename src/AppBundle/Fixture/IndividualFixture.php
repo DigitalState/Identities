@@ -16,23 +16,16 @@ abstract class IndividualFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $individuals = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($individuals as $individual) {
-            $entity = new Individual;
-            $entity
-                ->setUuid($individual['uuid'])
-                ->setOwner($individual['owner'])
-                ->setOwnerUuid($individual['owner_uuid']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $individual = new Individual;
+            $individual
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid);
+            $manager->persist($individual);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

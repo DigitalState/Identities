@@ -17,26 +17,19 @@ abstract class AnonymousPersonaFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $anonymousPersonas = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($anonymousPersonas as $anonymousPersona) {
-            $entity = new AnonymousPersona;
-            $entity
-                ->setAnonymous($manager->getRepository(Anonymous::class)->findOneBy(['uuid' => $anonymousPersona['anonymous']]))
-                ->setUuid($anonymousPersona['uuid'])
-                ->setOwner($anonymousPersona['owner'])
-                ->setOwnerUuid($anonymousPersona['owner_uuid'])
-                ->setTitle($anonymousPersona['title'])
-                ->setData($anonymousPersona['data']);
-            $manager->persist($entity);
+        foreach ($objects as $object) {
+            $anonymousPersona = new AnonymousPersona;
+            $anonymousPersona
+                ->setAnonymous($manager->getRepository(Anonymous::class)->findOneBy(['uuid' => $object->anonymous]))
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTitle((array) $object->title)
+                ->setData((array) $object->data);
+            $manager->persist($anonymousPersona);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }

@@ -1,24 +1,23 @@
-items:
-    -
-        uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
-        title:
-            en: Administration
-            fr: Administration
+fixtures:
+  - uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Administration
+      fr: Administration
 
-    -
-        uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
-        title:
-            en: Backoffice
-            fr: Bureau
+  - uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
+    title:
+      en: Backoffice
+      fr: Bureau
 
-    -
-        uuid: e51aea66-ba28-4718-9644-e5fc35ad7a45 # Portal
-        title:
-            en: Portal
-            fr: Portail
+  - uuid: e51aea66-ba28-4718-9644-e5fc35ad7a45 # Portal
+    title:
+      en: Portal
+      fr: Portail
 
 prototype:
-    uuid: ~
-    owner: BusinessUnit
-    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
-    title: []
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+  title:
+    en: ~
+    fr: ~

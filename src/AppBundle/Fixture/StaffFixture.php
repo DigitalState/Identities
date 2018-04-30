@@ -18,34 +18,27 @@ abstract class StaffFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
-        $staffs = $this->parse($this->getResource());
+        $objects = $this->parse($this->getResource());
 
-        foreach ($staffs as $staff) {
-            $entity = new Staff;
-            $entity
-                ->setUuid($staff['uuid'])
-                ->setOwner($staff['owner'])
-                ->setOwnerUuid($staff['owner_uuid']);
+        foreach ($objects as $object) {
+            $staff = new Staff;
+            $staff
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid);
 
-            foreach ($staff['business_units'] as $businessUnit) {
-                $businessUnit = $manager->getRepository(BusinessUnit::class)->findOneBy(['uuid' => $businessUnit]);
+            foreach ($object->business_units as $uuid) {
+                $businessUnit = $manager->getRepository(BusinessUnit::class)->findOneBy(['uuid' => $uuid]);
 
                 if (!$businessUnit) {
                     throw new LogicException('Business unit does not exist.');
                 }
 
-                $entity->addBusinessUnit($businessUnit);
+                $staff->addBusinessUnit($businessUnit);
             }
 
-            $manager->persist($entity);
+            $manager->persist($staff);
             $manager->flush();
         }
     }
-
-    /**
-     * Get resource
-     *
-     * @return string
-     */
-    abstract protected function getResource();
 }
