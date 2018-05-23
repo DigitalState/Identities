@@ -23,7 +23,8 @@ abstract class SystemFixture extends ResourceFixture
             $system
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
-                ->setOwnerUuid($object->owner_uuid);
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
             $manager->persist($system);
             $manager->flush();
         }

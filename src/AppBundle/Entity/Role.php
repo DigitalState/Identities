@@ -10,6 +10,8 @@ use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
 use Ds\Component\Security\Model\Type\Secured;
+use Ds\Component\Tenant\Model\Attribute\Accessor as TenantAccessor;
+use Ds\Component\Tenant\Model\Type\Tenantable;
 use Ds\Component\Translation\Model\Attribute\Accessor as TranslationAccessor;
 use Ds\Component\Translation\Model\Type\Translatable;
 use Knp\DoctrineBehaviors\Model as Behavior;
@@ -49,7 +51,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORMAssert\UniqueEntity(fields="uuid")
  * @RoleAssert\Permissions\Valid
  */
-class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable, Secured
+class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable, Tenantable, Secured
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -63,6 +65,7 @@ class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Local
     use Accessor\Permissions;
     use Accessor\Deleted;
     use Accessor\Version;
+    use TenantAccessor\Tenant;
 
     /**
      * @var integer
@@ -158,6 +161,15 @@ class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Local
      * @Assert\Type("integer")
      */
     protected $version;
+
+    /**
+     * @var string
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"role_output"})
+     * @ORM\Column(name="tenant", type="guid")
+     * @Assert\Uuid
+     */
+    protected $tenant;
 
     /**
      * Constructor

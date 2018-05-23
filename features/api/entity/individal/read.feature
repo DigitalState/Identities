@@ -1,11 +1,11 @@
-@app @entity @individual @read
-Feature: Read individuals
-  In order to read individuals
+@app @api @entity @individual @read
+Feature: Read individual identities
+  In order to read individual identities
   As a system identity
-  I should be able to send api requests related to individuals
+  I should be able to send api requests related to individual identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures @dropSchema
   Scenario: Read a individual
@@ -28,3 +28,5 @@ Feature: Read individuals
     And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1
+    And the JSON node "tenant" should exist
+    And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"

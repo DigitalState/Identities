@@ -23,7 +23,8 @@ abstract class IndividualFixture extends ResourceFixture
             $individual
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
-                ->setOwnerUuid($object->owner_uuid);
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
             $manager->persist($individual);
             $manager->flush();
         }

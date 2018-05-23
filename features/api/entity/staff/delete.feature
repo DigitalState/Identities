@@ -1,11 +1,11 @@
-@app @entity @staff @delete
-Feature: Delete staffs
-  In order to delete staffs
+@app @api @entity @staff @delete
+Feature: Delete staff identities
+  In order to delete staff identities
   As a system identity
-  I should be able to send api requests related to staffs
+  I should be able to send api requests related to staff identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
   Scenario: Delete an staff

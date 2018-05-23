@@ -1,11 +1,11 @@
-@app @entity @organization @browse
-Feature: Browse organizations
-  In order to browse organizations
+@app @api @entity @organization @browse
+Feature: Browse organization identities
+  In order to browse organization identities
   As a system identity
-  I should be able to send api requests related to organizations
+  I should be able to send api requests related to organization identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
   Scenario: Browse all organizations

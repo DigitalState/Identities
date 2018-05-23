@@ -1,11 +1,11 @@
-@app @entity @anonymous @browse
-Feature: Browse anonymouses
-  In order to browse anonymouses
+@app @api @entity @anonymous @browse
+Feature: Browse anonymous identities
+  In order to browse anonymous identities
   As a system identity
-  I should be able to send api requests related to anonymouses
+  I should be able to send api requests related to anonymous identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
   Scenario: Browse all anonymouses

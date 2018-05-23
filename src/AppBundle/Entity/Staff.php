@@ -11,6 +11,8 @@ use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
 use Ds\Component\Security\Model\Type\Secured;
+use Ds\Component\Tenant\Model\Attribute\Accessor as TenantAccessor;
+use Ds\Component\Tenant\Model\Type\Tenantable;
 use Knp\DoctrineBehaviors\Model as Behavior;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -45,7 +47,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Secured
+class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Deletable, Versionable, Tenantable, Secured
 {
     use Behavior\Timestampable\Timestampable;
     use Behavior\SoftDeletable\SoftDeletable;
@@ -60,6 +62,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     use EntityAccessor\BusinessUnits;
     use Accessor\Deleted;
     use Accessor\Version;
+    use TenantAccessor\Tenant;
 
     /**
      * @var integer
@@ -158,6 +161,15 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
      * @Assert\Type("integer")
      */
     protected $version;
+
+    /**
+     * @var string
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"staff_output"})
+     * @ORM\Column(name="tenant", type="guid")
+     * @Assert\Uuid
+     */
+    protected $tenant;
 
     /**
      * Constructor

@@ -23,7 +23,8 @@ abstract class OrganizationFixture extends ResourceFixture
             $organization
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
-                ->setOwnerUuid($object->owner_uuid);
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
             $manager->persist($organization);
             $manager->flush();
         }

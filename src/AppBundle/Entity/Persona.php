@@ -11,6 +11,8 @@ use Ds\Component\Model\Type\Identitiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
+use Ds\Component\Tenant\Model\Attribute\Accessor as TenantAccessor;
+use Ds\Component\Tenant\Model\Type\Tenantable;
 use Ds\Component\Translation\Model\Attribute\Accessor as TranslationAccessor;
 use Ds\Component\Translation\Model\Type\Translatable;
 use Knp\DoctrineBehaviors\Model as Behavior;
@@ -27,7 +29,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class Persona
  */
-class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable
+class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Translatable, Localizable, Deletable, Versionable, Tenantable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -43,6 +45,7 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Tr
     use Accessor\Data;
     use Accessor\Deleted;
     use Accessor\Version;
+    use TenantAccessor\Tenant;
 
     /**
      * @var integer
@@ -137,6 +140,15 @@ class Persona implements Identifiable, Uuidentifiable, Ownable, Identitiable, Tr
      * @Assert\Type("integer")
      */
     protected $version;
+
+    /**
+     * @var string
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"persona_output"})
+     * @ORM\Column(name="tenant", type="guid")
+     * @Assert\Uuid
+     */
+    protected $tenant;
 
     /**
      * Constructor

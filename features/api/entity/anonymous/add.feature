@@ -1,17 +1,17 @@
-@app @entity @staff @add
-Feature: Add staffs
-  In order to add staffs
+@app @api @entity @anonymous @add
+Feature: Add anonymous identities
+  In order to add anonymous identities
   As a system identity
-  I should be able to send api requests related to staffs
+  I should be able to send api requests related to anonymous identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
-  Scenario: Add an staff
+  Scenario: Add an anonymous identity
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "POST" request to "/staffs" with body:
+    And I send a "POST" request to "/anonymouses" with body:
     """
     {
       "owner": "BusinessUnit",
@@ -23,7 +23,7 @@ Feature: Add staffs
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the JSON node "id" should exist
-    And the JSON node "id" should be equal to the number 2
+    And the JSON node "id" should be equal to the number 3
     And the JSON node "uuid" should exist
     And the JSON node "createdAt" should exist
     And the JSON node "updatedAt" should exist
@@ -35,11 +35,13 @@ Feature: Add staffs
     And the JSON node "ownerUuid" should be equal to the string "83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     And the JSON node "version" should exist
     And the JSON node "version" should be equal to the number 1
+    And the JSON node "tenant" should exist
+    And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @dropSchema
   Scenario: Read the added data
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?id=2"
+    And I send a "GET" request to "/anonymouses?id=3"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON

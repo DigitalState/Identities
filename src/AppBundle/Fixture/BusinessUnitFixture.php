@@ -24,7 +24,8 @@ abstract class BusinessUnitFixture extends ResourceFixture
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
-                ->setTitle((array) $object->title);
+                ->setTitle((array) $object->title)
+                ->setTenant($object->tenant);
             $manager->persist($businessUnit);
             $manager->flush();
         }

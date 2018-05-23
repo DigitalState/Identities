@@ -23,7 +23,8 @@ abstract class AnonymousFixture extends ResourceFixture
             $anonymous
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
-                ->setOwnerUuid($object->owner_uuid);
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
             $manager->persist($anonymous);
             $manager->flush();
         }

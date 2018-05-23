@@ -25,7 +25,8 @@ abstract class StaffFixture extends ResourceFixture
             $staff
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
-                ->setOwnerUuid($object->owner_uuid);
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
 
             foreach ($object->business_units as $uuid) {
                 $businessUnit = $manager->getRepository(BusinessUnit::class)->findOneBy(['uuid' => $uuid]);

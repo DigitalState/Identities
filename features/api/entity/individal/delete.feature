@@ -1,11 +1,11 @@
-@app @entity @individual @delete
-Feature: Delete individuals
-  In order to delete individuals
+@app @api @entity @individual @delete
+Feature: Delete individual identities
+  In order to delete individual identities
   As a system identity
-  I should be able to send api requests related to individuals
+  I should be able to send api requests related to individual identities
 
   Background:
-    Given I am authenticated as the "system" identity
+    Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
   Scenario: Delete an individual

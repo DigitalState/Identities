@@ -5,7 +5,6 @@ prototype:
   uuid: ~
   owner: BusinessUnit
   owner_uuid: ~
-  title:
-    en: Default
-    fr: Défaut
-  data: []
+  title: {}
+  data: {}
+  tenant: ~
