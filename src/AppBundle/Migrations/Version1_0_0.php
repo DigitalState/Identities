@@ -120,18 +120,14 @@ class Version1_0_0 extends AbstractMigration
             INSERT INTO 
                 app_bu (id, uuid, owner, owner_uuid, version, tenant, created_at, updated_at, deleted_at)
             VALUES 
-                (1, \''.$data['business_unit']['administration']['uuid'].'\', \'BusinessUnit\', \''.$data['business_unit']['administration']['uuid'].'\', 1, \''.$data['tenant']['uuid'].'\', now(), now(), NULL),
-                (2, \''.$data['business_unit']['backoffice']['uuid'].'\', \'BusinessUnit\', \''.$data['business_unit']['administration']['uuid'].'\', 1, \''.$data['tenant']['uuid'].'\', now(), now(), NULL),
-                (3, \''.$data['business_unit']['portal']['uuid'].'\', \'BusinessUnit\', \''.$data['business_unit']['administration']['uuid'].'\', 1, \''.$data['tenant']['uuid'].'\', now(), now(), NULL);
+                (1, \''.$data['business_unit']['administration']['uuid'].'\', \'BusinessUnit\', \''.$data['business_unit']['administration']['uuid'].'\', 1, \''.$data['tenant']['uuid'].'\', now(), now(), NULL);
         ');
 
         $this->addSql('
             INSERT INTO 
                 app_bu_trans (id, translatable_id, title, locale)
             VALUES 
-                (1, 1, \'Administration\', \'en\'),
-                (2, 2, \'Backoffice\', \'en\'),
-                (3, 3, \'Portal\', \'en\');
+                (1, 1, \'Administration\', \'en\');
         ');
 
         $this->addSql('
