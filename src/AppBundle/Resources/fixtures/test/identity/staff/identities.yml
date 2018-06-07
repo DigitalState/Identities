@@ -11,5 +11,6 @@ prototype:
   uuid: ~
   owner: BusinessUnit
   owner_uuid: ~
+  roles: []
   business_units: []
   tenant: ~

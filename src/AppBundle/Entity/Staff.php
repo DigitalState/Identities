@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
+use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
@@ -14,7 +15,6 @@ use Ds\Component\Security\Model\Type\Secured;
 use Ds\Component\Tenant\Model\Attribute\Accessor as TenantAccessor;
 use Ds\Component\Tenant\Model\Type\Tenantable;
 use Knp\DoctrineBehaviors\Model as Behavior;
-use Doctrine\Common\Collections\ArrayCollection;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
@@ -59,6 +59,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     use EntityAccessor\Identity\Identity;
     use EntityAccessor\Identity\IdentityUuid;
     use EntityAccessor\Personas;
+    use EntityAccessor\Roles;
     use EntityAccessor\BusinessUnits;
     use Accessor\Deleted;
     use Accessor\Version;
@@ -137,6 +138,24 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
      * @Serializer\Groups({"staff_output"})
+     * @ORM\ManyToMany(targetEntity="Role")
+     * @ORM\JoinTable(
+     *     name="app_staff_role",
+     *     joinColumns={
+     *         @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     *     }
+     * )
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
+     */
+    protected $roles;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @Serializer\Groups({"staff_output"})
      * @ORM\ManyToMany(targetEntity="BusinessUnit", inversedBy="staffs")
      * @ORM\JoinTable(
      *     name="app_staff_bu",
@@ -177,6 +196,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     public function __construct()
     {
         $this->personas = new ArrayCollection;
+        $this->roles = new ArrayCollection;
         $this->businessUnits = new ArrayCollection;
     }
 }

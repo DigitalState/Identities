@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
@@ -117,6 +118,24 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
     protected $ownerUuid;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @Serializer\Groups({"system_output"})
+     * @ORM\ManyToMany(targetEntity="Role")
+     * @ORM\JoinTable(
+     *     name="app_system_role",
+     *     joinColumns={
+     *         @ORM\JoinColumn(name="system_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     *     }
+     * )
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
+     */
+    protected $roles;
+
+    /**
      * @var integer
      * @ApiProperty
      * @Serializer\Groups({"system_output", "system_input"})
@@ -135,4 +154,12 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
      * @Assert\Uuid
      */
     protected $tenant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection;
+    }
 }

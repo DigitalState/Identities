@@ -3,6 +3,7 @@
 namespace AppBundle\Fixture;
 
 use AppBundle\Entity\BusinessUnit;
+use AppBundle\Entity\Role;
 use AppBundle\Entity\Staff;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\ResourceFixture;
@@ -27,6 +28,16 @@ abstract class StaffFixture extends ResourceFixture
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+            foreach ($object->roles as $uuid) {
+                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+
+                if (!$role) {
+                    throw new LogicException('Role does not exist.');
+                }
+
+                $staff->addRole($role);
+            }
 
             foreach ($object->business_units as $uuid) {
                 $businessUnit = $manager->getRepository(BusinessUnit::class)->findOneBy(['uuid' => $uuid]);

@@ -9,6 +9,8 @@ ds_security:
         anonymous_deleted_at:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.deletedAt,           title: app.permissions.anonymous.deleted_at            }
         anonymous_owner:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.owner,               title: app.permissions.anonymous.owner                 }
         anonymous_owner_uuid:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.ownerUuid,           title: app.permissions.anonymous.owner_uuid            }
+        anonymous_personas:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.personas,            title: app.permissions.anonymous.personas              }
+        anonymous_roles:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.roles,               title: app.permissions.anonymous.roles                 }
         anonymous_version:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.version,             title: app.permissions.anonymous.version               }
         anonymous_tenant:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.tenant,              title: app.permissions.anonymous.tenant                }
         anonymous_persona:               { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\AnonymousPersona,              title: app.permissions.anonymous_persona               }
@@ -46,7 +48,8 @@ ds_security:
         individual_deleted_at:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.deletedAt,          title: app.permissions.individual.deleted_at           }
         individual_owner:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.owner,              title: app.permissions.individual.owner                }
         individual_owner_uuid:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.ownerUuid,          title: app.permissions.individual.owner_uuid           }
-        individual_business_units:       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.businessUnits,      title: app.permissions.individual.business_units       }
+        individual_personas:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.personas,           title: app.permissions.individual.personas             }
+        individual_roles:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.roles,              title: app.permissions.individual.roles                }
         individual_version:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.version,            title: app.permissions.individual.version              }
         individual_tenant:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.tenant,             title: app.permissions.individual.tenant               }
         individual_persona:              { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\IndividualPersona,             title: app.permissions.individual_persona              }
@@ -71,7 +74,8 @@ ds_security:
         organization_deleted_at:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.deletedAt,        title: app.permissions.organization.deleted_at         }
         organization_owner:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.owner,            title: app.permissions.organization.owner              }
         organization_owner_uuid:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.ownerUuid,        title: app.permissions.organization.owner_uuid         }
-        organization_business_units:     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.businessUnits,    title: app.permissions.organization.business_units     }
+        organization_personas:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.personas,         title: app.permissions.organization.personas           }
+        organization_roles:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.roles,            title: app.permissions.organization.roles              }
         organization_version:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.version,          title: app.permissions.organization.version            }
         organization_tenant:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.tenant,           title: app.permissions.organization.tenant             }
         organization_persona:            { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\OrganizationPersona,           title: app.permissions.organization_persona            }
@@ -109,6 +113,8 @@ ds_security:
         staff_deleted_at:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.deletedAt,               title: app.permissions.staff.deleted_at                }
         staff_owner:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.owner,                   title: app.permissions.staff.owner                     }
         staff_owner_uuid:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.ownerUuid,               title: app.permissions.staff.owner_uuid                }
+        staff_personas:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.personas,                title: app.permissions.staff.personas                  }
+        staff_roles:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.roles,                   title: app.permissions.staff.roles                     }
         staff_business_units:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.businessUnits,           title: app.permissions.staff.business_units            }
         staff_version:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.version,                 title: app.permissions.staff.version                   }
         staff_tenant:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.tenant,                  title: app.permissions.staff.tenant                    }
@@ -134,5 +140,6 @@ ds_security:
         system_deleted_at:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.deletedAt,              title: app.permissions.system.deleted_at               }
         system_owner:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.owner,                  title: app.permissions.system.owner                    }
         system_owner_uuid:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.ownerUuid,              title: app.permissions.system.owner_uuid               }
+        system_roles:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.roles,                  title: app.permissions.system.roles                    }
         system_version:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.version,                title: app.permissions.system.version                  }
         system_tenant:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.tenant,                 title: app.permissions.system.tenant                   }

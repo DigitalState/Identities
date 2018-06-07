@@ -24,11 +24,6 @@ fixtures:
       en: Organization
       fr: Organisation
 
-  - uuid: d31057f7-066e-4397-8916-38bd39797b6c
-    title:
-      en: Anonymous
-      fr: Anonyme
-
 prototype:
   uuid: ~
   owner: BusinessUnit

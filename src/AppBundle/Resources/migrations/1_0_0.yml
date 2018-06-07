@@ -1,17 +1,31 @@
-tenant:
-  uuid: 2b533711-7884-4e55-93eb-21afb3c7ad28
-
-user:
-  system:
-    uuid: 30765b53-28ed-402b-a5c3-e21e8ab377b3
-    password: ~
-
-identity:
-  system:
-    uuid: 3732b4fb-3796-401c-9ecb-007bc363390a
-  admin:
-    uuid: 4daad9ea-794c-4e88-9bed-db6ae2399e22
-
 business_unit:
-  administration:
-    uuid: 36565c23-ed22-4dc2-bc7e-ae1ce59a727c
+    administration:
+        uuid: 12c11dfe-10cd-5d90-80d3-44a5ad0970d7
+    backoffice:
+        uuid: cf1699d3-b112-5c7f-9a48-32441ee10586
+    portal:
+        uuid: 62d56293-90b7-5e60-be47-2fdafbb08af6
+config:
+    app.spa.admin:
+        value: http://admin.ci.test.ds
+    app.spa.portal:
+        value: http://portal.ci.test.ds
+identity:
+    admin:
+        uuid: 93311c9a-15b3-5cb2-babe-82e4391c2d5b
+    system:
+        uuid: 818907a7-db72-5fd3-8ba2-1a16bc364485
+tenant:
+    title:
+        en: Tenant
+    uuid: 22b9fee5-8d57-54fd-8f52-f6d8b8f6b7a2
+user:
+    admin:
+        password: admin
+        uuid: 467101ee-fc87-50ec-bed7-8dcb4058847d
+    anonymous:
+        password: anonymous
+        uuid: e1891739-533b-5f86-a35a-7d9db2fe5cb2
+    system:
+        password: system
+        uuid: 37484fab-970b-5b59-b0cc-fd5a5cd795cd

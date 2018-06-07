@@ -58,6 +58,7 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
     use EntityAccessor\Identity\Identity;
     use EntityAccessor\Identity\IdentityUuid;
     use EntityAccessor\Personas;
+    use EntityAccessor\Roles;
     use Accessor\Deleted;
     use Accessor\Version;
     use TenantAccessor\Tenant;
@@ -132,6 +133,24 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
     protected $personas;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ApiProperty
+     * @Serializer\Groups({"individual_output"})
+     * @ORM\ManyToMany(targetEntity="Role")
+     * @ORM\JoinTable(
+     *     name="app_individual_role",
+     *     joinColumns={
+     *         @ORM\JoinColumn(name="individual_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     *     }
+     * )
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
+     */
+    protected $roles;
+
+    /**
      * @var integer
      * @ApiProperty
      * @Serializer\Groups({"individual_output", "individual_input"})
@@ -157,5 +176,6 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
     public function __construct()
     {
         $this->personas = new ArrayCollection;
+        $this->roles = new ArrayCollection;
     }
 }
