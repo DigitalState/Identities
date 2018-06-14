@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Attribute\Accessor as EntityAccessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
@@ -53,6 +54,7 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
     use Accessor\Uuid;
     use Accessor\Owner;
     use Accessor\OwnerUuid;
+    use EntityAccessor\Roles;
     use Accessor\Deleted;
     use Accessor\Version;
     use TenantAccessor\Tenant;
