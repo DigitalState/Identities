@@ -15,7 +15,7 @@ class Organizations extends OrganizationFixture implements OrderedFixtureInterfa
      */
     public function getOrder()
     {
-        return 11;
+        return 21;
     }
 
     /**

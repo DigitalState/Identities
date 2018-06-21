@@ -15,7 +15,7 @@ class Anonymouses extends AnonymousFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 11;
+        return 21;
     }
 
     /**

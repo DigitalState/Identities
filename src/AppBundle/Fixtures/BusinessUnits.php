@@ -15,7 +15,7 @@ class BusinessUnits extends BusinessUnitFixture implements OrderedFixtureInterfa
      */
     public function getOrder()
     {
-        return 10;
+        return 20;
     }
 
     /**

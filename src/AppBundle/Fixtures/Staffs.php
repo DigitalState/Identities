@@ -15,7 +15,7 @@ class Staffs extends StaffFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 11;
+        return 21;
     }
 
     /**

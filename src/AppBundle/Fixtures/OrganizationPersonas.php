@@ -15,7 +15,7 @@ class OrganizationPersonas extends OrganizationPersonaFixture implements Ordered
      */
     public function getOrder()
     {
-        return 12;
+        return 22;
     }
 
     /**
