@@ -16,7 +16,6 @@ services:
       - redis:identities_redis
 
   php:
-    build: .
     environment:
       SYMFONY_ENV: dev
     extra_hosts:

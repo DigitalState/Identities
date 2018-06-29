@@ -16,6 +16,7 @@ services:
       - redis:identities_redis
 
   php:
+    image: 'digitalstate/identities:${IMAGE_TAG}'
     environment:
       SYMFONY_ENV: dev
     extra_hosts:
