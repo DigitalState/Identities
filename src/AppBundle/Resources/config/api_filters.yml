@@ -246,6 +246,7 @@ services:
         uuid: exact
         owner: exact
         ownerUuid: exact
+        slug: exact
     tags:
       - { name: api_platform.filter, id: app.role.search }
 
@@ -273,6 +274,7 @@ services:
         updatedAt: ~
         deletedAt: ~
         owner: ~
+        slug: ~
     tags:
       - { name: api_platform.filter, id: app.role.order }
 

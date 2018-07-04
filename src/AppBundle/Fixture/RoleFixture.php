@@ -25,6 +25,7 @@ abstract class RoleFixture extends ResourceFixture
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTitle((array) $object->title)
+                ->setSlug($object->slug)
                 ->setPermissions((array) $object->permissions)
                 ->setTenant($object->tenant);
             $manager->persist($role);

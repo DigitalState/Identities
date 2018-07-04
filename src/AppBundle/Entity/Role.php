@@ -7,6 +7,7 @@ use Ds\Component\Model\Attribute\Accessor;
 use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
+use Ds\Component\Model\Type\Sluggable;
 use Ds\Component\Model\Type\Uuidentifiable;
 use Ds\Component\Model\Type\Versionable;
 use Ds\Component\Security\Model\Type\Secured;
@@ -46,12 +47,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  *      }
  * )
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoleRepository")
- * @ORM\Table(name="app_role")
+ * @ORM\Table(
+ *     name="app_role",
+ *     uniqueConstraints={
+ *         @ORM\UniqueConstraint(columns={"slug", "tenant"})
+ *     }
+ * )
  * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
+ * @ORMAssert\UniqueEntity(fields={"slug", "tenant"})
  * @RoleAssert\Permissions\Valid
  */
-class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Localizable, Deletable, Versionable, Tenantable, Secured
+class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translatable, Localizable, Deletable, Versionable, Tenantable, Secured
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
@@ -62,6 +69,7 @@ class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Local
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use TranslationAccessor\Title;
+    use Accessor\Slug;
     use Accessor\Permissions;
     use Accessor\Deleted;
     use Accessor\Version;
@@ -141,6 +149,16 @@ class Role implements Identifiable, Uuidentifiable, Ownable, Translatable, Local
      * @Translate
      */
     protected $title;
+
+    /**
+     * @var string
+     * @ApiProperty
+     * @Serializer\Groups({"role_output", "role_input"})
+     * @ORM\Column(name="slug", type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(min=1, max=255)
+     */
+    protected $slug;
 
     /**
      * @var array

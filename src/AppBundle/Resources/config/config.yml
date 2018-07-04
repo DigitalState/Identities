@@ -101,6 +101,7 @@ ds_security:
     role_owner:                      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.owner,                    title: app.permissions.role.owner                      }
     role_owner_uuid:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.ownerUuid,                title: app.permissions.role.owner_uuid                 }
     role_title:                      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.title,                    title: app.permissions.role.title                      }
+    role_slug:                       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.slug,                     title: app.permissions.role.slug                       }
     role_permissions:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.permissions,              title: app.permissions.role.permissions                }
     role_version:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.version,                  title: app.permissions.role.version                    }
     role_tenant:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.tenant,                   title: app.permissions.role.tenant                     }
