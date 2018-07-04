@@ -283,6 +283,7 @@ services:
         uuid: exact
         owner: exact
         ownerUuid: exact
+        businessUnits.uuid: exact
     tags:
       - { name: api_platform.filter, id: app.staff.search }
 
