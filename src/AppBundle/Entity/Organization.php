@@ -135,7 +135,7 @@ class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiabl
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"organization_output"})
+     * @Serializer\Groups({"organization_output", "organization_input"})
      * @ORM\ManyToMany(targetEntity="Role")
      * @ORM\JoinTable(
      *     name="app_organization_role",

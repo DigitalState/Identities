@@ -122,7 +122,7 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"system_output"})
+     * @Serializer\Groups({"system_output", "system_input"})
      * @ORM\ManyToMany(targetEntity="Role")
      * @ORM\JoinTable(
      *     name="app_system_role",

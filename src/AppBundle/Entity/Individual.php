@@ -135,7 +135,7 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"individual_output"})
+     * @Serializer\Groups({"individual_output", "individual_input"})
      * @ORM\ManyToMany(targetEntity="Role")
      * @ORM\JoinTable(
      *     name="app_individual_role",

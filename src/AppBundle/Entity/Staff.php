@@ -137,7 +137,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"staff_output"})
+     * @Serializer\Groups({"staff_output", "staff_input"})
      * @ORM\ManyToMany(targetEntity="Role")
      * @ORM\JoinTable(
      *     name="app_staff_role",
@@ -155,7 +155,7 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"staff_output"})
+     * @Serializer\Groups({"staff_output", "staff_input"})
      * @ORM\ManyToMany(targetEntity="BusinessUnit", inversedBy="staffs")
      * @ORM\JoinTable(
      *     name="app_staff_bu",

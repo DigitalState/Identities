@@ -135,7 +135,7 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, 
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
-     * @Serializer\Groups({"anonymous_output"})
+     * @Serializer\Groups({"anonymous_output", "anonymous_input"})
      * @ORM\ManyToMany(targetEntity="Role")
      * @ORM\JoinTable(
      *     name="app_anonymous_role",
