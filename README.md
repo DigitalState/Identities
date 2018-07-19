@@ -1,13 +1,6 @@
 # Identities
 
-The DigitalState Identities microservice provides the storage and control for Government Identities:
-
-1. [Individuals](#individuals)
-1. [Organizations](#organizations)
-1. [Staff](#staff)
-1. [Business Units](#business-units)
-1. [Systems](#systems)
-1. [Anonymous](#anonymous)
+The DigitalState Identities microservice provides the storage and control for Government Identities.
 
 The identities microservice does not contain any authentication mechanism for logging in as a Individual, Organization or Staff.  All Authentication activities are preforms by the [DigitalState Authentication Microservice](https://github.com/DigitalState/Authentication)
 
@@ -17,14 +10,11 @@ The identities microservice does not contain any authentication mechanism for lo
 
 ## Table of Contents
 
-- [Synopsis](#synopsis)
-- [Installation](#installation)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
-- [History](#history)
 - [Credits](#credits)
 
-## Synopsis
+## Documentation
 
 Individuals and Organizations are the "citizen" facing identities which store one or more persona.
 
@@ -74,38 +64,11 @@ Anonymous (sometimes referred to Anonymous Contacts) is anyone or anything that 
 Example usage:  An Individual creates 3 service requests as a Anonymous, and later creates a Individual
 s Account.  Using Anonymous Personas', the Anonymous Activity can be related/linked/consolidated to the Individual's new account.
 
-## Installation
-
-Run docker.
-
-```
-docker-compose up -d
-```
-
-Run database migrations.
-
-```
-docker-compose exec php php bin/console doctrine:migrations:migrate
-```
-
-Run dev data fixtures (optional).
-
-```
-docker-compose exec php php bin/console doctrine:fixtures:load
-```
-
-## Documentation
-
-Documentation...
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## History
-
-History..
-
 ## Credits
 
-Credits...
+This work has been developed by DigitalState.io
