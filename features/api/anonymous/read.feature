@@ -1,4 +1,4 @@
-@app @api @entity @anonymous @read
+@api @anonymous @read
 Feature: Read anonymous identities
   In order to read anonymous identities
   As a system identity

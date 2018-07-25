@@ -1,232 +1,232 @@
-@app @api @entity @staff @browse
-Feature: Browse staff identities
-  In order to browse staff identities
+@api @organization @browse
+Feature: Browse organization identities
+  In order to browse organization identities
   As a system identity
-  I should be able to send api requests related to staff identities
+  I should be able to send api requests related to organization identities
 
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
-  Scenario: Browse all staffs
+  Scenario: Browse all organizations
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs"
+    And I send a "GET" request to "/organizations"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse paginated staffs
+  Scenario: Browse paginated organizations
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?page=1&limit=1"
+    And I send a "GET" request to "/organizations?page=1&limit=1"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific id
+  Scenario: Browse organizations with a specific id
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?id=1"
+    And I send a "GET" request to "/organizations?id=1"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with specific ids
+  Scenario: Browse organizations with specific ids
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?id[0]=1"
+    And I send a "GET" request to "/organizations?id[0]=1"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific uuid
+  Scenario: Browse organizations with a specific uuid
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?uuid=06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And I send a "GET" request to "/organizations?uuid=a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with specific uuids
+  Scenario: Browse organizations with specific uuids
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?uuid[0]=06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And I send a "GET" request to "/organizations?uuid[0]=a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific owner
+  Scenario: Browse organizations with a specific owner
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?owner=BusinessUnit"
+    And I send a "GET" request to "/organizations?owner=BusinessUnit"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with specific owners
+  Scenario: Browse organizations with specific owners
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?owner[0]=BusinessUnit"
+    And I send a "GET" request to "/organizations?owner[0]=BusinessUnit"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific owner uuid
+  Scenario: Browse organizations with a specific owner uuid
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?ownerUuid=83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
+    And I send a "GET" request to "/organizations?ownerUuid=83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with specific owner uuids
+  Scenario: Browse organizations with specific owner uuids
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?ownerUuid[0]=83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
+    And I send a "GET" request to "/organizations?ownerUuid[0]=83bf8f26-7181-4bed-92f3-3ce5e4c286d7"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific before created date
+  Scenario: Browse organizations with a specific before created date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?createdAt[before]=2050-01-01"
+    And I send a "GET" request to "/organizations?createdAt[before]=2050-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific after created date
+  Scenario: Browse organizations with a specific after created date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?createdAt[after]=2000-01-01"
+    And I send a "GET" request to "/organizations?createdAt[after]=2000-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific before updated date
+  Scenario: Browse organizations with a specific before updated date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?updatedAt[before]=2050-01-01"
+    And I send a "GET" request to "/organizations?updatedAt[before]=2050-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific after updated date
+  Scenario: Browse organizations with a specific after updated date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?updatedAt[after]=2000-01-01"
+    And I send a "GET" request to "/organizations?updatedAt[after]=2000-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific before deleted date
+  Scenario: Browse organizations with a specific before deleted date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?deletedAt[before]=2050-01-01"
+    And I send a "GET" request to "/organizations?deletedAt[before]=2050-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs with a specific after deleted date
+  Scenario: Browse organizations with a specific after deleted date
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?deletedAt[after]=2000-01-01"
+    And I send a "GET" request to "/organizations?deletedAt[after]=2000-01-01"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by id asc
+  Scenario: Browse organizations ordered by id asc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[id]=asc"
+    And I send a "GET" request to "/organizations?order[id]=asc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by id desc
+  Scenario: Browse organizations ordered by id desc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[id]=desc"
+    And I send a "GET" request to "/organizations?order[id]=desc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by created date asc
+  Scenario: Browse organizations ordered by created date asc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[createdAt]=asc"
+    And I send a "GET" request to "/organizations?order[createdAt]=asc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by created date desc
+  Scenario: Browse organizations ordered by created date desc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[createdAt]=desc"
+    And I send a "GET" request to "/organizations?order[createdAt]=desc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by updated date asc
+  Scenario: Browse organizations ordered by updated date asc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[updatedAt]=asc"
+    And I send a "GET" request to "/organizations?order[updatedAt]=asc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by updated date desc
+  Scenario: Browse organizations ordered by updated date desc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[updatedAt]=desc"
+    And I send a "GET" request to "/organizations?order[updatedAt]=desc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by deleted date asc
+  Scenario: Browse organizations ordered by deleted date asc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[deletedAt]=asc"
+    And I send a "GET" request to "/organizations?order[deletedAt]=asc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by deleted date desc
+  Scenario: Browse organizations ordered by deleted date desc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[deletedAt]=desc"
+    And I send a "GET" request to "/organizations?order[deletedAt]=desc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the response should be a collection
     And the response collection should count 1 items
 
-  Scenario: Browse staffs ordered by owner asc
+  Scenario: Browse organizations ordered by owner asc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[owner]=asc"
+    And I send a "GET" request to "/organizations?order[owner]=asc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
@@ -234,9 +234,9 @@ Feature: Browse staff identities
     And the response collection should count 1 items
 
   @dropSchema
-  Scenario: Browse staffs ordered by owner desc
+  Scenario: Browse organizations ordered by owner desc
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs?order[owner]=desc"
+    And I send a "GET" request to "/organizations?order[owner]=desc"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON

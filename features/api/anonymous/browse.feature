@@ -1,4 +1,4 @@
-@app @api @entity @anonymous @browse
+@api @anonymous @browse
 Feature: Browse anonymous identities
   In order to browse anonymous identities
   As a system identity

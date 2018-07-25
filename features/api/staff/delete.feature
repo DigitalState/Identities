@@ -1,4 +1,4 @@
-@app @api @entity @staff @delete
+@api @staff @delete
 Feature: Delete staff identities
   In order to delete staff identities
   As a system identity

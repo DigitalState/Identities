@@ -1,17 +1,17 @@
-@app @api @entity @staff @edit
-Feature: Edit staff identities
-  In order to edit staff identities
+@api @individual @edit
+Feature: Edit individual identities
+  In order to edit individual identities
   As a system identity
-  I should be able to send api requests related to staff identities
+  I should be able to send api requests related to individual identities
 
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures
-  Scenario: Edit a staff
+  Scenario: Edit a individual
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "PUT" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82" with body:
+    And I send a "PUT" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42" with body:
     """
     {
       "ownerUuid": "325e1004-8516-4ca9-a4d3-d7505bd9a7fe"
@@ -24,9 +24,9 @@ Feature: Edit staff identities
     And the JSON node "tenant" should exist
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  Scenario: Confirm the edited staff
+  Scenario: Confirm the edited individual
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
@@ -34,51 +34,51 @@ Feature: Edit staff identities
     And the JSON node "tenant" should exist
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  Scenario: Edit a staff's read-only properties
+  Scenario: Edit a individual's read-only properties
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "PUT" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82" with body:
+    And I send a "PUT" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42" with body:
     """
     {
       "id": 9999,
-      "uuid": "280092c3-c72c-47d1-a2ca-c9447a9ae5af",
+      "uuid": "0f431ab6-bf5e-41f9-888a-5b7c3526746f",
       "createdAt":"2000-01-01T12:00:00+00:00",
       "updatedAt":"2000-01-01T12:00:00+00:00",
       "deletedAt":"2000-01-01T12:00:00+00:00",
-      "tenant": "4b0dcd73-79a6-4f17-b1a8-376d349c2391"
+      "tenant": "a358b1ce-0613-413a-9ec7-d70d9dcbcbc8"
     }
     """
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the JSON node "id" should be equal to the number 1
-    And the JSON node "uuid" should be equal to the string "06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And the JSON node "uuid" should be equal to the string "9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     And the JSON node "createdAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "updatedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "deletedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  Scenario: Confirm the unedited staff
+  Scenario: Confirm the unedited individual
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the JSON node "id" should be equal to the number 1
-    And the JSON node "uuid" should be equal to the string "06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And the JSON node "uuid" should be equal to the string "9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     And the JSON node "createdAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "updatedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "deletedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @dropSchema
-  Scenario: Edit a staff with an invalid optimistic lock
+  Scenario: Edit a individual with an invalid optimistic lock
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "PUT" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82" with body:
+    And I send a "PUT" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42" with body:
     """
     {
-      "ownerUuid": "35ea3685-59f4-48df-908c-3a0e8b7ce426",
+      "ownerUuid": "fca01292-2e1e-49ff-8c84-fc0b030ac51b",
       "version": 1
     }
     """

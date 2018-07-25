@@ -1,4 +1,4 @@
-@app @api @entity @individual @add
+@api @individual @add
 Feature: Add individual identities
   In order to add individual identities
   As a system identity

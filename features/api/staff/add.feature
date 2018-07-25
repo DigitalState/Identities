@@ -1,4 +1,4 @@
-@app @api @entity @staff @add
+@api @staff @add
 Feature: Add staff identities
   In order to add staff identities
   As a system identity

@@ -1,23 +1,23 @@
-@app @api @entity @staff @read
-Feature: Read staff identities
-  In order to read staff identities
+@api @individual @read
+Feature: Read individual identities
+  In order to read individual identities
   As a system identity
-  I should be able to send api requests related to staff identities
+  I should be able to send api requests related to individual identities
 
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   @createSchema @loadFixtures @dropSchema
-  Scenario: Read a staff
+  Scenario: Read a individual
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the JSON node "id" should exist
     And the JSON node "id" should be equal to the number 1
     And the JSON node "uuid" should exist
-    And the JSON node "uuid" should be equal to the string "06f8bb0b-45e3-46af-94c7-ff917f720c82"
+    And the JSON node "uuid" should be equal to the string "9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
     And the JSON node "createdAt" should exist
     And the JSON node "updatedAt" should exist
     And the JSON node "deletedAt" should exist
