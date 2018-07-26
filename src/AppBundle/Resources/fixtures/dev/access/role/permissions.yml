@@ -31,6 +31,7 @@ fixtures:
       - organization_persona
       - staff
       - staff_persona
+      - metadata
     attributes: [EDIT, ADD, DELETE]
 
   - access: dcd44503-07ec-45ee-a97b-f4dead06c0d5 # Manager
@@ -46,6 +47,7 @@ fixtures:
       - organization_persona_property
       - staff_property
       - staff_persona_property
+      - metadata_property
     attributes: [EDIT]
 
   - access: b7ec8a3d-27a0-45d0-a377-7822f05fd664 # Staff
@@ -71,6 +73,8 @@ fixtures:
       - staff_persona_property
       - business_unit
       - business_unit_property
+      - metadata
+      - metadata_property
     attributes: [BROWSE, READ]
 
   - access: f9c55be1-e080-443d-a662-31647f53e5f0 # Individual
