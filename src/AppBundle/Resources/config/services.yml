@@ -1,58 +1,47 @@
 services:
   app.service.anonymous:
     class: AppBundle\Service\AnonymousService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.anonymous_persona:
     class: AppBundle\Service\AnonymousPersonaService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.business_unit:
     class: AppBundle\Service\BusinessUnitService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.individual:
     class: AppBundle\Service\IndividualService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.individual_persona:
     class: AppBundle\Service\IndividualPersonaService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.organization:
     class: AppBundle\Service\OrganizationService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.organization_persona:
     class: AppBundle\Service\OrganizationPersonaService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.role:
     class: AppBundle\Service\RoleService
+    parent: ds_entity.service.entity
     arguments:
-      - '@doctrine.orm.entity_manager'
-      - '@ds_security.service.access'
-      - '@ds_security.service.permission'
       - '@ds_api.api'
+      - '@ds_discovery.service.discovery'
 
   app.service.staff:
     class: AppBundle\Service\StaffService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.staff_persona:
     class: AppBundle\Service\StaffPersonaService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity
 
   app.service.system:
     class: AppBundle\Service\SystemService
-    arguments:
-      - '@doctrine.orm.entity_manager'
+    parent: ds_entity.service.entity

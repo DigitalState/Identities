@@ -3,6 +3,7 @@
 namespace AppBundle\Fixture;
 
 use AppBundle\Entity\Role;
+use AppBundle\EventListener\Entity\Role\AccessListener;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\ResourceFixture;
 
@@ -16,6 +17,16 @@ abstract class RoleFixture extends ResourceFixture
      */
     public function load(ObjectManager $manager)
     {
+        $metadata = $manager->getClassMetadata(Role::class);
+
+        foreach ($metadata->entityListeners as $event => $listeners) {
+            foreach ($listeners as $key => $listener) {
+                if (AccessListener::class === $listener['class']) {
+                    unset($metadata->entityListeners[$event][$key]);
+                }
+            }
+        }
+
         $objects = $this->parse($this->getResource());
 
         foreach ($objects as $object) {

@@ -57,18 +57,16 @@ class ValidValidator extends ConstraintValidator
     public function validate($role, Constraint $constraint)
     {
         foreach ($role->getPermissions() as $service => $permissions) {
-            if ($service !== 'identities') {
-                try {
-                    $this->api->get($service.'.access');
-                } catch (OutOfRangeException $exception) {
-                    $this->context
-                        ->buildViolation($constraint->serviceUndefined)
-                        ->setParameter('{{ service }}', '"' . $service . '"')
-                        ->atPath('permissions.' . $service)
-                        ->addViolation();
+            try {
+                $this->api->get($service.'.access');
+            } catch (OutOfRangeException $exception) {
+                $this->context
+                    ->buildViolation($constraint->serviceUndefined)
+                    ->setParameter('{{ service }}', '"' . $service . '"')
+                    ->atPath('permissions.' . $service)
+                    ->addViolation();
 
-                    continue;
-                }
+                continue;
             }
 
             if (!is_array($permissions)) {
