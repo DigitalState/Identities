@@ -7,7 +7,7 @@ Feature: Delete staff identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures
+  @upMigrations @loadFixtures
   Scenario: Delete an staff
     When I add "Accept" header equal to "application/json"
     And I send a "DELETE" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"
@@ -20,7 +20,7 @@ Feature: Delete staff identities
     Then the response status code should be 404
     And the header "Content-Type" should be equal to "application/problem+json; charset=utf-8"
 
-  @dropSchema
+  @downMigrations
   Scenario: Delete a deleted staff
     When I add "Accept" header equal to "application/json"
     And I send a "GET" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"

@@ -7,7 +7,7 @@ Feature: Delete organization identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures
+  @upMigrations @loadFixtures
   Scenario: Delete an organization
     When I add "Accept" header equal to "application/json"
     And I send a "DELETE" request to "/organizations/a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"
@@ -20,7 +20,7 @@ Feature: Delete organization identities
     Then the response status code should be 404
     And the header "Content-Type" should be equal to "application/problem+json; charset=utf-8"
 
-  @dropSchema
+  @downMigrations
   Scenario: Delete a deleted organization
     When I add "Accept" header equal to "application/json"
     And I send a "GET" request to "/organizations/a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"

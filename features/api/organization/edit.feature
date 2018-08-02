@@ -7,7 +7,7 @@ Feature: Edit organization identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures
+  @upMigrations @loadFixtures
   Scenario: Edit a organization
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
@@ -71,7 +71,7 @@ Feature: Edit organization identities
     And the JSON node "deletedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @dropSchema
+  @downMigrations
   Scenario: Edit a organization with an invalid optimistic lock
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"

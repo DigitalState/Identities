@@ -7,7 +7,7 @@ Feature: Read anonymous identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures @dropSchema
+  @upMigrations @loadFixtures @downMigrations
   Scenario: Read a anonymous
     When I add "Accept" header equal to "application/json"
     And I send a "GET" request to "/anonymouses/ad1a4ee4-b707-4135-b8e9-498286d5830c"

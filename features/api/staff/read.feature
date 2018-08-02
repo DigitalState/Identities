@@ -7,7 +7,7 @@ Feature: Read staff identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures @dropSchema
+  @upMigrations @loadFixtures @downMigrations
   Scenario: Read a staff
     When I add "Accept" header equal to "application/json"
     And I send a "GET" request to "/staffs/06f8bb0b-45e3-46af-94c7-ff917f720c82"

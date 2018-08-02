@@ -7,7 +7,7 @@ Feature: Delete anonymous identities
   Background:
     Given I am authenticated as the "System" identity from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  @createSchema @loadFixtures
+  @upMigrations @loadFixtures
   Scenario: Delete an anonymous
     When I add "Accept" header equal to "application/json"
     And I send a "DELETE" request to "/anonymouses/ad1a4ee4-b707-4135-b8e9-498286d5830c"
@@ -20,7 +20,7 @@ Feature: Delete anonymous identities
     Then the response status code should be 404
     And the header "Content-Type" should be equal to "application/problem+json; charset=utf-8"
 
-  @dropSchema
+  @downMigrations
   Scenario: Delete a deleted anonymous
     When I add "Accept" header equal to "application/json"
     And I send a "GET" request to "/anonymouses/ad1a4ee4-b707-4135-b8e9-498286d5830c"
