@@ -32,7 +32,7 @@ services:
     parent: ds_entity.service.entity
     arguments:
       - '@ds_api.api'
-      - '@ds_discovery.service.discovery'
+      - '@ds_discovery.repository.config'
 
   app.service.staff:
     class: AppBundle\Service\StaffService
