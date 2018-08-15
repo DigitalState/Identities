@@ -2,7 +2,7 @@
 
 namespace AppBundle\Validator\Constraints\Role\Permissions;
 
-use Ds\Component\Api\Api\Api;
+use Ds\Component\Api\Collection\ServiceCollection;
 use Ds\Component\Security\Model\Permission;
 use OutOfRangeException;
 use Symfony\Component\Validator\Constraint;
@@ -37,18 +37,18 @@ use Symfony\Component\Validator\ConstraintValidator;
 class ValidValidator extends ConstraintValidator
 {
     /**
-     * @var \Ds\Component\Api\Api\Api
+     * @var \Ds\Component\Api\Collection\ServiceCollection
      */
-    protected $api;
+    protected $serviceCollection;
 
     /**
      * Constructor
      *
-     * @param \Ds\Component\Api\Api\Api $api
+     * @param \Ds\Component\Api\Collection\ServiceCollection $serviceCollection
      */
-    public function __construct(Api $api)
+    public function __construct(ServiceCollection $serviceCollection)
     {
-        $this->api = $api;
+        $this->serviceCollection = $serviceCollection;
     }
 
     /**
@@ -57,9 +57,7 @@ class ValidValidator extends ConstraintValidator
     public function validate($role, Constraint $constraint)
     {
         foreach ($role->getPermissions() as $service => $permissions) {
-            try {
-                $this->api->get($service.'.access');
-            } catch (OutOfRangeException $exception) {
+            if (!$this->serviceCollection->containsKey($service.'.access')) {
                 $this->context
                     ->buildViolation($constraint->serviceUndefined)
                     ->setParameter('{{ service }}', '"' . $service . '"')
