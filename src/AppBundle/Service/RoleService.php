@@ -8,8 +8,7 @@ use Ds\Component\Api\Api\Api;
 use Ds\Component\Api\Model\Access;
 use Ds\Component\Api\Model\Permission;
 use Ds\Component\Api\Query\AccessParameters;
-use Ds\Component\Discovery\Model\Config;
-use Ds\Component\Discovery\Repository\ConfigRepository;
+use Ds\Component\Discovery\Repository\ServiceRepository;
 use Ds\Component\Entity\Service\EntityService;
 use LogicException;
 
@@ -24,23 +23,30 @@ class RoleService extends EntityService
     protected $api;
 
     /**
-     * @var \Ds\Component\Discovery\Repository\ConfigRepository
+     * @var \Ds\Component\Discovery\Repository\ServiceRepository
      */
-    protected $configRepository;
+    protected $serviceRepository;
+
+    /**
+     * @var string
+     */
+    protected $namespace;
 
     /**
      * Constructor
      *
      * @param \Doctrine\ORM\EntityManager $manager
      * @param \Ds\Component\Api\Api\Api $api
-     * @param \Ds\Component\Discovery\Repository\ConfigRepository $configRepository
+     * @param \Ds\Component\Discovery\Repository\ServiceRepository $serviceRepository
+     * @param string $namespace
      * @param string $entity
      */
-    public function __construct(EntityManager $manager, Api $api, ConfigRepository $configRepository, $entity = Role::class)
+    public function __construct(EntityManager $manager, Api $api, ServiceRepository $serviceRepository, $namespace = 'ds', $entity = Role::class)
     {
         parent::__construct($manager, $entity);
         $this->api = $api;
-        $this->configRepository = $configRepository;
+        $this->serviceRepository = $serviceRepository;
+        $this->namespace = $namespace;
     }
 
     /**
@@ -56,33 +62,8 @@ class RoleService extends EntityService
             throw new LogicException('Role does not have a uuid.');
         }
 
-        $configs = $this->configRepository->findBy([
-            'directory' => 'services',
-            'recurse' => true
-        ]);
-
         foreach ($role->getPermissions() as $service => $scopes) {
-            $config = $configs->filter(function(Config $config) use ($service) {
-                return $config->getKey() === 'services/'.$service.'/enabled';
-            })->first();
-
-            if (!$config) {
-                continue;
-            }
-
-            if ($config->getValue() !== 'True') {
-                continue;
-            }
-
-            $config = $configs->filter(function(Config $config) use ($service) {
-                return $config->getKey() === 'services/'.$service.'/attributes/access';
-            })->first();
-
-            if (!$config) {
-                continue;
-            }
-
-            if ($config->getValue() !== 'True') {
+            if (!$this->serviceRepository->find($this->namespace.$service.'_api_80')) {
                 continue;
             }
 
@@ -126,33 +107,8 @@ class RoleService extends EntityService
             throw new LogicException('Role does not have a uuid.');
         }
 
-        $configs = $this->configRepository->findBy([
-            'directory' => 'services',
-            'recurse' => true
-        ]);
-
         foreach ($role->getPermissions() as $service => $scopes) {
-            $config = $configs->filter(function(Config $config) use ($service) {
-                return $config->getKey() === 'services/'.$service.'/enabled';
-            })->first();
-
-            if (!$config) {
-                continue;
-            }
-
-            if ($config->getValue() !== 'True') {
-                continue;
-            }
-
-            $config = $configs->filter(function(Config $config) use ($service) {
-                return $config->getKey() === 'services/'.$service.'/attributes/access';
-            })->first();
-
-            if (!$config) {
-                continue;
-            }
-
-            if ($config->getValue() !== 'True') {
+            if (!$this->serviceRepository->find($this->namespace.$service.'_api_80')) {
                 continue;
             }
 
