@@ -7,6 +7,7 @@ The identities microservice does not contain any authentication mechanism for lo
 [![Build Status](https://travis-ci.org/DigitalState/Identities.svg?branch=develop)](https://travis-ci.org/DigitalState/Identities)
 [![Coverage Status](https://coveralls.io/repos/github/DigitalState/Identities/badge.svg?branch=develop)](https://coveralls.io/github/DigitalState/Identities?branch=develop)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/DigitalState/Identities/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/DigitalState/Identities/?branch=develop)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Table of Contents
 
