@@ -1,0 +1,10 @@
+fixtures:
+  - uuid: c9599da5-35a8-494c-9181-975d78be9694 # Acme
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+  roles:
+    - 777b96e7-e183-44f7-b7e4-dc0cb7591f74 # Organization
+  tenant: e5a2120d-6bf7-4c58-a900-bac1e55e986b # Tenant 1

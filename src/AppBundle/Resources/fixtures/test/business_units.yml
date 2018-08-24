@@ -1,0 +1,43 @@
+fixtures:
+  - uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Administration
+      fr: Administration
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: 83bf8f26-7181-4bed-92f3-3ce5e4c286d7 # Backoffice
+    title:
+      en: Backoffice
+      fr: Bureau
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: e51aea66-ba28-4718-9644-e5fc35ad7a45 # Portal
+    title:
+      en: Portal
+      fr: Portail
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Administration
+      fr: Administration
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 6e9c30e2-ce82-4d32-a60a-b0c6b0a1474e # Backoffice
+    title:
+      en: Backoffice
+      fr: Bureau
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 4105c4be-82fa-4612-95c2-1043c6633924 # Portal
+    title:
+      en: Portal
+      fr: Portail
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: ~
+  title: {}
+  tenant: ~

@@ -1,0 +1,10 @@
+fixtures: []
+
+prototype:
+  staff: ~
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: ~
+  title: {}
+  data: {}
+  tenant: ~

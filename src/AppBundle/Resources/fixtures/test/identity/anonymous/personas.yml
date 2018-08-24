@@ -1,0 +1,10 @@
+fixtures: []
+
+prototype:
+  anonymous: ~
+  uuid: ~
+  owner: ~
+  owner_uuid: ~
+  title: {}
+  data: {}
+  tenant: ~

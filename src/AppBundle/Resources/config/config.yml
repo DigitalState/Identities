@@ -1,0 +1,146 @@
+ds_security:
+  permissions:
+    anonymous:                       { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\Anonymous,                     title: app.permissions.anonymous                       }
+    anonymous_property:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.*,                   title: app.permissions.anonymous.property              }
+    anonymous_id:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.id,                  title: app.permissions.anonymous.id                    }
+    anonymous_uuid:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.uuid,                title: app.permissions.anonymous.uuid                  }
+    anonymous_created_at:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.createdAt,           title: app.permissions.anonymous.created_at            }
+    anonymous_updated_at:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.updatedAt,           title: app.permissions.anonymous.updated_at            }
+    anonymous_deleted_at:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.deletedAt,           title: app.permissions.anonymous.deleted_at            }
+    anonymous_owner:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.owner,               title: app.permissions.anonymous.owner                 }
+    anonymous_owner_uuid:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.ownerUuid,           title: app.permissions.anonymous.owner_uuid            }
+    anonymous_personas:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.personas,            title: app.permissions.anonymous.personas              }
+    anonymous_roles:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.roles,               title: app.permissions.anonymous.roles                 }
+    anonymous_version:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.version,             title: app.permissions.anonymous.version               }
+    anonymous_tenant:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Anonymous.tenant,              title: app.permissions.anonymous.tenant                }
+    anonymous_persona:               { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\AnonymousPersona,              title: app.permissions.anonymous_persona               }
+    anonymous_persona_property:      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.*,            title: app.permissions.anonymous_persona.property      }
+    anonymous_persona_id:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.id,           title: app.permissions.anonymous_persona.id            }
+    anonymous_persona_uuid:          { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.uuid,         title: app.permissions.anonymous_persona.uuid          }
+    anonymous_persona_created_at:    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.createdAt,    title: app.permissions.anonymous_persona.created_at    }
+    anonymous_persona_updated_at:    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.updatedAt,    title: app.permissions.anonymous_persona.updated_at    }
+    anonymous_persona_deleted_at:    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.deletedAt,    title: app.permissions.anonymous_persona.deleted_at    }
+    anonymous_persona_owner:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.owner,        title: app.permissions.anonymous_persona.owner         }
+    anonymous_persona_owner_uuid:    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.ownerUuid,    title: app.permissions.anonymous_persona.owner_uuid    }
+    anonymous_persona_title:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.title,        title: app.permissions.anonymous_persona.title         }
+    anonymous_persona_data:          { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.data,         title: app.permissions.anonymous_persona.data          }
+    anonymous_persona_version:       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.version,      title: app.permissions.anonymous_persona.version       }
+    anonymous_persona_tenant:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\AnonymousPersona.tenant,       title: app.permissions.anonymous_persona.tenant        }
+    business_unit:                   { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\BusinessUnit,                  title: app.permissions.business_unit                   }
+    business_unit_property:          { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.*,                title: app.permissions.business_unit.property          }
+    business_unit_id:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.id,               title: app.permissions.business_unit.id                }
+    business_unit_uuid:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.uuid,             title: app.permissions.business_unit.uuid              }
+    business_unit_created_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.createdAt,        title: app.permissions.business_unit.created_at        }
+    business_unit_updated_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.updatedAt,        title: app.permissions.business_unit.updated_at        }
+    business_unit_deleted_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.deletedAt,        title: app.permissions.business_unit.deleted_at        }
+    business_unit_owner:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.owner,            title: app.permissions.business_unit.owner             }
+    business_unit_owner_uuid:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.ownerUuid,        title: app.permissions.business_unit.owner_uuid        }
+    business_unit_title:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.title,            title: app.permissions.business_unit.title             }
+    business_unit_staffs:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.staffs,           title: app.permissions.business_unit.staffs            }
+    business_unit_version:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.version,          title: app.permissions.business_unit.version           }
+    business_unit_tenant:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\BusinessUnit.tenant,           title: app.permissions.business_unit.tenant            }
+    individual:                      { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\Individual,                    title: app.permissions.individual                      }
+    individual_property:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.*,                  title: app.permissions.individual.property             }
+    individual_id:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.id,                 title: app.permissions.individual.id                   }
+    individual_uuid:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.uuid,               title: app.permissions.individual.uuid                 }
+    individual_created_at:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.createdAt,          title: app.permissions.individual.created_at           }
+    individual_updated_at:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.updatedAt,          title: app.permissions.individual.updated_at           }
+    individual_deleted_at:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.deletedAt,          title: app.permissions.individual.deleted_at           }
+    individual_owner:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.owner,              title: app.permissions.individual.owner                }
+    individual_owner_uuid:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.ownerUuid,          title: app.permissions.individual.owner_uuid           }
+    individual_personas:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.personas,           title: app.permissions.individual.personas             }
+    individual_roles:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.roles,              title: app.permissions.individual.roles                }
+    individual_version:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.version,            title: app.permissions.individual.version              }
+    individual_tenant:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Individual.tenant,             title: app.permissions.individual.tenant               }
+    individual_persona:              { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\IndividualPersona,             title: app.permissions.individual_persona              }
+    individual_persona_property:     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.*,           title: app.permissions.individual_persona.property     }
+    individual_persona_id:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.id,          title: app.permissions.individual_persona.id           }
+    individual_persona_uuid:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.uuid,        title: app.permissions.individual_persona.uuid         }
+    individual_persona_created_at:   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.createdAt,   title: app.permissions.individual_persona.created_at   }
+    individual_persona_updated_at:   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.updatedAt,   title: app.permissions.individual_persona.updated_at   }
+    individual_persona_deleted_at:   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.deletedAt,   title: app.permissions.individual_persona.deleted_at   }
+    individual_persona_owner:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.owner,       title: app.permissions.individual_persona.owner        }
+    individual_persona_owner_uuid:   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.ownerUuid,   title: app.permissions.individual_persona.owner_uuid   }
+    individual_persona_title:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.title,       title: app.permissions.individual_persona.title        }
+    individual_persona_data:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.data,        title: app.permissions.individual_persona.data         }
+    individual_persona_version:      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.version,     title: app.permissions.individual_persona.version      }
+    individual_persona_tenant:       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\IndividualPersona.tenant,      title: app.permissions.individual_persona.tenant       }
+    organization:                    { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\Organization,                  title: app.permissions.organization                    }
+    organization_property:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.*,                title: app.permissions.organization.property           }
+    organization_id:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.id,               title: app.permissions.organization.id                 }
+    organization_uuid:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.uuid,             title: app.permissions.organization.uuid               }
+    organization_created_at:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.createdAt,        title: app.permissions.organization.created_at         }
+    organization_updated_at:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.updatedAt,        title: app.permissions.organization.updated_at         }
+    organization_deleted_at:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.deletedAt,        title: app.permissions.organization.deleted_at         }
+    organization_owner:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.owner,            title: app.permissions.organization.owner              }
+    organization_owner_uuid:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.ownerUuid,        title: app.permissions.organization.owner_uuid         }
+    organization_personas:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.personas,         title: app.permissions.organization.personas           }
+    organization_roles:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.roles,            title: app.permissions.organization.roles              }
+    organization_version:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.version,          title: app.permissions.organization.version            }
+    organization_tenant:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Organization.tenant,           title: app.permissions.organization.tenant             }
+    organization_persona:            { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\OrganizationPersona,           title: app.permissions.organization_persona            }
+    organization_persona_property:   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.*,         title: app.permissions.organization_persona.property   }
+    organization_persona_id:         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.id,        title: app.permissions.organization_persona.id         }
+    organization_persona_uuid:       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.uuid,      title: app.permissions.organization_persona.uuid       }
+    organization_persona_created_at: { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.createdAt, title: app.permissions.organization_persona.created_at }
+    organization_persona_updated_at: { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.updatedAt, title: app.permissions.organization_persona.updated_at }
+    organization_persona_deleted_at: { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.deletedAt, title: app.permissions.organization_persona.deleted_at }
+    organization_persona_owner:      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.owner,     title: app.permissions.organization_persona.owner      }
+    organization_persona_owner_uuid: { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.ownerUuid, title: app.permissions.organization_persona.owner_uuid }
+    organization_persona_title:      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.title,     title: app.permissions.organization_persona.title      }
+    organization_persona_data:       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.data,      title: app.permissions.organization_persona.data       }
+    organization_persona_version:    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.version,   title: app.permissions.organization_persona.version    }
+    organization_persona_tenant:     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\OrganizationPersona.tenant,    title: app.permissions.organization_persona.tenant     }
+    role:                            { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\Role,                          title: app.permissions.role                            }
+    role_property:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.*,                        title: app.permissions.role.property                   }
+    role_id:                         { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.id,                       title: app.permissions.role.id                         }
+    role_uuid:                       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.uuid,                     title: app.permissions.role.uuid                       }
+    role_created_at:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.createdAt,                title: app.permissions.role.created_at                 }
+    role_updated_at:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.updatedAt,                title: app.permissions.role.updated_at                 }
+    role_deleted_at:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.deletedAt,                title: app.permissions.role.deleted_at                 }
+    role_owner:                      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.owner,                    title: app.permissions.role.owner                      }
+    role_owner_uuid:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.ownerUuid,                title: app.permissions.role.owner_uuid                 }
+    role_title:                      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.title,                    title: app.permissions.role.title                      }
+    role_slug:                       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.slug,                     title: app.permissions.role.slug                       }
+    role_permissions:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.permissions,              title: app.permissions.role.permissions                }
+    role_version:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.version,                  title: app.permissions.role.version                    }
+    role_tenant:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Role.tenant,                   title: app.permissions.role.tenant                     }
+    staff:                           { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\Staff,                         title: app.permissions.staff                           }
+    staff_property:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.*,                       title: app.permissions.staff.property                  }
+    staff_id:                        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.id,                      title: app.permissions.staff.id                        }
+    staff_uuid:                      { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.uuid,                    title: app.permissions.staff.uuid                      }
+    staff_created_at:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.createdAt,               title: app.permissions.staff.created_at                }
+    staff_updated_at:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.updatedAt,               title: app.permissions.staff.updated_at                }
+    staff_deleted_at:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.deletedAt,               title: app.permissions.staff.deleted_at                }
+    staff_owner:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.owner,                   title: app.permissions.staff.owner                     }
+    staff_owner_uuid:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.ownerUuid,               title: app.permissions.staff.owner_uuid                }
+    staff_personas:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.personas,                title: app.permissions.staff.personas                  }
+    staff_roles:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.roles,                   title: app.permissions.staff.roles                     }
+    staff_business_units:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.businessUnits,           title: app.permissions.staff.business_units            }
+    staff_version:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.version,                 title: app.permissions.staff.version                   }
+    staff_tenant:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\Staff.tenant,                  title: app.permissions.staff.tenant                    }
+    staff_persona:                   { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\StaffPersona,                  title: app.permissions.staff_persona                   }
+    staff_persona_property:          { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.*,                title: app.permissions.staff_persona.property          }
+    staff_persona_id:                { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.id,               title: app.permissions.staff_persona.id                }
+    staff_persona_uuid:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.uuid,             title: app.permissions.staff_persona.uuid              }
+    staff_persona_created_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.createdAt,        title: app.permissions.staff_persona.created_at        }
+    staff_persona_updated_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.updatedAt,        title: app.permissions.staff_persona.updated_at        }
+    staff_persona_deleted_at:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.deletedAt,        title: app.permissions.staff_persona.deleted_at        }
+    staff_persona_owner:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.owner,            title: app.permissions.staff_persona.owner             }
+    staff_persona_owner_uuid:        { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.ownerUuid,        title: app.permissions.staff_persona.owner_uuid        }
+    staff_persona_title:             { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.title,            title: app.permissions.staff_persona.title             }
+    staff_persona_data:              { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.data,             title: app.permissions.staff_persona.data              }
+    staff_persona_version:           { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.version,          title: app.permissions.staff_persona.version           }
+    staff_persona_tenant:            { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\StaffPersona.tenant,           title: app.permissions.staff_persona.tenant            }
+    system:                          { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   AppBundle\Entity\System,                        title: app.permissions.system                          }
+    system_property:                 { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.*,                      title: app.permissions.system.property                 }
+    system_id:                       { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.id,                     title: app.permissions.system.id                       }
+    system_uuid:                     { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.uuid,                   title: app.permissions.system.uuid                     }
+    system_created_at:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.createdAt,              title: app.permissions.system.created_at               }
+    system_updated_at:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.updatedAt,              title: app.permissions.system.updated_at               }
+    system_deleted_at:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.deletedAt,              title: app.permissions.system.deleted_at               }
+    system_owner:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.owner,                  title: app.permissions.system.owner                    }
+    system_owner_uuid:               { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.ownerUuid,              title: app.permissions.system.owner_uuid               }
+    system_roles:                    { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.roles,                  title: app.permissions.system.roles                    }
+    system_version:                  { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.version,                title: app.permissions.system.version                  }
+    system_tenant:                   { attributes: [BROWSE, READ, EDIT],              property: AppBundle\Entity\System.tenant,                 title: app.permissions.system.tenant                   }
