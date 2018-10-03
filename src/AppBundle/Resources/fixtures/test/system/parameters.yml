@@ -12,5 +12,3 @@ fixtures:
 prototype:
   key: ~
   value: ~
-  encrypted: false
-  enabled: true

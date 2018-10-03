@@ -9,7 +9,6 @@ fixtures:
     owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
     key: ds_api.user.password
     value: system
-    encrypted: true
     tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
 
   - uuid: 44c06953-7bb6-47ab-ad60-2bb9071080b7
@@ -58,7 +57,6 @@ fixtures:
     owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
     key: ds_api.user.password
     value: system
-    encrypted: true
     tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
 
   - uuid: 0e05d921-68ea-4b05-988b-9437ff1cb8c2
@@ -103,6 +101,4 @@ prototype:
   owner_uuid: ~
   key: ~
   value: ~
-  encrypted: false
-  enabled: true
   tenant: ~
