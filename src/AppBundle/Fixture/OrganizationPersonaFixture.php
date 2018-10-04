@@ -30,16 +30,17 @@ abstract class OrganizationPersonaFixture extends ResourceFixture
         $objects = $this->parse($this->getResource());
 
         foreach ($objects as $object) {
-            $organizationPersona = new OrganizationPersona;
-            $organizationPersona
-                ->setOrganization($manager->getRepository(Organization::class)->findOneBy(['uuid' => $object->organization]))
+            $organization = $manager->getRepository(Organization::class)->findOneBy(['uuid' => $object->organization]);
+            $persona = new OrganizationPersona;
+            $persona
+                ->setOrganization($organization)
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTitle((array) $object->title)
                 ->setData((array) $object->data)
                 ->setTenant($object->tenant);
-            $manager->persist($organizationPersona);
+            $manager->persist($persona);
             $manager->flush();
         }
     }
