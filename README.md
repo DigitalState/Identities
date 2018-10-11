@@ -18,9 +18,7 @@ The identities microservice does not contain any authentication mechanism for lo
 
 ## Documentation
 
-Documentation...
-
-Further documentation can be found in the [Documentation Repository](https://github.com/DigitalState/Documentation)
+Further documentation can be found in the [Documentation Repository](https://github.com/DigitalState/Documentation).
 
 ## References
 
