@@ -2,6 +2,7 @@
 
 ## 0.13.2 ()
 
+- Feature [Core] Upgrade digitalstate/core dependency to 0.13.2
 - Bug [Migration] Fix serialization bug for parameter and config migration
 - Bug [Tenant] Add missing business units and identity tenant loaders
 
