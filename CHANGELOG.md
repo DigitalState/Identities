@@ -3,6 +3,7 @@
 ## 0.13.2 ()
 
 - Bug [Migration] Fix serialization bug for parameter and config migration
+- Bug [Tenant] Add missing business units and identity tenant loaders
 
 ## 0.13.1 (2018-10-19)
 

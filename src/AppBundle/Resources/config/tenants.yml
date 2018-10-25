@@ -14,6 +14,34 @@ services:
     tags:
       - { name: ds_tenant.loader }
 
+  app.tenant.loader.business_unit:
+    class: AppBundle\Tenant\Loader\BusinessUnitLoader
+    arguments:
+      - '@app.service.business_unit'
+    tags:
+      - { name: ds_tenant.loader }
+
+  app.tenant.loader.identity.staff_persona:
+    class: AppBundle\Tenant\Loader\Identity\StaffPersonaLoader
+    arguments:
+      - '@app.service.staff_persona'
+    tags:
+      - { name: ds_tenant.loader }
+
+  app.tenant.loader.identity.staff:
+    class: AppBundle\Tenant\Loader\Identity\StaffLoader
+    arguments:
+      - '@app.service.staff'
+    tags:
+      - { name: ds_tenant.loader }
+
+  app.tenant.loader.identity.system:
+    class: AppBundle\Tenant\Loader\Identity\SystemLoader
+    arguments:
+      - '@app.service.system'
+    tags:
+      - { name: ds_tenant.loader }
+
   app.tenant.unloader.anonymous_persona:
     class: AppBundle\Tenant\Unloader\AnonymousPersonaUnloader
     arguments:
