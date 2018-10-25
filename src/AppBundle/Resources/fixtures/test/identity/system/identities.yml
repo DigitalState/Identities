@@ -11,5 +11,4 @@ prototype:
   uuid: ~
   owner: System
   owner_uuid: ~
-  roles: []
   tenant: ~
