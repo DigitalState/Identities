@@ -1,8 +1,0 @@
-services:
-  app.event_listener.entity.role.access:
-    class: AppBundle\EventListener\Entity\Role\AccessListener
-    parent: ds_container.event_listener.container
-    tags:
-      - { name: doctrine.orm.entity_listener, entity: AppBundle\Entity\Role, event: postPersist }
-      - { name: doctrine.orm.entity_listener, entity: AppBundle\Entity\Role, event: postUpdate }
-      - { name: doctrine.event_listener, event: preFlush }

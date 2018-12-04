@@ -1,9 +1,0 @@
-objects:
-  - uuid: '%identity.system.uuid%'
-    owner_uuid: '%identity.system.uuid%'
-
-prototype:
-  uuid: ~
-  owner: System
-  owner_uuid: ~
-  tenant: '%tenant.uuid%'
