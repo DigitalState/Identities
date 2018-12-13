@@ -1,4 +1,5 @@
 parameters:
+  env(APP_NAMESPACE): ''
   locale: en
 
 services:
@@ -8,12 +9,167 @@ services:
     public: false
 
   App\:
-    resource: ../src/{Fixtures}
+    resource: ../src/{Controller,EventListener,Fixture,Repository,Service,Stat,Tenant,Validator}
 
   App\Controller\:
     resource: ../src/Controller
     tags: [controller.service_arguments]
 
-  App\Fixtures\:
-    resource: ../src/Fixtures
+  App\EventListener\Entity\Role\AccessListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, entity: App\Entity\Role, event: postPersist }
+      - { name: doctrine.orm.entity_listener, entity: App\Entity\Role, event: postUpdate }
+      - { name: doctrine.event_listener, event: preFlush }
+
+  App\Fixture\:
+    resource: ../src/Fixture
     tags: [doctrine.fixture.orm]
+
+  App\Repository\AnonymousRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\Anonymous
+
+  App\Repository\AnonymousPersonaRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\AnonymousPersona
+
+  App\Repository\BusinessUnitRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\BusinessUnit
+
+  App\Repository\IndividualRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\Individual
+
+  App\Repository\IndividualPersonaRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\IndividualPersona
+
+  App\Repository\OrganizationRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\Organization
+
+  App\Repository\OrganizationPersonaRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\OrganizationPersona
+
+  App\Repository\RoleRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\Role
+
+  App\Repository\StaffRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\Staff
+
+  App\Repository\StaffPersonaRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\StaffPersona
+
+  App\Repository\SystemRepository:
+    factory: ['@doctrine.orm.default_entity_manager', getRepository]
+    arguments:
+      - App\Entity\System
+
+  App\Service\RoleService:
+    arguments:
+      - '@Ds\Component\Api\Api\Api'
+      - '@Ds\Component\Discovery\Repository\ServiceRepository'
+      - '%env(resolve:APP_NAMESPACE)%'
+
+  App\Stat\Anonymous\CountStat:
+    tags:
+      - { name: ds_statistic.stat, alias: anonymous.count }
+
+  App\Stat\Individual\CountStat:
+    tags:
+      - { name: ds_statistic.stat, alias: individual.count }
+
+  App\Stat\Organization\CountStat:
+    tags:
+      - { name: ds_statistic.stat, alias: organization.count }
+
+  App\Stat\Staff\CountStat:
+    tags:
+      - { name: ds_statistic.stat, alias: staff.count }
+
+  App\Tenant\Loader\AccessLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\ConfigLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\BusinessUnitLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\Identity\StaffPersonaLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\Identity\StaffLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\Identity\SystemLoader:
+    tags:
+      - { name: ds_tenant.loader }
+
+  App\Tenant\Unloader\AnonymousPersonaUnloader:
+    tags:
+      - { name: ds_tenant.unloader, priority: -1 }
+
+  App\Tenant\Unloader\AnonymousUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\BusinessUnitUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\IndividualPersonaUnloader:
+    tags:
+      - { name: ds_tenant.unloader, priority: -1 }
+
+  App\Tenant\Unloader\IndividualUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\OrganizationPersonaUnloader:
+    tags:
+      - { name: ds_tenant.unloader, priority: -1 }
+
+  App\Tenant\Unloader\OrganizationUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\RoleUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\StaffPersonaUnloader:
+    tags:
+      - { name: ds_tenant.unloader, priority: -1 }
+
+  App\Tenant\Unloader\StaffUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Tenant\Unloader\SystemUnloader:
+    tags:
+      - { name: ds_tenant.unloader }
+
+  App\Validator\Constraints\Role\Permissions\ValidValidator:
+    tags:
+      - { name: validator.constraint_validator }

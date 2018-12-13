@@ -1,0 +1,12 @@
+objects:
+  - uuid: d0daa7e4-07d1-47e6-93f2-0629adaa3b49 # Morgan
+
+  - uuid: f82f2ccb-818b-44d6-b425-823c9899f846 # Taylor
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+  roles:
+    - 54d82fc6-8ce7-498e-832f-3598664a9d9d # Individual
+  tenant: e5a2120d-6bf7-4c58-a900-bac1e55e986b # Tenant 1
