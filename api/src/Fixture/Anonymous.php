@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\Anonymous as AnonymousEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait Anonymous
@@ -34,16 +35,17 @@ trait Anonymous
                 ->setTenant($object->tenant);
 
             foreach ($object->roles as $uuid) {
-                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+                $role = $this->getReference($uuid);
 
                 if (!$role) {
-                    throw new LogicException('Role does not exist.');
+                    throw new LogicException('Role "'.$uuid.'" does not exist.');
                 }
 
                 $anonymous->addRole($role);
             }
 
             $manager->persist($anonymous);
+            $this->setReference($object->uuid, $anonymous);
         }
 
         $manager->flush();

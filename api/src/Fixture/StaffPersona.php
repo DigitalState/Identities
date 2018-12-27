@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\StaffPersona as StaffPersonaEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait StaffPersona
@@ -23,10 +24,15 @@ trait StaffPersona
      */
     public function load(ObjectManager $manager)
     {
-        $objects = $this->parse($this->getResource());
+        $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
-            $staff = $manager->getRepository(Staff::class)->findOneBy(['uuid' => $object->staff]);
+            $staff = $this->getReference($object->staff);
+
+            if (!$staff) {
+                throw new LogicException('Staff "'.$object->staff.'" does not exist.');
+            }
+
             $persona = new StaffPersonaEntity;
             $persona
                 ->setStaff($staff)

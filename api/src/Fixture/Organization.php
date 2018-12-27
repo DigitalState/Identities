@@ -3,9 +3,9 @@
 namespace App\Fixture;
 
 use App\Entity\Organization as OrganizationEntity;
-use App\Entity\Role;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait Organization
@@ -35,17 +35,19 @@ trait Organization
                 ->setTenant($object->tenant);
 
             foreach ($object->roles as $uuid) {
-                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+                $role = $this->getReference($uuid);
 
                 if (!$role) {
-                    throw new LogicException('Role does not exist.');
+                    throw new LogicException('Role "'.$uuid.'" does not exist.');
                 }
 
                 $organization->addRole($role);
             }
 
             $manager->persist($organization);
-            $manager->flush();
+            $this->setReference($object->uuid, $organization);
         }
+
+        $manager->flush();
     }
 }

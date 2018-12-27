@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\Role as RoleEntity;
+use App\EventListener\Entity\Role\AccessListener;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -23,17 +24,21 @@ trait Role
      */
     public function load(ObjectManager $manager)
     {
-        $metadata = $manager->getClassMetadata(Role::class);
+        $events = $manager->getEventManager()->getListeners();
 
-        foreach ($metadata->entityListeners as $event => $listeners) {
-            foreach ($listeners as $key => $listener) {
-                if (AccessListener::class === $listener['class']) {
-                    unset($metadata->entityListeners[$event][$key]);
+        foreach ($events as $event => $listeners) {
+            foreach ($listeners as $listener) {
+                if (!is_object($listener)) {
+                    continue;
+                }
+
+                if ($listener instanceof AccessListener) {
+                    $listener->setEnabled(false);
                 }
             }
         }
 
-        $objects = $this->parse($this->getResource());
+        $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
             $role = new RoleEntity;
@@ -46,6 +51,7 @@ trait Role
                 ->setPermissions((array) $object->permissions)
                 ->setTenant($object->tenant);
             $manager->persist($role);
+            $this->setReference($object->uuid, $role);
         }
 
         $manager->flush();

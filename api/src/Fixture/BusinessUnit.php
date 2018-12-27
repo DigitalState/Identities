@@ -34,6 +34,7 @@ trait BusinessUnit
                 ->setTitle((array) $object->title)
                 ->setTenant($object->tenant);
             $manager->persist($businessUnit);
+            $this->setReference($object->uuid, $businessUnit);
         }
 
         $manager->flush();

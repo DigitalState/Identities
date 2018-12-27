@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\AnonymousPersona as AnonymousPersonaEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait AnonymousPersona
@@ -26,7 +27,12 @@ trait AnonymousPersona
         $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
-            $anonymous = $manager->getRepository(Anonymous::class)->findOneBy(['uuid' => $object->anonymous]);
+            $anonymous = $this->getReference($object->anonymous);
+
+            if (!$anonymous) {
+                throw new LogicException('Anonymous "'.$object->anonymous.'" does not exist.');
+            }
+
             $persona = new AnonymousPersonaEntity;
             $persona
                 ->setAnonymous($anonymous)

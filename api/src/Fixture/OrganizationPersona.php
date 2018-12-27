@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\OrganizationPersona as OrganizationPersonaEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait OrganizationPersona
@@ -26,7 +27,12 @@ trait OrganizationPersona
         $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
-            $organization = $manager->getRepository(Organization::class)->findOneBy(['uuid' => $object->organization]);
+            $organization = $this->getReference($object->organization);
+
+            if (!$organization) {
+                throw new LogicException('Organization "'.$object->organization.'" does not exist.');
+            }
+
             $persona = new OrganizationPersonaEntity;
             $persona
                 ->setOrganization($organization)

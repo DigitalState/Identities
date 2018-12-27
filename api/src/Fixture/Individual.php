@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\Individual as IndividualEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait Individual
@@ -23,7 +24,7 @@ trait Individual
      */
     public function load(ObjectManager $manager)
     {
-        $objects = $this->parse($this->getResource());
+        $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
             $individual = new IndividualEntity;
@@ -34,16 +35,17 @@ trait Individual
                 ->setTenant($object->tenant);
 
             foreach ($object->roles as $uuid) {
-                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+                $role = $this->getReference($uuid);
 
                 if (!$role) {
-                    throw new LogicException('Role does not exist.');
+                    throw new LogicException('Role "'.$uuid.'" does not exist.');
                 }
 
                 $individual->addRole($role);
             }
 
             $manager->persist($individual);
+            $this->setReference($object->uuid, $individual);
         }
 
         $manager->flush();

@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\Staff as StaffEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait Staff
@@ -23,7 +24,7 @@ trait Staff
      */
     public function load(ObjectManager $manager)
     {
-        $objects = $this->parse($this->getResource());
+        $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
             $staff = new StaffEntity;
@@ -34,20 +35,20 @@ trait Staff
                 ->setTenant($object->tenant);
 
             foreach ($object->roles as $uuid) {
-                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+                $role = $this->getReference($uuid);
 
                 if (!$role) {
-                    throw new LogicException('Role does not exist.');
+                    throw new LogicException('Role "'.$uuid.'" does not exist.');
                 }
 
                 $staff->addRole($role);
             }
 
             foreach ($object->business_units as $uuid) {
-                $businessUnit = $manager->getRepository(BusinessUnit::class)->findOneBy(['uuid' => $uuid]);
+                $businessUnit = $this->getReference($uuid);
 
                 if (!$businessUnit) {
-                    throw new LogicException('Business unit does not exist.');
+                    throw new LogicException('Business Unit "'.$uuid.'" does not exist.');
                 }
 
                 $staff->addBusinessUnit($businessUnit);

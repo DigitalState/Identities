@@ -2,14 +2,16 @@
 
 namespace App\Fixture;
 
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\SharedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
  * Class AnonymousPersonaFixture
  */
-final class AnonymousPersonaFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
+final class AnonymousPersonaFixture extends AbstractFixture implements FixtureInterface, SharedFixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
     use AnonymousPersona;
 

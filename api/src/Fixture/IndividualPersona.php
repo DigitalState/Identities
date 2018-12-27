@@ -5,6 +5,7 @@ namespace App\Fixture;
 use App\Entity\IndividualPersona as IndividualPersonaEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
+use LogicException;
 
 /**
  * Trait IndividualPersona
@@ -26,7 +27,12 @@ trait IndividualPersona
         $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
-            $individual = $manager->getRepository(Individual::class)->findOneBy(['uuid' => $object->individual]);
+            $individual = $this->getReference($object->individual);
+
+            if (!$individual) {
+                throw new LogicException('Individual "'.$object->individual.'" does not exist.');
+            }
+
             $persona = new IndividualPersonaEntity;
             $persona
                 ->setIndividual($individual)
