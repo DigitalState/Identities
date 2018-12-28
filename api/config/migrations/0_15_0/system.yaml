@@ -1,0 +1,9 @@
+objects:
+  - uuid: '%identity.system.uuid%'
+
+prototype:
+  uuid: ~
+  owner: System
+  owner_uuid: '%identity.system.uuid%'
+  version: 1
+  tenant: '%tenant.uuid%'

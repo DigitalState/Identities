@@ -13,6 +13,7 @@ use Ds\Component\Database\Util\Parameters;
 use Ds\Component\Metadata\Migration\Version0_15_0 as Metadata;
 use Ds\Component\Parameter\Migration\Version0_15_0 as Parameter;
 use Ds\Component\Tenant\Migration\Version0_15_0 as Tenant;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
@@ -81,25 +82,59 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
         $this->parameter->setContainer($this->container)->up($schema, Objects::parseFile(static::DIRECTORY.'/0_15_0/system/parameter.yaml', $parameters));
         $this->tenant->up($schema, Objects::parseFile(static::DIRECTORY.'/0_15_0/system/tenant.yaml', $parameters));
 
+        $businessUnits = Objects::parseFile(static::DIRECTORY.'/0_15_0/business_unit.yaml', $parameters);
+        $staffs = Objects::parseFile(static::DIRECTORY.'/0_15_0/staff.yaml', $parameters);
+        $systems = Objects::parseFile(static::DIRECTORY.'/0_15_0/system.yaml', $parameters);
+
+        $sequences['app_anonymous_id_seq'] = 1;
+        $sequences['app_anonymous_persona_id_seq'] = 1;
+        $sequences['app_anonymous_persona_trans_id_seq'] = 1;
+        $sequences['app_bu_id_seq'] = 1 + count($businessUnits);
+        $sequences['app_bu_trans_id_seq'] = 1;
+        $sequences['app_individual_id_seq'] = 1;
+        $sequences['app_individual_persona_id_seq'] = 1;
+        $sequences['app_individual_persona_trans_id_seq'] = 1;
+        $sequences['app_organization_id_seq'] = 1;
+        $sequences['app_organization_persona_id_seq'] = 1;
+        $sequences['app_organization_persona_trans_id_seq'] = 1;
+        $sequences['app_role_id_seq'] = 1;
+        $sequences['app_role_trans_id_seq'] = 1;
+        $sequences['app_staff_id_seq'] = 1 + count($staffs);
+        $sequences['app_staff_persona_id_seq'] = 1;
+        $sequences['app_staff_persona_trans_id_seq'] = 1;
+        $sequences['app_system_id_seq'] = 1 + count($businessUnits);
+
+        foreach ($businessUnits as $businessUnit) {
+            $sequences['app_bu_trans_id_seq'] += count((array) $businessUnit->title);
+        }
+
+        foreach ($staffs as $staff) {
+            $sequences['app_staff_persona_id_seq'] += count((array) $staff->personas);
+
+            foreach ($staff->personas as $persona) {
+                $sequences['app_staff_persona_trans_id_seq'] += count((array) $persona->title);
+            }
+        }
+
         switch ($this->platform->getName()) {
             case 'postgresql':
-                $this->addSql('CREATE SEQUENCE app_anonymous_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_anonymous_persona_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_anonymous_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_bu_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_bu_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_individual_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_individual_persona_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_individual_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_organization_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_organization_persona_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_organization_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_role_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_role_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_staff_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_staff_persona_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_staff_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-                $this->addSql('CREATE SEQUENCE app_system_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+                $this->addSql('CREATE SEQUENCE app_anonymous_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_anonymous_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_anonymous_persona_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_anonymous_persona_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_anonymous_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_anonymous_persona_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_bu_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_bu_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_bu_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_bu_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_individual_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_individual_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_individual_persona_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_individual_persona_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_individual_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_individual_persona_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_organization_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_organization_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_organization_persona_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_organization_persona_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_organization_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_organization_persona_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_role_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_role_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_role_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_role_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_staff_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_staff_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_staff_persona_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_staff_persona_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_staff_persona_trans_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_staff_persona_trans_id_seq']);
+                $this->addSql('CREATE SEQUENCE app_system_id_seq INCREMENT BY 1 MINVALUE 1 START '.$sequences['app_system_id_seq']);
                 $this->addSql('CREATE TABLE app_anonymous (id INT NOT NULL, uuid UUID NOT NULL, "owner" VARCHAR(255) DEFAULT NULL, owner_uuid UUID DEFAULT NULL, version INT DEFAULT 1 NOT NULL, tenant UUID NOT NULL, deleted_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
                 $this->addSql('CREATE UNIQUE INDEX UNIQ_6A5EB29BD17F50A6 ON app_anonymous (uuid)');
                 $this->addSql('CREATE TABLE app_anonymous_role (anonymous_id INT NOT NULL, role_id INT NOT NULL, PRIMARY KEY(anonymous_id, role_id))');
@@ -190,6 +225,112 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
                 $this->addSql('ALTER TABLE app_staff_persona_trans ADD CONSTRAINT FK_83B289352C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES app_staff_persona (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
                 $this->addSql('ALTER TABLE app_system_role ADD CONSTRAINT FK_1F401F20D0952FA5 FOREIGN KEY (system_id) REFERENCES app_system (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
                 $this->addSql('ALTER TABLE app_system_role ADD CONSTRAINT FK_1F401F20D60322AC FOREIGN KEY (role_id) REFERENCES app_role (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+
+                $i = 0;
+                $j = 0;
+
+                foreach ($businessUnits as $businessUnit) {
+                    if (null === $businessUnit->uuid) {
+                        $businessUnit->uuid = Uuid::uuid4()->toString();
+                    }
+
+                    $this->addSql(sprintf(
+                        'INSERT INTO app_bu (id, uuid, owner, owner_uuid, version, tenant, created_at, updated_at, deleted_at) VALUES (%d, %s, %s, %s, %d, %s, %s, %s, %s);',
+                        ++$i,
+                        $this->connection->quote($businessUnit->uuid),
+                        $this->connection->quote($businessUnit->owner),
+                        $this->connection->quote($businessUnit->owner_uuid),
+                        $businessUnit->version,
+                        $this->connection->quote($businessUnit->tenant),
+                        'now()',
+                        'now()',
+                        'NULL'
+                    ));
+
+                    foreach ($businessUnit->title as $locale => $title) {
+                        $this->addSql(sprintf('INSERT INTO app_bu_trans (id, translatable_id, title, locale) VALUES (%d, %d, %s, %s);',
+                            ++$j,
+                            $i,
+                            $this->connection->quote($title),
+                            $this->connection->quote($locale)
+                        ));
+                    }
+                }
+
+                $i = 0;
+                $j = 0;
+                $k = 0;
+
+                foreach ($staffs as $staff) {
+                    if (null === $staff->uuid) {
+                        $staff->uuid = Uuid::uuid4()->toString();
+                    }
+
+                    $this->addSql(sprintf(
+                        'INSERT INTO app_staff (id, uuid, owner, owner_uuid, version, tenant, created_at, updated_at, deleted_at) VALUES (%d, %s, %s, %s, %d, %s, %s, %s, %s);',
+                        ++$i,
+                        $this->connection->quote($staff->uuid),
+                        $this->connection->quote($staff->owner),
+                        $this->connection->quote($staff->owner_uuid),
+                        $staff->version,
+                        $this->connection->quote($staff->tenant),
+                        'now()',
+                        'now()',
+                        'NULL'
+                    ));
+
+                    foreach ($staff->personas as $persona) {
+                        if (null === $persona->uuid) {
+                            $persona->uuid = Uuid::uuid4()->toString();
+                        }
+
+                        $this->addSql(sprintf(
+                            'INSERT INTO app_staff_persona (id, staff_id, uuid, owner, owner_uuid, data, version, tenant, created_at, updated_at, deleted_at) VALUES (%d, %d, %s, %s, %s, %s, %d, %s, %s, %s, %s);',
+                            ++$j,
+                            $i,
+                            $this->connection->quote($persona->uuid),
+                            $this->connection->quote($staff->owner),
+                            $this->connection->quote($staff->owner_uuid),
+                            $this->connection->quote(json_encode($persona->data)),
+                            $persona->version,
+                            $this->connection->quote($staff->tenant),
+                            'now()',
+                            'now()',
+                            'NULL'
+                        ));
+
+                        foreach ($persona->title as $locale => $title) {
+                            $this->addSql(sprintf('INSERT INTO app_staff_persona_trans (id, translatable_id, title, locale) VALUES (%d, %d, %s, %s);',
+                                ++$k,
+                                $j,
+                                $this->connection->quote($title),
+                                $this->connection->quote($locale)
+                            ));
+                        }
+                    }
+                }
+
+                $i = 0;
+
+                foreach ($systems as $system) {
+                    if (null === $system->uuid) {
+                        $system->uuid = Uuid::uuid4()->toString();
+                    }
+
+                    $this->addSql(sprintf(
+                        'INSERT INTO app_system (id, uuid, owner, owner_uuid, version, tenant, created_at, updated_at, deleted_at) VALUES (%d, %s, %s, %s, %d, %s, %s, %s, %s);',
+                        ++$i,
+                        $this->connection->quote($system->uuid),
+                        $this->connection->quote($system->owner),
+                        $this->connection->quote($system->owner_uuid),
+                        $system->version,
+                        $this->connection->quote($system->tenant),
+                        'now()',
+                        'now()',
+                        'NULL'
+                    ));
+                }
+
                 break;
 
             default:

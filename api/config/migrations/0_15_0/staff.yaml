@@ -1,0 +1,16 @@
+objects:
+  - uuid: '%identity.admin.uuid%'
+    personas:
+      - uuid: ~
+        title:
+          en: Default
+        data: {}
+        version: 1
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: '%business_unit.administration.uuid%'
+  personas: []
+  version: 1
+  tenant: '%tenant.uuid%'
