@@ -1,0 +1,2 @@
+ds_discovery:
+  host: identities_mock_discovery:8080
