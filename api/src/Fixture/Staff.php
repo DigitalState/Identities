@@ -55,6 +55,7 @@ trait Staff
             }
 
             $manager->persist($staff);
+            $this->setReference($object->uuid, $staff);
         }
 
         $manager->flush();
