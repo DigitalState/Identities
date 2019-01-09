@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Tenant\Loader\Identity;
+
+use Ds\Component\Database\Util\Objects;
+use Ds\Component\Tenant\Entity\Tenant;
+
+/**
+ * Trait Staff
+ */
+trait Staff
+{
+    /**
+     * @var \App\Service\StaffService
+     */
+    private $staffService;
+
+    /**
+     * @var string
+     */
+    private $path;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function load(Tenant $tenant)
+    {
+        $data = (array) json_decode(json_encode($tenant->getData()));
+        $objects = Objects::parseFile($this->path, $data);
+        $manager = $this->staffService->getManager();
+
+        foreach ($objects as $object) {
+            $staff = $this->staffService->createInstance();
+            $staff
+                ->setUuid($object->uuid)
+                ->setOwner($object->owner)
+                ->setOwnerUuid($object->owner_uuid)
+                ->setTenant($object->tenant);
+            $manager->persist($staff);
+            $manager->flush();
+        }
+    }
+}

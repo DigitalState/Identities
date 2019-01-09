@@ -102,7 +102,7 @@ services:
     tags:
       - { name: ds_statistic.stat, alias: staff.count }
 
-  App\Tenant\Loader\AccessLoader:
+  App\Tenant\Loader\AclLoader:
     tags:
       - { name: ds_tenant.loader }
 
@@ -114,13 +114,13 @@ services:
     tags:
       - { name: ds_tenant.loader }
 
-  App\Tenant\Loader\Identity\StaffPersonaLoader:
-    tags:
-      - { name: ds_tenant.loader }
-
   App\Tenant\Loader\Identity\StaffLoader:
     tags:
       - { name: ds_tenant.loader }
+
+  App\Tenant\Loader\Identity\StaffPersonaLoader:
+    tags:
+      - { name: ds_tenant.loader, priority: 2 }
 
   App\Tenant\Loader\Identity\SystemLoader:
     tags:
