@@ -108,7 +108,7 @@ final class RoleService extends EntityService
         }
 
         foreach ($role->getPermissions() as $service => $scopes) {
-            if (!$this->serviceRepository->find($this->namespace.$service.'_api_80')) {
+            if (!$this->serviceRepository->find($this->namespace.'_'.$service.'_api_http')) {
                 continue;
             }
 
