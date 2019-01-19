@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Entity\Attribute\Accessor as EntityAccessor;
 use Ds\Component\Locale\Model\Type\Localizable;
 use Ds\Component\Model\Attribute\Accessor;
-use Ds\Component\Model\Type\Deletable;
 use Ds\Component\Model\Type\Identifiable;
 use Ds\Component\Model\Type\Ownable;
 use Ds\Component\Model\Type\Sluggable;
@@ -58,11 +57,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORMAssert\UniqueEntity(fields={"slug", "tenant"})
  * @RoleAssert\Permissions\Valid
  */
-class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translatable, Localizable, Deletable, Versionable, Tenantable
+class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translatable, Localizable, Versionable, Tenantable
 {
     use Behavior\Translatable\Translatable;
     use Behavior\Timestampable\Timestampable;
-    use Behavior\SoftDeletable\SoftDeletable;
 
     use Accessor\Id;
     use Accessor\Uuid;
@@ -107,13 +105,6 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
      * @Serializer\Groups({"role_output"})
      */
     protected $updatedAt;
-
-    /**
-     * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"role_output"})
-     */
-    protected $deletedAt;
 
     /**
      * @var string
@@ -195,5 +186,7 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
     public function __construct()
     {
         $this->title = [];
+        $this->permissions = [];
+        $this->version = 1;
     }
 }
