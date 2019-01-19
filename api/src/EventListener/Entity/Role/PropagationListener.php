@@ -6,16 +6,15 @@ use App\Entity\Role;
 use App\Service\RoleService;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreFlushEventArgs;
-use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Ds\Component\Container\Attribute\Container;
 use Ds\Component\Model\Attribute\Enabled;
 use Ds\Component\Model\Type\Enableable;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class AccessListener
+ * Class PropagationListener
  */
-final class AccessListener implements Enableable
+final class PropagationListener implements Enableable
 {
     use Container;
     use Enabled;

@@ -15,7 +15,7 @@ services:
     resource: ../src/Controller
     tags: [controller.service_arguments]
 
-  App\EventListener\Entity\Role\AccessListener:
+  App\EventListener\Entity\Role\PropagationListener:
     tags:
       - { name: doctrine.event_listener, event: postPersist }
       - { name: doctrine.event_listener, event: postUpdate }
@@ -81,7 +81,9 @@ services:
       - App\Entity\System
 
   App\Service\RoleService:
+    public: true # Used by event listener
     arguments:
+      - '@doctrine.orm.entity_manager'
       - '@Ds\Component\Api\Api\Api'
       - '@Ds\Component\Discovery\Repository\ServiceRepository'
       - '%env(resolve:APP_NAMESPACE)%'
