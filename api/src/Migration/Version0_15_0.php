@@ -176,11 +176,11 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
                 $this->addSql('CREATE TABLE app_organization_persona_trans (id INT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) DEFAULT NULL, locale VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
                 $this->addSql('CREATE INDEX IDX_63870C2F2C2AC5D3 ON app_organization_persona_trans (translatable_id)');
                 $this->addSql('CREATE UNIQUE INDEX app_organization_persona_trans_unique_translation ON app_organization_persona_trans (translatable_id, locale)');
-                $this->addSql('CREATE TABLE app_role (id INT NOT NULL, uuid UUID NOT NULL, "owner" VARCHAR(255) DEFAULT NULL, owner_uuid UUID DEFAULT NULL, slug VARCHAR(255) NOT NULL, permissions JSON NOT NULL, version INT DEFAULT 1 NOT NULL, tenant UUID NOT NULL, deleted_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+                $this->addSql('CREATE TABLE app_role (id INT NOT NULL, uuid UUID NOT NULL, "owner" VARCHAR(255) DEFAULT NULL, owner_uuid UUID DEFAULT NULL, slug VARCHAR(255) NOT NULL, permissions JSON NOT NULL, version INT DEFAULT 1 NOT NULL, tenant UUID NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
                 $this->addSql('CREATE UNIQUE INDEX UNIQ_5247AFCAD17F50A6 ON app_role (uuid)');
                 $this->addSql('CREATE UNIQUE INDEX UNIQ_5247AFCA989D9B624E59C462 ON app_role (slug, tenant)');
                 $this->addSql('COMMENT ON COLUMN app_role.permissions IS \'(DC2Type:json_array)\'');
-                $this->addSql('CREATE TABLE app_role_trans (id INT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, locale VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+                $this->addSql('CREATE TABLE app_role_trans (id INT NOT NULL, translatable_id INT DEFAULT NULL, title VARCHAR(255) DEFAULT NULL, locale VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
                 $this->addSql('CREATE INDEX IDX_D1E65DEE2C2AC5D3 ON app_role_trans (translatable_id)');
                 $this->addSql('CREATE UNIQUE INDEX app_role_trans_unique_translation ON app_role_trans (translatable_id, locale)');
                 $this->addSql('CREATE TABLE app_staff (id INT NOT NULL, uuid UUID NOT NULL, "owner" VARCHAR(255) DEFAULT NULL, owner_uuid UUID DEFAULT NULL, version INT DEFAULT 1 NOT NULL, tenant UUID NOT NULL, deleted_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
