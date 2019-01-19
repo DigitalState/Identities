@@ -21,7 +21,7 @@ class RoleTranslation
 
     /**
      * @var string
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 }
