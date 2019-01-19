@@ -3,8 +3,7 @@
 namespace App\Validator\Constraints\Role\Permissions;
 
 use Ds\Component\Api\Collection\ServiceCollection;
-use Ds\Component\Security\Model\Permission;
-use OutOfRangeException;
+use Ds\Component\Acl\Model\Permission;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
