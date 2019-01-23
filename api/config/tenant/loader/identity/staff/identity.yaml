@@ -1,5 +1,7 @@
 objects:
   - uuid: '%identity.admin.uuid%'
+    roles:
+      - '%role.administrator.uuid%'
 
 prototype:
   uuid: ~

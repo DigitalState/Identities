@@ -114,7 +114,11 @@ services:
 
   App\Tenant\Loader\BusinessUnitLoader:
     tags:
-      - { name: ds_tenant.loader }
+      - { name: ds_tenant.loader, priority: -1 }
+
+  App\Tenant\Loader\RoleLoader:
+    tags:
+      - { name: ds_tenant.loader, priority: -1 }
 
   App\Tenant\Loader\Identity\StaffLoader:
     tags:

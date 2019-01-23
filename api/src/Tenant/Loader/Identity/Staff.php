@@ -2,8 +2,10 @@
 
 namespace App\Tenant\Loader\Identity;
 
+use App\Entity\Role;
 use Ds\Component\Database\Util\Objects;
 use Ds\Component\Tenant\Entity\Tenant;
+use LogicException;
 
 /**
  * Trait Staff
@@ -36,6 +38,18 @@ trait Staff
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+
+            foreach ($object->roles as $uuid) {
+                $role = $manager->getRepository(Role::class)->findOneBy(['uuid' => $uuid]);
+
+                if (!$role) {
+                    throw new LogicException('Role "'.$uuid.'" does not exist.');
+                }
+
+                $staff->addRole($role);
+            }
+
             $manager->persist($staff);
             $manager->flush();
         }

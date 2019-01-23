@@ -3,9 +3,7 @@
 namespace App\Tenant\Loader;
 
 use App\Service\BusinessUnitService;
-use Ds\Component\Tenant\Entity\Tenant;
 use Ds\Component\Tenant\Loader\Loader;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class BusinessUnitLoader

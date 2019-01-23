@@ -4,9 +4,7 @@ namespace App\Tenant\Loader;
 
 use Ds\Component\Config\Service\ConfigService;
 use Ds\Component\Config\Tenant\Loader\Config;
-use Ds\Component\Tenant\Entity\Tenant;
 use Ds\Component\Tenant\Loader\Loader;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class ConfigLoader
