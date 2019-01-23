@@ -24,16 +24,14 @@ trait Role
      */
     public function load(ObjectManager $manager)
     {
-        $events = $manager->getEventManager()->getListeners();
+        $eventManager = $manager->getEventManager();
 
-        foreach ($events as $event => $listeners) {
-            foreach ($listeners as $listener) {
-                if (!is_object($listener)) {
-                    continue;
-                }
-
-                if ($listener instanceof PropagationListener) {
+        foreach ($eventManager->getListeners() as $event => $listeners) {
+            foreach ($listeners as $key => $listener) {
+                if (is_object($listener) && $listener instanceof PropagationListener) {
                     $listener->setEnabled(false);
+                } else if (is_string($listener) && $listener === PropagationListener::class) {
+                    $eventManager->removeEventListener(['postPersist'], $listener);
                 }
             }
         }

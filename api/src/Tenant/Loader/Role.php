@@ -26,14 +26,14 @@ trait Role
      */
     public function load(Tenant $tenant)
     {
-        $manager = $this->roleService->getManager()->getEventManager();
+        $eventManager = $this->roleService->getManager()->getEventManager();
 
-        foreach ($manager->getListeners() as $event => $listeners) {
+        foreach ($eventManager->getListeners() as $event => $listeners) {
             foreach ($listeners as $key => $listener) {
                 if (is_object($listener) && $listener instanceof PropagationListener) {
                     $listener->setEnabled(false);
                 } else if (is_string($listener) && $listener === PropagationListener::class) {
-                    $manager->removeEventListener(['postPersist'], $listener);
+                    $eventManager->removeEventListener(['postPersist'], $listener);
                 }
             }
         }
