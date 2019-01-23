@@ -83,9 +83,11 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
         $this->tenant->up($schema, Objects::parseFile(static::DIRECTORY.'/0_15_0/system/tenant.yaml', $parameters));
 
         $businessUnits = Objects::parseFile(static::DIRECTORY.'/0_15_0/business_unit.yaml', $parameters);
+        $roles = Objects::parseFile(static::DIRECTORY.'/0_15_0/role.yaml', $parameters);
         $staffs = Objects::parseFile(static::DIRECTORY.'/0_15_0/staff.yaml', $parameters);
         $systems = Objects::parseFile(static::DIRECTORY.'/0_15_0/system.yaml', $parameters);
 
+        $ids = [];
         $sequences['app_anonymous_id_seq'] = 1;
         $sequences['app_anonymous_persona_id_seq'] = 1;
         $sequences['app_anonymous_persona_trans_id_seq'] = 1;
@@ -97,7 +99,7 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
         $sequences['app_organization_id_seq'] = 1;
         $sequences['app_organization_persona_id_seq'] = 1;
         $sequences['app_organization_persona_trans_id_seq'] = 1;
-        $sequences['app_role_id_seq'] = 1;
+        $sequences['app_role_id_seq'] = 1 + count($roles);
         $sequences['app_role_trans_id_seq'] = 1;
         $sequences['app_staff_id_seq'] = 1 + count($staffs);
         $sequences['app_staff_persona_id_seq'] = 1;
@@ -106,6 +108,10 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
 
         foreach ($businessUnits as $businessUnit) {
             $sequences['app_bu_trans_id_seq'] += count((array) $businessUnit->title);
+        }
+
+        foreach ($roles as $role) {
+            $sequences['app_role_trans_id_seq'] += count((array) $role->title);
         }
 
         foreach ($staffs as $staff) {
@@ -259,6 +265,40 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
 
                 $i = 0;
                 $j = 0;
+
+                foreach ($roles as $role) {
+                    if (null === $role->uuid) {
+                        $role->uuid = Uuid::uuid4()->toString();
+                    }
+
+                    $this->addSql(sprintf(
+                        'INSERT INTO app_role (id, uuid, owner, owner_uuid, slug, permissions, version, tenant, created_at, updated_at) VALUES (%d, %s, %s, %s, %s, %s, %d, %s, %s, %s);',
+                        ++$i,
+                        $this->connection->quote($role->uuid),
+                        $this->connection->quote($role->owner),
+                        $this->connection->quote($role->owner_uuid),
+                        $this->connection->quote($role->slug),
+                        $this->connection->quote(json_encode($role->permissions)),
+                        $role->version,
+                        $this->connection->quote($role->tenant),
+                        'now()',
+                        'now()'
+                    ));
+
+                    $ids['role'][$role->uuid] = $i;
+
+                    foreach ($role->title as $locale => $title) {
+                        $this->addSql(sprintf('INSERT INTO app_role_trans (id, translatable_id, title, locale) VALUES (%d, %d, %s, %s);',
+                            ++$j,
+                            $i,
+                            $this->connection->quote($title),
+                            $this->connection->quote($locale)
+                        ));
+                    }
+                }
+
+                $i = 0;
+                $j = 0;
                 $k = 0;
 
                 foreach ($staffs as $staff) {
@@ -307,6 +347,14 @@ final class Version0_15_0 extends AbstractMigration implements ContainerAwareInt
                                 $this->connection->quote($locale)
                             ));
                         }
+                    }
+
+                    foreach ($staff->roles as $role) {
+                        $this->addSql(sprintf(
+                            'INSERT INTO app_staff_role (staff_id, role_id) VALUES (%d, %d);',
+                            $i,
+                            $ids['role'][$role]
+                        ));
                     }
                 }
 

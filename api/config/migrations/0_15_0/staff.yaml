@@ -6,11 +6,14 @@ objects:
           en: Default
         data: {}
         version: 1
+    roles:
+      - '%role.administrator.uuid%'
 
 prototype:
   uuid: ~
   owner: BusinessUnit
   owner_uuid: '%business_unit.administration.uuid%'
   personas: []
+  roles: []
   version: 1
   tenant: '%tenant.uuid%'
