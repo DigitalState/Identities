@@ -3,7 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\Role as RoleEntity;
-use App\EventListener\Entity\Role\AccessListener;
+use App\EventListener\Entity\Role\PropagationListener;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -32,7 +32,7 @@ trait Role
                     continue;
                 }
 
-                if ($listener instanceof AccessListener) {
+                if ($listener instanceof PropagationListener) {
                     $listener->setEnabled(false);
                 }
             }
