@@ -1,35 +1,24 @@
-@api @security @firewall @config @deny
-Feature: Deny access to non-authenticated users to config endpoints
+@api @security @firewall @access
+Feature: Deny access to non-authenticated users to access endpoints
 
-  Scenario: Browse configs
+  Scenario: Browse accesses
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/configs"
+    And I send a "GET" request to "/accesses"
     Then the response status code should be 401
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Read a config
+  Scenario: Read an access
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd"
+    And I send a "GET" request to "/accesses/db3fd78d-821a-41ae-bab2-501ede3c6693"
     Then the response status code should be 401
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Add a config
+  Scenario: Add an access
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "POST" request to "/configs" with body:
-    """
-    {}
-    """
-    Then the response status code should be 405
-    And the header "Content-Type" should be equal to "application/json"
-    And the response should be in JSON
-
-  Scenario: Edit a config
-    When I add "Accept" header equal to "application/json"
-    And I add "Content-Type" header equal to "application/json"
-    And I send a "PUT" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd" with body:
+    And I send a "POST" request to "/accesses" with body:
     """
     {}
     """
@@ -37,9 +26,20 @@ Feature: Deny access to non-authenticated users to config endpoints
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Delete a config
+  Scenario: Edit an access
     When I add "Accept" header equal to "application/json"
-    And I send a "DELETE" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd"
-    Then the response status code should be 405
+    And I add "Content-Type" header equal to "application/json"
+    And I send a "PUT" request to "/accesses/db3fd78d-821a-41ae-bab2-501ede3c6693" with body:
+    """
+    {}
+    """
+    Then the response status code should be 401
+    And the header "Content-Type" should be equal to "application/json"
+    And the response should be in JSON
+
+  Scenario: Delete an access
+    When I add "Accept" header equal to "application/json"
+    And I send a "DELETE" request to "/accesses/db3fd78d-821a-41ae-bab2-501ede3c6693"
+    Then the response status code should be 401
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON

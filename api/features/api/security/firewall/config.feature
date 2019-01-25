@@ -1,24 +1,35 @@
-@api @security @firewall @metadata @deny
-Feature: Deny access to non-authenticated users to metadata endpoints
+@api @security @firewall @config
+Feature: Deny access to non-authenticated users to config endpoints
 
-  Scenario: Browse metadata
+  Scenario: Browse configs
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/metadata"
+    And I send a "GET" request to "/configs"
     Then the response status code should be 401
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Read a metadata
+  Scenario: Read a config
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/metadata/790d4acc-0651-49c2-8518-c4839a2ec801"
+    And I send a "GET" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd"
     Then the response status code should be 401
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Add a metadata
+  Scenario: Add a config
     When I add "Accept" header equal to "application/json"
     And I add "Content-Type" header equal to "application/json"
-    And I send a "POST" request to "/metadata" with body:
+    And I send a "POST" request to "/configs" with body:
+    """
+    {}
+    """
+    Then the response status code should be 405
+    And the header "Content-Type" should be equal to "application/json"
+    And the response should be in JSON
+
+  Scenario: Edit a config
+    When I add "Accept" header equal to "application/json"
+    And I add "Content-Type" header equal to "application/json"
+    And I send a "PUT" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd" with body:
     """
     {}
     """
@@ -26,20 +37,9 @@ Feature: Deny access to non-authenticated users to metadata endpoints
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
 
-  Scenario: Edit a metadata
+  Scenario: Delete a config
     When I add "Accept" header equal to "application/json"
-    And I add "Content-Type" header equal to "application/json"
-    And I send a "PUT" request to "/metadata/790d4acc-0651-49c2-8518-c4839a2ec801" with body:
-    """
-    {}
-    """
-    Then the response status code should be 401
-    And the header "Content-Type" should be equal to "application/json"
-    And the response should be in JSON
-
-  Scenario: Delete a metadata
-    When I add "Accept" header equal to "application/json"
-    And I send a "DELETE" request to "/metadata/c61f05ce-468f-4b21-ad38-512ea549e210"
-    Then the response status code should be 401
+    And I send a "DELETE" request to "/configs/5cfeb51a-89c1-4bc9-97f7-1f57a43adbfd"
+    Then the response status code should be 405
     And the header "Content-Type" should be equal to "application/json"
     And the response should be in JSON
