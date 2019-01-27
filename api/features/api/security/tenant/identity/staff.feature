@@ -2,7 +2,7 @@
 Feature: Deny access to staff identities belonging to other tenants
 
   Background:
-    Given I am authenticated as the "staff@staff.ds" user from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
+    Given I am authenticated as the "system@system.ds" user from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
   Scenario: Browse staff identities from your own tenant
     When I add "Accept" header equal to "application/json"
