@@ -1,4 +1,83 @@
-objects: []
+objects:
+  - uuid: 99538560-2abd-40d9-a7d5-8d2aefb9b6e2
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Administrator
+      fr: Administrateur
+    slug: administrator
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: 3d28d10a-02d3-4eb6-9647-f13f3b46ad4f
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Manager
+      fr: Gérant
+    slug: manager
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: 93ef0f5f-0e2a-445e-aee5-c06147d3eccb
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Staff
+      fr: Personnel
+    slug: staff
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: a121c03d-bff0-4294-90a6-d772df265d04
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Individual
+      fr: Individuel
+    slug: individual
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: 5ff2a02e-c4b3-41d5-ae36-bebd51385d35
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    title:
+      en: Organization
+      fr: Organisation
+    slug: organization
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: f9fbccd0-fc8e-43a4-b010-1b3bc976cb0b
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Administrator
+      fr: Administrateur
+    slug: administrator
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 7d08d4a8-dcce-4fff-b3d9-cabdbdbb2407
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Manager
+      fr: Gérant
+    slug: manager
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 1f318a1e-6878-4b77-a9f5-828f2842b5bb
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Staff
+      fr: Personnel
+    slug: staff
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 1b322ad0-a3dc-4bda-9797-644e2fb38691
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Individual
+      fr: Individuel
+    slug: individual
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: b45a351e-c97f-4f9f-afb0-5afdbda29515
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    title:
+      en: Organization
+      fr: Organisation
+    slug: organization
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
 
 prototype:
   uuid: ~
