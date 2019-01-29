@@ -65,7 +65,7 @@ services:
   app.filter.anonymous_persona.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.anonymous_persona.search_translation }
 
@@ -102,7 +102,7 @@ services:
   app.filter.business_unit.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.business_unit.search_translation }
 
@@ -170,7 +170,7 @@ services:
   app.filter.individual_persona.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.individual_persona.search_translation }
 
@@ -238,7 +238,7 @@ services:
   app.filter.organization_persona.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.organization_persona.search_translation }
 
@@ -276,7 +276,7 @@ services:
   app.filter.role.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.role.search_translation }
 
@@ -346,7 +346,7 @@ services:
   app.filter.staff_persona.search_translation:
     parent: ds_translation.doctrine.orm.filter.search
     arguments:
-      - title: partial
+      - title: ipartial
     tags:
       - { name: api_platform.filter, id: app.staff_persona.search_translation }
 
