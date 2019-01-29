@@ -1,19 +1,19 @@
-@api @identity @individual @read
-Feature: Read individual identities
+@api @identity @organization @read
+Feature: Read organization identities
 
   Background:
     Given I am authenticated as the "system@system.ds" user from the tenant "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
-  Scenario: Read an individual identity
+  Scenario: Read an organization identity
     When I add "Accept" header equal to "application/json"
-    And I send a "GET" request to "/individuals/9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
+    And I send a "GET" request to "/organizations/a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
     And the JSON node "id" should exist
     And the JSON node "id" should be equal to the number 1
     And the JSON node "uuid" should exist
-    And the JSON node "uuid" should be equal to the string "9ce3bdb9-47e1-43c9-81ee-0dcc2106ba42"
+    And the JSON node "uuid" should be equal to the string "a6b3a00b-e732-4aeb-8011-a1e58fc7b5e3"
     And the JSON node "createdAt" should exist
     And the JSON node "updatedAt" should exist
     And the JSON node "deletedAt" should exist
