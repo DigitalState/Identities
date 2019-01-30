@@ -1,0 +1,12 @@
+objects:
+  - uuid: '%identity.admin.uuid%'
+    roles:
+      - '%role.administrator.uuid%'
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: '%business_unit.administration.uuid%'
+  roles: []
+  business_units: []
+  tenant: '%tenant.uuid%'

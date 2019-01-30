@@ -1,0 +1,22 @@
+objects:
+  - uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+    title:
+      en: Administration
+      fr: Administration
+
+  - uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+    title:
+      en: Backoffice
+      fr: Bureau
+
+  - uuid: b20a40d9-b95b-4462-b8f1-c7453b9b7067 # Portal
+    title:
+      en: Portal
+      fr: Portail
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+  title: {}
+  tenant: e5a2120d-6bf7-4c58-a900-bac1e55e986b # Tenant 1

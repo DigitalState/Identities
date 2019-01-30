@@ -1,0 +1,26 @@
+objects:
+  - uuid: 6629684a-67d3-4c90-9dd4-590d6963a4ec
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: f503f769-e6f8-4414-8085-d42e1bc3df32
+    owner_uuid: 325e1004-8516-4ca9-a4d3-d7505bd9a7fe # Administration
+    assignee_uuid: cedcdc35-84a8-4fa1-8cf1-ff8fea926222 # Organization
+    tenant: b6ac25fe-3cd6-4100-a054-6bba2fc9ef18 # Tenant 1
+
+  - uuid: fa8a8fdb-337d-45cf-9dcc-36ee632c7fd5
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+  - uuid: 9ca072ed-404e-442e-8623-27b00e4ac119
+    owner_uuid: 72ecd949-6960-4d9d-8baa-3dc15c2cbd63 # Administration
+    assignee_uuid: fca280ca-18c7-477d-bf95-de51f1a1d54d # Organization
+    tenant: 92000deb-b847-4838-915c-b95d2b28e960 # Tenant 2
+
+prototype:
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: ~
+  assignee: Organization
+  assignee_uuid: ~
+  tenant: ~
