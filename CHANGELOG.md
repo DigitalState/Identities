@@ -9,6 +9,10 @@
 - Feature [Api] Rename pagination query parameters to `_page` and `_limit`
 - Feature [Config] Config api filter `key` changed from `partial` to `exact` strategy
 - Feature [Role] Remove soft-deletable from role entity
+- Feature [Api] Anonymous personas urls changed from `/anonymous-personas` to `/anonymous_personas`
+- Feature [Api] Individual personas urls changed from `/individual-personas` to `/individual_personas`
+- Feature [Api] Organization personas urls changed from `/organization-personas` to `/organization_personas`
+- Feature [Api] Staff personas urls changed from `/staff-personas` to `/staff_personas`
 
 ## 0.14.0 (2018-10-29)
 
