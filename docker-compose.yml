@@ -15,7 +15,7 @@ services:
           - identities_database
 
   php:
-    image: digitalstate/identities:php-0.16.2
+    image: digitalstate/identities:php-0.16.3
     depends_on:
       - database
     env_file:
@@ -41,7 +41,7 @@ services:
           - identities_php
 
   api:
-    image: digitalstate/identities:api-0.16.2
+    image: digitalstate/identities:api-0.16.3
     depends_on:
       - php
     networks:
