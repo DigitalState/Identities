@@ -37,7 +37,6 @@ trait StaffRole
             $staffRole = $this->staffRoleService->createInstance();
             $staffRole
                 ->setStaff($staff)
-                ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setRole($role)
