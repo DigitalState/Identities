@@ -132,19 +132,10 @@ class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiabl
     private $personas;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"organization_output", "organization_input"})
-     * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(
-     *     name="app_organization_role",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="organization_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
-     *     }
-     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"organization_output"})
+     * @ORM\OneToMany(targetEntity="OrganizationRole", mappedBy="organization", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $roles;

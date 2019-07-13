@@ -132,19 +132,10 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
     private $personas;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"individual_output", "individual_input"})
-     * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(
-     *     name="app_individual_role",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="individual_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
-     *     }
-     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"individual_output"})
+     * @ORM\OneToMany(targetEntity="IndividualRole", mappedBy="individual", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $roles;
