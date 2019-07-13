@@ -37,18 +37,23 @@ final class Version0_17_0 extends AbstractMigration
     {
         $this->acl->up($schema);
 
+        $this->addSql('ALTER TABLE app_anonymous_role DROP CONSTRAINT app_anonymous_role_pkey');
         $this->addSql('ALTER TABLE app_anonymous_role RENAME TO app_anonymous_role_prev');
         $this->addSql('DROP INDEX IDX_E2D1EAF6FA93803');
         $this->addSql('DROP INDEX IDX_E2D1EAF6D60322AC');
+        $this->addSql('ALTER TABLE app_individual_role DROP CONSTRAINT app_individual_role_pkey');
         $this->addSql('ALTER TABLE app_individual_role RENAME TO app_individual_role_prev');
         $this->addSql('DROP INDEX IDX_C5713550AE271C0D');
         $this->addSql('DROP INDEX IDX_C5713550D60322AC');
+        $this->addSql('ALTER TABLE app_organization_role DROP CONSTRAINT app_organization_role_pkey');
         $this->addSql('ALTER TABLE app_organization_role RENAME TO app_organization_role_prev');
         $this->addSql('DROP INDEX IDX_CF25196832C8A3DE');
         $this->addSql('DROP INDEX IDX_CF251968D60322AC');
+        $this->addSql('ALTER TABLE app_staff_role DROP CONSTRAINT app_staff_role_pkey');
         $this->addSql('ALTER TABLE app_staff_role RENAME TO app_staff_role_prev');
         $this->addSql('DROP INDEX IDX_E3445799D4D57CD');
         $this->addSql('DROP INDEX IDX_E3445799D60322AC');
+        $this->addSql('ALTER TABLE app_system_role DROP CONSTRAINT app_system_role_pkey');
         $this->addSql('ALTER TABLE app_system_role RENAME TO app_system_role_prev');
         $this->addSql('DROP INDEX IDX_1F401F20D0952FA5');
         $this->addSql('DROP INDEX IDX_1F401F20D60322AC');
@@ -134,5 +139,46 @@ final class Version0_17_0 extends AbstractMigration
     public function down(Schema $schema)
     {
         $this->acl->down($schema);
+
+        $this->addSql('DROP INDEX IDX_B09CAAD23089E0B');
+        $this->addSql('DROP INDEX IDX_B09CAADA58ECB40');
+        $this->addSql('DROP TABLE app_anonymous_role_bu');
+        $this->addSql('DROP INDEX UNIQ_E2D1EAF6D17F50A6');
+        $this->addSql('ALTER TABLE app_anonymous_role DROP CONSTRAINT app_anonymous_role_pkey');
+        $this->addSql('ALTER TABLE app_anonymous_role ADD CONSTRAINT app_anonymous_role_pkey PRIMARY KEY(anonymous_id, role_id)');
+        $this->addSql('ALTER TABLE app_anonymous_role DROP COLUMN id, DROP COLUMN uuid, DROP COLUMN owner, DROP COLUMN owner_uuid, DROP COLUMN version, DROP COLUMN tenant, DROP COLUMN created_at, DROP COLUMN updated_at');
+        $this->addSql('DROP INDEX IDX_68A9160EFDFA321');
+        $this->addSql('DROP INDEX IDX_68A9160A58ECB40');
+        $this->addSql('DROP TABLE app_individual_role_bu');
+        $this->addSql('DROP INDEX UNIQ_C5713550D17F50A6');
+        $this->addSql('ALTER TABLE app_individual_role DROP CONSTRAINT app_individual_role_pkey');
+        $this->addSql('ALTER TABLE app_individual_role ADD CONSTRAINT app_individual_role_pkey PRIMARY KEY(individual_id, role_id)');
+        $this->addSql('ALTER TABLE app_individual_role DROP COLUMN id, DROP COLUMN uuid, DROP COLUMN owner, DROP COLUMN owner_uuid, DROP COLUMN version, DROP COLUMN tenant, DROP COLUMN created_at, DROP COLUMN updated_at');
+        $this->addSql('DROP INDEX IDX_79C5DB01A58ECB40');
+        $this->addSql('DROP INDEX IDX_79C5DB011BD1AAEF');
+        $this->addSql('DROP TABLE app_organization_role_bu');
+        $this->addSql('DROP INDEX UNIQ_CF251968D17F50A6');
+        $this->addSql('ALTER TABLE app_organization_role DROP CONSTRAINT app_organization_role_pkey');
+        $this->addSql('ALTER TABLE app_organization_role ADD CONSTRAINT app_organization_role_pkey PRIMARY KEY(organization_id, role_id)');
+        $this->addSql('ALTER TABLE app_organization_role DROP COLUMN id, DROP COLUMN uuid, DROP COLUMN owner, DROP COLUMN owner_uuid, DROP COLUMN version, DROP COLUMN tenant, DROP COLUMN created_at, DROP COLUMN updated_at');
+        $this->addSql('DROP INDEX IDX_998CF18FA58ECB40');
+        $this->addSql('DROP INDEX IDX_998CF18F8AB5351A');
+        $this->addSql('DROP TABLE app_staff_role_bu');
+        $this->addSql('DROP INDEX UNIQ_E3445799D17F50A6');
+        $this->addSql('ALTER TABLE app_staff_role DROP CONSTRAINT app_staff_role_pkey');
+        $this->addSql('ALTER TABLE app_staff_role ADD CONSTRAINT app_staff_role_pkey PRIMARY KEY(staff_id, role_id)');
+        $this->addSql('ALTER TABLE app_staff_role DROP COLUMN id, DROP COLUMN uuid, DROP COLUMN owner, DROP COLUMN owner_uuid, DROP COLUMN version, DROP COLUMN tenant, DROP COLUMN created_at, DROP COLUMN updated_at');
+        $this->addSql('DROP INDEX IDX_6CCE35F8A58ECB40');
+        $this->addSql('DROP INDEX IDX_6CCE35F83A705E3F');
+        $this->addSql('DROP TABLE app_system_role_bu');
+        $this->addSql('DROP INDEX UNIQ_1F401F20D17F50A6');
+        $this->addSql('ALTER TABLE app_system_role DROP CONSTRAINT app_system_role_pkey');
+        $this->addSql('ALTER TABLE app_system_role ADD CONSTRAINT app_system_role_pkey PRIMARY KEY(system_id, role_id)');
+        $this->addSql('ALTER TABLE app_system_role DROP COLUMN id, DROP COLUMN uuid, DROP COLUMN owner, DROP COLUMN owner_uuid, DROP COLUMN version, DROP COLUMN tenant, DROP COLUMN created_at, DROP COLUMN updated_at');
+        $this->addSql('DROP SEQUENCE app_anonymous_role_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE app_individual_role_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE app_organization_role_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE app_staff_role_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE app_system_role_id_seq CASCADE');
     }
 }
