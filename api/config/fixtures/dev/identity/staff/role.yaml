@@ -1,0 +1,26 @@
+objects:
+  - staff: e32f09b7-e1cf-4a91-a0e1-6822bf47a662 # Admin
+    uuid: 92e53f4b-8c3c-445e-865d-4f97df486c83
+    owner_uuid: c11c546e-bd01-47cf-97da-e25388357b5a # Administration
+    role: 5ab54dd5-56ed-4e96-bd8b-1d60ab668a75 # Administrator
+
+  - staff: 47a5a9cb-496f-4db7-8999-489ec404887f # Manager
+    uuid: ca6a957a-e56f-4c02-9899-43c8afb5d92d
+    role: 3e64bbd1-4d00-47e7-a35e-92691f5a6018 # Staff
+
+  - staff: 47a5a9cb-496f-4db7-8999-489ec404887f # Manager
+    uuid: cdf6facd-c4d5-4ac7-b809-d8d137b9dbc8
+    role: f06dd49d-8ad4-437a-beee-387b834ee217 # Manager
+
+  - staff: 5449ce65-5df0-440d-aead-21a77907e59a # Agent
+    uuid: a581c42f-183f-4ee2-ad0f-0b49d6cb3d73
+    role: 3e64bbd1-4d00-47e7-a35e-92691f5a6018 # Staff
+
+prototype:
+  staff: ~
+  uuid: ~
+  owner: BusinessUnit
+  owner_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+  role: ~
+  business_units: []
+  tenant: e5a2120d-6bf7-4c58-a900-bac1e55e986b # Tenant 1

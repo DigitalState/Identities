@@ -1,27 +1,29 @@
 objects:
   - access: e5bea38e-ae59-498f-85c3-d7836f45396d # Administrator
-    scope: owner
-    entity: BusinessUnit
-    entity_uuid: ~ # Any BusinessUnit
+    scope:
+      type: owner
+      entity: BusinessUnit
+      entity_uuid: ~ # Any BusinessUnit
     key: entity
     attributes: [BROWSE, READ, EDIT, ADD, DELETE]
 
   - access: e5bea38e-ae59-498f-85c3-d7836f45396d # Administrator
-    scope: owner
-    entity: BusinessUnit
-    entity_uuid: ~ # Any BusinessUnit
+    scope:
+      type: owner
+      entity: BusinessUnit
+      entity_uuid: ~ # Any BusinessUnit
     key: property
     attributes: [BROWSE, READ, EDIT]
 
   - access: e5bea38e-ae59-498f-85c3-d7836f45396d # Administrator
-    scope: generic
     key: generic
     attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
 
   - access: dcd44503-07ec-45ee-a97b-f4dead06c0d5 # Manager
-    scope: owner
-    entity: BusinessUnit
-    entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+    scope:
+      type: owner
+      entity: BusinessUnit
+      entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
     key:
       - anonymous
       - anonymous_persona
@@ -35,9 +37,10 @@ objects:
     attributes: [EDIT, ADD, DELETE]
 
   - access: dcd44503-07ec-45ee-a97b-f4dead06c0d5 # Manager
-    scope: owner
-    entity: BusinessUnit
-    entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+    scope:
+      type: owner
+      entity: BusinessUnit
+      entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
     key:
       - anonymous_property
       - anonymous_persona_property
@@ -51,9 +54,10 @@ objects:
     attributes: [EDIT]
 
   - access: b7ec8a3d-27a0-45d0-a377-7822f05fd664 # Staff
-    scope: owner
-    entity: BusinessUnit
-    entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
+    scope:
+      type: owner
+      entity: BusinessUnit
+      entity_uuid: a9d68bf7-5000-49fe-8b00-33dde235b327 # Backoffice
     key:
       - anonymous
       - anonymous_property
@@ -78,7 +82,8 @@ objects:
     attributes: [BROWSE, READ]
 
   - access: f9c55be1-e080-443d-a662-31647f53e5f0 # Individual
-    scope: session
+    scope:
+      type: session
     key:
       - individual
       - individual_uuid
@@ -92,13 +97,15 @@ objects:
     attributes: [BROWSE, READ]
 
   - access: f9c55be1-e080-443d-a662-31647f53e5f0 # Individual
-    scope: session
+    scope:
+      type: session
     key:
       - individual_persona
     attributes: [EDIT, ADD]
 
   - access: f9c55be1-e080-443d-a662-31647f53e5f0 # Individual
-    scope: session
+    scope:
+      type: session
     key:
       - individual_persona_title
       - individual_persona_data
@@ -106,7 +113,8 @@ objects:
     attributes: [EDIT]
 
   - access: 0a202896-6682-4a16-bd0a-be1f0d26e3cf # Organization
-    scope: session
+    scope:
+      type: session
     key:
       - organization
       - organization_uuid
@@ -120,13 +128,15 @@ objects:
     attributes: [BROWSE, READ]
 
   - access: 0a202896-6682-4a16-bd0a-be1f0d26e3cf # Organization
-    scope: session
+    scope:
+      type: session
     key:
       - organization_persona
     attributes: [EDIT, ADD]
 
   - access: 0a202896-6682-4a16-bd0a-be1f0d26e3cf # Organization
-    scope: session
+    scope:
+      type: session
     key:
       - organization_persona_title
       - organization_persona_data
@@ -135,9 +145,8 @@ objects:
 
 prototype:
   access: ~
-  scope: ~
-  entity: ~
-  entity_uuid: ~
+  scope:
+    type: generic
   key: ~
   attributes: []
   tenant: e5a2120d-6bf7-4c58-a900-bac1e55e986b # Tenant 1

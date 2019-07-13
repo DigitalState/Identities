@@ -9,18 +9,18 @@ use Doctrine\Common\DataFixtures\SharedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
- * Class SystemFixture
+ * Class IndividualRoleFixture
  */
-final class SystemFixture extends AbstractFixture implements FixtureInterface, SharedFixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
+final class IndividualRoleFixture extends AbstractFixture implements FixtureInterface, SharedFixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
-    use System;
+    use IndividualRole;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->path = '/srv/api/config/fixtures/{fixtures}/identity/system/identity.yaml';
+        $this->path = '/srv/api/config/fixtures/{fixtures}/identity/individual/role.yaml';
     }
 
     /**
@@ -28,6 +28,6 @@ final class SystemFixture extends AbstractFixture implements FixtureInterface, S
      */
     public function getOrder()
     {
-        return 21;
+        return 22;
     }
 }

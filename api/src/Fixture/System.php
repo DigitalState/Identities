@@ -33,6 +33,7 @@ trait System
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
             $manager->persist($system);
+            $this->setReference($object->uuid, $system);
         }
 
         $manager->flush();

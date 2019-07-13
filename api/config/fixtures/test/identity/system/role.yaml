@@ -1,0 +1,10 @@
+objects: []
+
+prototype:
+  system: ~
+  uuid: ~
+  owner: System
+  owner_uuid: ~
+  role: ~
+  business_units: []
+  tenant: ~

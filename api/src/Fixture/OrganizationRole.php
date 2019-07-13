@@ -2,15 +2,15 @@
 
 namespace App\Fixture;
 
-use App\Entity\Staff as StaffEntity;
+use App\Entity\OrganizationRole as OrganizationRoleEntity;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
 
 /**
- * Trait Staff
+ * Trait OrganizationRole
  */
-trait Staff
+trait OrganizationRole
 {
     use Yaml;
 
@@ -27,12 +27,27 @@ trait Staff
         $objects = $this->parse($this->path);
 
         foreach ($objects as $object) {
-            $staff = new StaffEntity;
-            $staff
+            $organization = $this->getReference($object->organization);
+
+            if (!$organization) {
+                throw new LogicException('Organization "'.$object->organization.'" does not exist.');
+            }
+
+            $organizationRole = new OrganizationRoleEntity;
+            $organizationRole
+                ->setOrganization($organization)
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+            $role = $this->getReference($object->role);
+
+            if (!$role) {
+                throw new LogicException('Role "'.$object->role.'" does not exist.');
+            }
+
+            $organizationRole->setRole($role);
 
             foreach ($object->business_units as $uuid) {
                 $businessUnit = $this->getReference($uuid);
@@ -41,11 +56,10 @@ trait Staff
                     throw new LogicException('Business Unit "'.$uuid.'" does not exist.');
                 }
 
-                $staff->addBusinessUnit($businessUnit);
+                $organizationRole->addBusinessUnit($businessUnit);
             }
 
-            $manager->persist($staff);
-            $this->setReference($object->uuid, $staff);
+            $manager->persist($organizationRole);
         }
 
         $manager->flush();
