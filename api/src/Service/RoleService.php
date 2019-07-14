@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Ds\Component\Api\Api\Api;
 use Ds\Component\Api\Model\Access;
 use Ds\Component\Api\Model\Permission;
+use Ds\Component\Api\Model\Scope;
 use Ds\Component\Api\Query\AccessParameters;
 use Ds\Component\Discovery\Repository\ServiceRepository;
 use Ds\Component\Entity\Service\EntityService;
@@ -62,7 +63,7 @@ final class RoleService extends EntityService
             throw new LogicException('Role does not have a uuid.');
         }
 
-        foreach ($role->getPermissions() as $service => $scopes) {
+        foreach ($role->getPermissions() as $service => $servicePermissions) {
             if (!$this->serviceRepository->find($this->namespace.'_'.$service.'_api_http')) {
                 continue;
             }
@@ -75,13 +76,16 @@ final class RoleService extends EntityService
                 ->setAssigneeUuid($role->getUuid())
                 ->setVersion(1);
 
-            foreach ($scopes as $scope) {
-                foreach ($scope['permissions'] as $entry) {
+            foreach ($servicePermissions as $servicePermission) {
+                foreach ($servicePermission['permissions'] as $entry) {
                     $permission = new Permission;
+                    $scope = new Scope;
+                    $scope
+                        ->setType($servicePermission['scope']['type'])
+                        ->setEntity($servicePermission['scope']['entity'])
+                        ->setEntityUuid($servicePermission['scope']['entityUuid']);
                     $permission
-                        ->setScope($scope['scope'])
-                        ->setEntity($scope['entity'])
-                        ->setEntityUuid($scope['entityUuid'])
+                        ->setScope($scope)
                         ->setKey($entry['key'])
                         ->setAttributes($entry['attributes']);
                     $access->addPermission($permission);

@@ -15,9 +15,11 @@ use Symfony\Component\Validator\ConstraintValidator;
  * {
  *     "identities": [
  *         {
- *             "scope": "owned_by",
- *             "entity": "BusinessUnit",
- *             "entityUuid": "aff1370c-9cb7-432d-a608-57021637f278",
+ *             "scope": {
+ *                 "type": "owned_by",
+ *                 "entity": "BusinessUnit",
+ *                 "entityUuid": "aff1370c-9cb7-432d-a608-57021637f278"
+ *             },
  *             "permissions": [
  *                 {
  *                     "key": "individual",
@@ -87,7 +89,7 @@ final class ValidValidator extends ConstraintValidator
                     continue;
                 }
 
-                foreach (['scope', 'entity', 'entityUuid', 'permissions'] as $attribute) {
+                foreach (['scope', 'permissions'] as $attribute) {
                     if (!array_key_exists($attribute, $permission)) {
                         $this->context
                             ->buildViolation($constraint->permissionAttributeMissing)
@@ -97,7 +99,30 @@ final class ValidValidator extends ConstraintValidator
                             ->addViolation();
                     }
 
-                    if ('permissions' === $attribute) {
+                    if ('scope' === $attribute) {
+                        if (!is_array($permission['scope'])) {
+                            $this->context
+                                ->buildViolation($constraint->subscopeNotArray)
+                                ->setParameter('{{ service }}', '"'.$service.'"')
+                                ->atPath('scope.'.$service.'['.$index.'].permissions')
+                                ->addViolation();
+
+                            continue;
+                        }
+
+                        foreach (['type', 'entity', 'entityUuid'] as $subattribute) {
+                            if (!array_key_exists($subattribute, $permission['scope'])) {
+                                $this->context
+                                    ->buildViolation($constraint->subscopeAttributeMissing)
+                                    ->setParameter('{{ service }}', '"'.$service.'"')
+                                    ->setParameter('{{ attribute }}', '"'.$subattribute.'"')
+                                    ->atPath('permissions.'.$service.'['.$index.'].'.$attribute.'.'.$subattribute)
+                                    ->addViolation();
+
+                                continue;
+                            }
+                        }
+                    } else if ('permissions' === $attribute) {
                         if (!is_array($permission['permissions'])) {
                             $this->context
                                 ->buildViolation($constraint->subpermissionsNotArray)
