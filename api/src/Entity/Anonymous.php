@@ -132,19 +132,10 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, 
     private $personas;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"anonymous_output", "anonymous_input"})
-     * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(
-     *     name="app_anonymous_role",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="anonymous_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
-     *     }
-     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"anonymous_output"})
+     * @ORM\OneToMany(targetEntity="AnonymousRole", mappedBy="anonymous", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $roles;

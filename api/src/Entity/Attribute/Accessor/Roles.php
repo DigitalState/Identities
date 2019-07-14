@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribute\Accessor;
 
-use App\Entity\Role;
+use App\Entity\BusinessUnitRole;
 
 /**
  * Trait Roles
@@ -12,10 +12,10 @@ trait Roles
     /**
      * Add role
      *
-     * @param \App\Entity\Role $role
+     * @param \App\Entity\BusinessUnitRole $role
      * @return object
      */
-    public function addRole(Role $role)
+    public function addRole(BusinessUnitRole $role)
     {
         if (!$this->roles->contains($role)) {
             $this->roles->add($role);
@@ -25,12 +25,12 @@ trait Roles
     }
 
     /**
-     * Remove roles
+     * Remove role
      *
-     * @param \App\Entity\Role $role
+     * @param \App\Entity\BusinessUnitRole $role
      * @return object
      */
-    public function removeRole(Role $role)
+    public function removeRole(BusinessUnitRole $role)
     {
         if ($this->roles->contains($role)) {
             $this->roles->removeElement($role);

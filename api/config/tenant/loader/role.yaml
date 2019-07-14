@@ -5,132 +5,152 @@ objects:
     slug: administrator
     permissions:
       assets:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       authentication:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       cases:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       cms:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       forms:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       identities:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       records:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       services:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       tasks:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]
       tenants:
-        - scope: owner
-          entity: BusinessUnit
-          entityUuid: '%business_unit.administration.uuid%'
+        - scope:
+            type: owner
+            entity: BusinessUnit
+            entityUuid: '%business_unit.administration.uuid%'
           permissions:
             - key: entity
               attributes: [BROWSE, READ, EDIT, ADD, DELETE]
             - key: property
               attributes: [BROWSE, READ, EDIT]
-        - scope: generic
+        - scope:
+            type: generic
           permissions:
             - key: generic
               attributes: [BROWSE, READ, EDIT, ADD, DELETE, EXECUTE]

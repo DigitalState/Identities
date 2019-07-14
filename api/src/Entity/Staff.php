@@ -134,19 +134,10 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
     private $personas;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"staff_output", "staff_input"})
-     * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(
-     *     name="app_staff_role",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
-     *     }
-     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"staff_output"})
+     * @ORM\OneToMany(targetEntity="StaffRole", mappedBy="staff", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $roles;

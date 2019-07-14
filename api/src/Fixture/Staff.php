@@ -34,16 +34,6 @@ trait Staff
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
 
-            foreach ($object->roles as $uuid) {
-                $role = $this->getReference($uuid);
-
-                if (!$role) {
-                    throw new LogicException('Role "'.$uuid.'" does not exist.');
-                }
-
-                $staff->addRole($role);
-            }
-
             foreach ($object->business_units as $uuid) {
                 $businessUnit = $this->getReference($uuid);
 

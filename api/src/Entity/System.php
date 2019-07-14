@@ -119,19 +119,10 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
     private $ownerUuid;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"system_output", "system_input"})
-     * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(
-     *     name="app_system_role",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="system_id", referencedColumnName="id")
-     *     },
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="role_id", referencedColumnName="id")
-     *     }
-     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ApiProperty(writable=false)
+     * @Serializer\Groups({"system_output"})
+     * @ORM\OneToMany(targetEntity="SystemRole", mappedBy="system", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $roles;
