@@ -55,7 +55,7 @@ class OrganizationRole extends BusinessUnitRole
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
      * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\BusinessUnit")
+     * @ORM\ManyToMany(targetEntity="App\Entity\BusinessUnit", cascade={"remove", "persist"})
      * @ORM\JoinTable(
      *     name="app_organization_role_bu",
      *     joinColumns={

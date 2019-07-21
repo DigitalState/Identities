@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.1 (2019-07-21)
+
+- Feature [Entity] Add cascade rules to identity roles
+- Bug [Migration] Fix uuid method for version 4 compatibility
+
 ## 0.17.0 (2019-07-14)
 
 - Feature [Core] Upgrade digitalstate/core dependency to 0.17.0
