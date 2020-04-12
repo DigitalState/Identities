@@ -85,5 +85,6 @@ prototype:
   owner_uuid: ~
   title: {}
   slug: ~
+  data: {}
   permissions: {}
   tenant: ~

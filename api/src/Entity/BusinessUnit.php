@@ -61,6 +61,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use TranslationAccessor\Title;
+    use Accessor\Data;
     use EntityAccessor\Staffs;
     use EntityAccessor\Individuals;
     use Accessor\Deleted;
@@ -143,6 +144,15 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     private $title;
 
     /**
+     * @var array
+     * @ApiProperty
+     * @Serializer\Groups({"business_unit_output", "business_unit_input"})
+     * @ORM\Column(name="data", type="json_array")
+     * @Assert\Type("array")
+     */
+    protected $data;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      * @ApiProperty
      * @ORM\ManyToMany(targetEntity="Staff", mappedBy="businessUnits")
@@ -184,6 +194,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     public function __construct()
     {
         $this->title = [];
+        $this->data = [];
         $this->staffs = new ArrayCollection;
         $this->individuals = new ArrayCollection;
     }

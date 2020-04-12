@@ -68,6 +68,7 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
     use Accessor\OwnerUuid;
     use TranslationAccessor\Title;
     use Accessor\Slug;
+    use Accessor\Data;
     use EntityAccessor\Permissions;
     use Accessor\Deleted;
     use Accessor\Version;
@@ -155,6 +156,15 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
      * @var array
      * @ApiProperty
      * @Serializer\Groups({"role_output", "role_input"})
+     * @ORM\Column(name="data", type="json_array")
+     * @Assert\Type("array")
+     */
+    protected $data;
+
+    /**
+     * @var array
+     * @ApiProperty
+     * @Serializer\Groups({"role_output", "role_input"})
      * @ORM\Column(name="permissions", type="json_array")
      * @Assert\Type("array")
      */
@@ -186,6 +196,7 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
     public function __construct()
     {
         $this->title = [];
+        $this->data = [];
         $this->permissions = [];
         $this->version = 1;
     }
