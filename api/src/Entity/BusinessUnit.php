@@ -147,7 +147,7 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
      * @var array
      * @ApiProperty
      * @Serializer\Groups({"business_unit_output", "business_unit_input"})
-     * @ORM\Column(name="data", type="json_array")
+     * @ORM\Column(name="data", type="json_array", options={"default":"[]"})
      * @Assert\Type("array")
      */
     protected $data;

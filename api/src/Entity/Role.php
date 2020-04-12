@@ -156,7 +156,7 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
      * @var array
      * @ApiProperty
      * @Serializer\Groups({"role_output", "role_input"})
-     * @ORM\Column(name="data", type="json_array")
+     * @ORM\Column(name="data", type="json_array", options={"default":"[]"})
      * @Assert\Type("array")
      */
     protected $data;
