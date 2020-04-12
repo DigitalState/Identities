@@ -46,6 +46,7 @@ trait Role
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTitle((array) $object->title)
                 ->setSlug($object->slug)
+                ->setData((array) $object->data)
                 ->setPermissions((array) $object->permissions)
                 ->setTenant($object->tenant);
             $manager->persist($role);

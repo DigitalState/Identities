@@ -32,6 +32,7 @@ trait BusinessUnit
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTitle((array) $object->title)
+                ->setData((array) $object->data)
                 ->setTenant($object->tenant);
             $manager->persist($businessUnit);
             $this->setReference($object->uuid, $businessUnit);
