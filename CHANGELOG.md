@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.18.2 (2020-06-21)
+- Bug [Identities] Add missing *_role identity uuid api filters
+
 ## 0.18.1 (2020-04-12)
 
 - Feature [Core] Upgrade digitalstate/core dependency to 0.18.1

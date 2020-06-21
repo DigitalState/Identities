@@ -5,7 +5,7 @@ api_platform:
   mapping:
     paths: ['%kernel.project_dir%/src/Entity']
   title: Identities
-  version: 0.18.1
+  version: 0.18.2
   collection:
     pagination:
       page_parameter_name: _page
@@ -88,6 +88,13 @@ services:
         owner: ~
     tags:
       - { name: api_platform.filter, id: app.anonymous_persona.order }
+          
+  app.filter.anonymous_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - anonymous.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.anonymous_role.search }
 
   app.filter.business_unit.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -194,6 +201,13 @@ services:
     tags:
       - { name: api_platform.filter, id: app.individual_persona.order }
 
+  app.filter.individual_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - individual.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.individual_role.search }
+
   app.filter.organization.search:
     parent: api_platform.doctrine.orm.search_filter
     arguments:
@@ -261,6 +275,13 @@ services:
         owner: ~
     tags:
       - { name: api_platform.filter, id: app.organization_persona.order }
+
+  app.filter.organization_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - organization.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.organization_role.search }
 
   app.filter.role.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -370,6 +391,13 @@ services:
     tags:
       - { name: api_platform.filter, id: app.staff_persona.order }
 
+  app.filter.staff_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - staff.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.staff_role.search }
+
   app.filter.system.search:
     parent: api_platform.doctrine.orm.search_filter
     arguments:
@@ -399,3 +427,10 @@ services:
         owner: ~
     tags:
       - { name: api_platform.filter, id: app.system.order }
+
+  app.filter.system_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - system.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.system_role.search }
