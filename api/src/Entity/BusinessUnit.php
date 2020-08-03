@@ -161,14 +161,6 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     private $staffs;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty(writable=false)
-     * @ORM\ManyToMany(targetEntity="Individual", mappedBy="businessUnits")
-     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
-     */
-    private $individuals;
-
-    /**
      * @var integer
      * @ApiProperty
      * @Serializer\Groups({"business_unit_output", "business_unit_input"})
@@ -196,6 +188,5 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
         $this->title = [];
         $this->data = [];
         $this->staffs = new ArrayCollection;
-        $this->individuals = new ArrayCollection;
     }
 }

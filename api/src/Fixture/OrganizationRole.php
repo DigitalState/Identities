@@ -39,6 +39,7 @@ trait OrganizationRole
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
+                ->setEntityUuids((array) $object->entity_uuids)
                 ->setTenant($object->tenant);
 
             $role = $this->getReference($object->role);
@@ -48,17 +49,6 @@ trait OrganizationRole
             }
 
             $organizationRole->setRole($role);
-
-            foreach ($object->business_units as $uuid) {
-                $businessUnit = $this->getReference($uuid);
-
-                if (!$businessUnit) {
-                    throw new LogicException('Business Unit "'.$uuid.'" does not exist.');
-                }
-
-                $organizationRole->addBusinessUnit($businessUnit);
-            }
-
             $manager->persist($organizationRole);
         }
 

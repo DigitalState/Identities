@@ -20,9 +20,9 @@ use Symfony\Component\Serializer\Annotation As Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class BusinessUnitRole
+ * Class AssignedRole
  */
-abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable, Versionable, Tenantable
+abstract class AssignedRole implements Identifiable, Uuidentifiable, Ownable, Versionable, Tenantable
 {
     use Behavior\Timestampable\Timestampable;
 
@@ -31,13 +31,14 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     use Accessor\Owner;
     use Accessor\OwnerUuid;
     use EntityAccessor\Role;
+    use Accessor\EntityUuids;
     use Accessor\Version;
     use TenantAccessor\Tenant;
 
     /**
      * @var integer
      * @ApiProperty(identifier=false, writable=false)
-     * @Serializer\Groups({"business_unit_role_output"})
+     * @Serializer\Groups({"assigned_role_output"})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(name="id", type="integer")
@@ -47,7 +48,7 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     /**
      * @var string
      * @ApiProperty(identifier=true, writable=false)
-     * @Serializer\Groups({"business_unit_role_output"})
+     * @Serializer\Groups({"assigned_role_output"})
      * @ORM\Column(name="uuid", type="guid", unique=true)
      * @Assert\Uuid
      */
@@ -56,21 +57,21 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     /**
      * @var \DateTime
      * @ApiProperty(writable=false)
-     * @Serializer\Groups({"business_unit_role_output"})
+     * @Serializer\Groups({"assigned_role_output"})
      */
     protected $createdAt;
 
     /**
      * @var \DateTime
      * @ApiProperty(writable=false)
-     * @Serializer\Groups({"business_unit_role_output"})
+     * @Serializer\Groups({"assigned_role_output"})
      */
     protected $updatedAt;
 
     /**
      * @var string
      * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
      * @ORM\Column(name="`owner`", type="string", length=255, nullable=true)
      * @Assert\NotBlank
      */
@@ -79,7 +80,7 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     /**
      * @var string
      * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
      * @ORM\Column(name="owner_uuid", type="guid", nullable=true)
      * @Assert\NotBlank
      * @Assert\Uuid
@@ -89,7 +90,7 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     /**
      * @var \App\Entity\Role
      * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Role")
      * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
@@ -98,9 +99,16 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     protected $role;
 
     /**
+     * @var string
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
+     * @ORM\Column(name="entity_uuids", type="json_array")
+     */
+    protected $entityUuids;
+
+    /**
      * @var integer
      * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
      * @ORM\Column(name="version", type="integer")
      * @ORM\Version
      * @Assert\NotBlank
@@ -111,9 +119,17 @@ abstract class BusinessUnitRole implements Identifiable, Uuidentifiable, Ownable
     /**
      * @var string
      * @ApiProperty(writable=false)
-     * @Serializer\Groups({"business_unit_role_output"})
+     * @Serializer\Groups({"assigned_role_output"})
      * @ORM\Column(name="tenant", type="guid")
      * @Assert\Uuid
      */
     protected $tenant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->entityUuids = [];
+    }
 }

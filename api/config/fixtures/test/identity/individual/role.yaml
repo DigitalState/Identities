@@ -6,5 +6,5 @@ prototype:
   owner: BusinessUnit
   owner_uuid: ~
   role: ~
-  business_units: []
+  entity_uuids: []
   tenant: ~

@@ -53,7 +53,7 @@ ds_acl:
     anonymous_role_owner_uuid:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.owner_uuid,        title: app.permissions.anonymous_role.owner_uuid         }
     anonymous_role_anonymous:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.anonymous,         title: app.permissions.anonymous_role.anonymous          }
     anonymous_role_role:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.role,              title: app.permissions.anonymous_role.role               }
-    anonymous_role_business_units:    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.business_units,    title: app.permissions.anonymous_role.business_units     }
+    anonymous_role_entity_uuids:      { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.entity_uuids,      title: app.permissions.anonymous_role.entity_uuids       }
     anonymous_role_version:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.version,           title: app.permissions.anonymous_role.version            }
     anonymous_role_tenant:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.tenant,            title: app.permissions.anonymous_role.tenant             }
     business_unit:                    { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\BusinessUnit,                    title: app.permissions.business_unit                     }
@@ -106,7 +106,7 @@ ds_acl:
     individual_role_owner_uuid:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.owner_uuid,       title: app.permissions.individual_role.owner_uuid        }
     individual_role_individual:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.individual,       title: app.permissions.individual_role.individual        }
     individual_role_role:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.role,             title: app.permissions.individual_role.role              }
-    individual_role_business_units:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.business_units,   title: app.permissions.individual_role.business_units    }
+    individual_role_entity_uuids:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.entity_uuids,     title: app.permissions.individual_role.entity_uuids      }
     individual_role_version:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.version,          title: app.permissions.individual_role.version           }
     individual_role_tenant:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.tenant,           title: app.permissions.individual_role.tenant            }
     organization:                     { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\Organization,                    title: app.permissions.organization                      }
@@ -145,7 +145,7 @@ ds_acl:
     organization_role_owner_uuid:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.owner_uuid,     title: app.permissions.organization_role.owner_uuid      }
     organization_role_organization:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.organization,   title: app.permissions.organization_role.organization    }
     organization_role_role:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.role,           title: app.permissions.organization_role.role            }
-    organization_role_business_units: { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.business_units, title: app.permissions.organization_role.business_units  }
+    organization_role_entity_uuids:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.entity_uuids,   title: app.permissions.organization_role.entity_uuids    }
     organization_role_version:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.version,        title: app.permissions.organization_role.version         }
     organization_role_tenant:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.tenant,         title: app.permissions.organization_role.tenant          }
     role:                             { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\Role,                            title: app.permissions.role                              }
@@ -200,7 +200,7 @@ ds_acl:
     staff_role_owner_uuid:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.owner_uuid,            title: app.permissions.staff_role.owner_uuid             }
     staff_role_staff:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.staff,                 title: app.permissions.staff_role.staff                  }
     staff_role_role:                  { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.role,                  title: app.permissions.staff_role.role                   }
-    staff_role_business_units:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.business_units,        title: app.permissions.staff_role.business_units         }
+    staff_role_entity_uuids:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.entity_uuids,          title: app.permissions.staff_role.entity_uuids           }
     staff_role_version:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.version,               title: app.permissions.staff_role.version                }
     staff_role_tenant:                { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.tenant,                title: app.permissions.staff_role.tenant                 }
     system:                           { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\System,                          title: app.permissions.system                            }
@@ -223,8 +223,8 @@ ds_acl:
     system_role_updated_at:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.updated_at,           title: app.permissions.system_role.updated_at            }
     system_role_owner:                { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.owner,                title: app.permissions.system_role.owner                 }
     system_role_owner_uuid:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.owner_uuid,           title: app.permissions.system_role.owner_uuid            }
-    system_role_system:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.system,               title: app.permissions.system_role.system                 }
+    system_role_system:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.system,               title: app.permissions.system_role.system                }
     system_role_role:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.role,                 title: app.permissions.system_role.role                  }
-    system_role_business_units:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.business_units,       title: app.permissions.system_role.business_units        }
+    system_role_entity_uuids:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.entity_uuids,         title: app.permissions.system_role.entity_uuids          }
     system_role_version:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.version,              title: app.permissions.system_role.version               }
     system_role_tenant:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.tenant,               title: app.permissions.system_role.tenant                }

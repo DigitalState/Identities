@@ -5,6 +5,6 @@ namespace App\Repository;
 /**
  * Class SystemRoleRepository
  */
-final class SystemRoleRepository extends BusinessUnitRoleRepository
+final class SystemRoleRepository extends AssignedRoleRepository
 {
 }

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Entity\Attribute\Accessor;
-use Doctrine\Common\Collections\ArrayCollection;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
@@ -18,10 +17,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiResource(
  *      attributes={
  *          "normalization_context"={
- *              "groups"={"business_unit_role_output"}
+ *              "groups"={"assigned_role_output"}
  *          },
  *          "denormalization_context"={
- *              "groups"={"business_unit_role_input"}
+ *              "groups"={"assigned_role_input"}
  *          },
  *          "filters"={
  *              "app.staff_role.search",
@@ -35,42 +34,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
  * @ORMAssert\UniqueEntity(fields="uuid")
  */
-class StaffRole extends BusinessUnitRole
+class StaffRole extends AssignedRole
 {
     use Accessor\Staff;
-    use Accessor\BusinessUnits;
 
     /**
      * @var \App\Entity\Staff
      * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Staff", inversedBy="roles")
      * @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      * @Assert\Valid
      */
     private $staff;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @ApiProperty
-     * @Serializer\Groups({"business_unit_role_output", "business_unit_role_input"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\BusinessUnit", cascade={"remove", "persist"})
-     * @ORM\JoinTable(
-     *     name="app_staff_role_bu",
-     *     joinColumns={
-     *         @ORM\JoinColumn(name="staff_role_id", referencedColumnName="id")
-     *     }
-     * )
-     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
-     */
-    private $businessUnits;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->businessUnits = new ArrayCollection;
-    }
 }
