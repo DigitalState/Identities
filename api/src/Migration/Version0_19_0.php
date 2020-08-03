@@ -249,5 +249,7 @@ final class Version0_19_0 extends AbstractMigration
         $this->addSql('ALTER TABLE app_organization_role DROP entity_uuids');
         $this->addSql('ALTER TABLE app_staff_role DROP entity_uuids');
         $this->addSql('ALTER TABLE app_system_role DROP entity_uuids');
+        $this->addSql('DROP TABLE app_bu_role');
+        $this->addSql('DROP SEQUENCE app_bu_role_id_seq CASCADE');
     }
 }
