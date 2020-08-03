@@ -137,6 +137,7 @@ services:
       parent: api_platform.doctrine.orm.search_filter
       arguments:
           - businessUnit.uuid: exact
+            businessUnit.staffs.uuid: exact
       tags:
           - { name: api_platform.filter, id: app.business_unit_role.search }
 
