@@ -40,6 +40,11 @@ services:
     arguments:
       - App\Entity\AnonymousRole
 
+  App\Repository\BusinessUnitRoleRepository:
+      factory: ['@doctrine.orm.default_entity_manager', getRepository]
+      arguments:
+          - App\Entity\BusinessUnitRole
+
   App\Repository\BusinessUnitRepository:
     factory: ['@doctrine.orm.default_entity_manager', getRepository]
     arguments:

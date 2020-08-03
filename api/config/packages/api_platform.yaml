@@ -133,6 +133,13 @@ services:
     tags:
       - { name: api_platform.filter, id: app.business_unit.order }
 
+  app.filter.business_unit_role.search:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+          - businessUnit.uuid: exact
+      tags:
+          - { name: api_platform.filter, id: app.business_unit_role.search }
+
   app.filter.individual.search:
     parent: api_platform.doctrine.orm.search_filter
     arguments:

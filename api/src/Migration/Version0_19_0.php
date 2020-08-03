@@ -141,6 +141,14 @@ final class Version0_19_0 extends AbstractMigration
         $this->addSql('DROP TABLE app_organization_role_bu');
         $this->addSql('DROP TABLE app_staff_role_bu');
         $this->addSql('DROP TABLE app_system_role_bu');
+        $this->addSql('CREATE SEQUENCE app_bu_role_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE TABLE app_bu_role (id INT NOT NULL, business_unit_id INT DEFAULT NULL, role_id INT DEFAULT NULL, uuid UUID NOT NULL, "owner" VARCHAR(255) DEFAULT NULL, owner_uuid UUID DEFAULT NULL, entity_uuids JSON NOT NULL, version INT DEFAULT 1 NOT NULL, tenant UUID NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_FB9993E1D17F50A6 ON app_bu_role (uuid)');
+        $this->addSql('CREATE INDEX IDX_FB9993E1A58ECB40 ON app_bu_role (business_unit_id)');
+        $this->addSql('CREATE INDEX IDX_FB9993E1D60322AC ON app_bu_role (role_id)');
+        $this->addSql('COMMENT ON COLUMN app_bu_role.entity_uuids IS \'(DC2Type:json_array)\'');
+        $this->addSql('ALTER TABLE app_bu_role ADD CONSTRAINT FK_A2DAA637A58ECB40 FOREIGN KEY (business_unit_id) REFERENCES app_bu (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE app_bu_role ADD CONSTRAINT FK_A2DAA637D60322AC FOREIGN KEY (role_id) REFERENCES app_role (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
     /**
