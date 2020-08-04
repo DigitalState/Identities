@@ -90,11 +90,34 @@ services:
       - { name: api_platform.filter, id: app.anonymous_persona.order }
           
   app.filter.anonymous_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - anonymous.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.anonymous_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        anonymous.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.anonymous_role.search }
+
+  app.filter.anonymous_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.anonymous_role.date }
+
+  app.filter.anonymous_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.anonymous_role.order }
 
   app.filter.business_unit.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -134,12 +157,35 @@ services:
       - { name: api_platform.filter, id: app.business_unit.order }
 
   app.filter.business_unit_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - businessUnit.uuid: exact
-            businessUnit.staffs.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.business_unit_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        businessUnit.uuid: exact
+        businessUnit.staffs.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.business_unit_role.search }
+
+  app.filter.business_unit_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.business_unit_role.date }
+
+  app.filter.business_unit_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.business_unit_role.order }
 
   app.filter.individual.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -210,11 +256,34 @@ services:
       - { name: api_platform.filter, id: app.individual_persona.order }
 
   app.filter.individual_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - individual.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.individual_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        individual.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.individual_role.search }
+
+  app.filter.individual_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.individual_role.date }
+
+  app.filter.individual_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.individual_role.order }
 
   app.filter.organization.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -285,11 +354,34 @@ services:
       - { name: api_platform.filter, id: app.organization_persona.order }
 
   app.filter.organization_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - organization.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.organization_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        organization.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.organization_role.search }
+
+  app.filter.organization_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.organization_role.date }
+
+  app.filter.organization_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.organization_role.order }
 
   app.filter.role.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -400,11 +492,34 @@ services:
       - { name: api_platform.filter, id: app.staff_persona.order }
 
   app.filter.staff_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - staff.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.staff_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        staff.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.staff_role.search }
+
+  app.filter.staff_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.staff_role.date }
+
+  app.filter.staff_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.staff_role.order }
 
   app.filter.system.search:
     parent: api_platform.doctrine.orm.search_filter
@@ -437,8 +552,31 @@ services:
       - { name: api_platform.filter, id: app.system.order }
 
   app.filter.system_role.search:
-      parent: api_platform.doctrine.orm.search_filter
-      arguments:
-          - system.uuid: exact
-      tags:
-          - { name: api_platform.filter, id: app.system_role.search }
+    parent: api_platform.doctrine.orm.search_filter
+    arguments:
+      - id: exact
+        uuid: exact
+        owner: exact
+        ownerUuid: exact
+        system.uuid: exact
+        role.uuid: exact
+    tags:
+      - { name: api_platform.filter, id: app.system_role.search }
+
+  app.filter.system_role.date:
+    parent: api_platform.doctrine.orm.date_filter
+    arguments:
+      - createdAt: ~
+        updatedAt: ~
+    tags:
+      - { name: api_platform.filter, id: app.system_role.date }
+
+  app.filter.system_role.order:
+    parent: api_platform.doctrine.orm.order_filter
+    arguments:
+      - id: ~
+        createdAt: ~
+        updatedAt: ~
+        owner: ~
+    tags:
+      - { name: api_platform.filter, id: app.system_role.order }
