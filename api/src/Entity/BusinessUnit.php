@@ -63,7 +63,6 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use TranslationAccessor\Title;
     use Accessor\Data;
     use EntityAccessor\Staffs;
-    use EntityAccessor\Individuals;
     use Accessor\Deleted;
     use Accessor\Version;
     use TenantAccessor\Tenant;
