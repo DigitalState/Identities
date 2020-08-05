@@ -79,13 +79,8 @@ final class RoleService extends EntityService
             foreach ($servicePermissions as $servicePermission) {
                 foreach ($servicePermission['permissions'] as $entry) {
                     $permission = new Permission;
-                    $scope = new Scope;
-                    $scope
-                        ->setType($servicePermission['scope']['type'])
-                        ->setEntity($servicePermission['scope']['entity'])
-                        ->setEntityUuid($servicePermission['scope']['entityUuid']);
                     $permission
-                        ->setScope($scope)
+                        ->setScope($servicePermission['scope'])
                         ->setKey($entry['key'])
                         ->setAttributes($entry['attributes']);
                     $access->addPermission($permission);

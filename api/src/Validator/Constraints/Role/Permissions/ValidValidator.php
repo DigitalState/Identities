@@ -4,6 +4,7 @@ namespace App\Validator\Constraints\Role\Permissions;
 
 use Ds\Component\Api\Collection\ServiceCollection;
 use Ds\Component\Acl\Model\Permission;
+use JsonSchema\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -57,114 +58,61 @@ final class ValidValidator extends ConstraintValidator
      */
     public function validate($role, Constraint $constraint)
     {
-        foreach ($role->getPermissions() as $service => $permissions) {
-            if (!$this->serviceCollection->containsKey($service.'.access')) {
-                $this->context
-                    ->buildViolation($constraint->serviceUndefined)
-                    ->setParameter('{{ service }}', '"' . $service . '"')
-                    ->atPath('permissions.' . $service)
-                    ->addViolation();
-
-                continue;
-            }
-
-            if (!is_array($permissions)) {
-                $this->context
-                    ->buildViolation($constraint->permissionsNotArray)
-                    ->setParameter('{{ service }}', '"'.$service.'"')
-                    ->atPath('permissions.'.$service)
-                    ->addViolation();
-
-                continue;
-            }
-
-            foreach ($permissions as $index => $permission) {
-                if (!is_array($permission)) {
-                    $this->context
-                        ->buildViolation($constraint->permissionNotObject)
-                        ->setParameter('{{ service }}', '"'.$service.'"')
-                        ->atPath('permissions.'.$service.'['.$index.']')
-                        ->addViolation();
-
-                    continue;
-                }
-
-                foreach (['scope', 'permissions'] as $attribute) {
-                    if (!array_key_exists($attribute, $permission)) {
-                        $this->context
-                            ->buildViolation($constraint->permissionAttributeMissing)
-                            ->setParameter('{{ service }}', '"'.$service.'"')
-                            ->setParameter('{{ attribute }}', '"'.$attribute.'"')
-                            ->atPath('permissions.'.$service.'['.$index.'].'.$attribute)
-                            ->addViolation();
-                    }
-
-                    if ('scope' === $attribute) {
-                        if (!is_array($permission['scope'])) {
-                            $this->context
-                                ->buildViolation($constraint->subscopeNotArray)
-                                ->setParameter('{{ service }}', '"'.$service.'"')
-                                ->atPath('scope.'.$service.'['.$index.'].permissions')
-                                ->addViolation();
-
-                            continue;
-                        }
-
-                        foreach (['type', 'entity', 'entityUuid'] as $subattribute) {
-                            if (!array_key_exists($subattribute, $permission['scope'])) {
-                                $this->context
-                                    ->buildViolation($constraint->subscopeAttributeMissing)
-                                    ->setParameter('{{ service }}', '"'.$service.'"')
-                                    ->setParameter('{{ attribute }}', '"'.$subattribute.'"')
-                                    ->atPath('permissions.'.$service.'['.$index.'].'.$attribute.'.'.$subattribute)
-                                    ->addViolation();
-
-                                continue;
+        $validator = new Validator;
+        $property = '
+            {
+                "type": "array",
+                "items": {
+                    "type": "array",
+                    "additionalProperties": false,
+                    "required": ["scope", "permissions"],
+                    "properties": {
+                        "scope": {
+                            "type": "array",
+                            "additionalProperties": false,
+                            "properties": {
+                                "operator": {
+                                    "type": "string",
+                                    "enum": ["and", "or"]
+                                },
+                                "conditions": {
+                                    "type": "array"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "enum": ["generic", "object", "identity", "owner", "session", "property"]
+                                },
+                                "entity": {
+                                    "type": "string"
+                                },
+                                "entityUuid": {
+                                    "type": ["string", "null"]
+                                },
+                                "property": {
+                                    "type": "string"
+                                },
+                                "comparison": {
+                                    "type": "string",
+                                    "enum": ["eq", "neq"]
+                                },
+                                "value": {}
                             }
-                        }
-                    } else if ('permissions' === $attribute) {
-                        if (!is_array($permission['permissions'])) {
-                            $this->context
-                                ->buildViolation($constraint->subpermissionsNotArray)
-                                ->setParameter('{{ service }}', '"'.$service.'"')
-                                ->atPath('permissions.'.$service.'['.$index.'].permissions')
-                                ->addViolation();
-
-                            continue;
-                        }
-
-                        foreach ($permission['permissions'] as $subindex => $subpermission) {
-                            if (!is_array($subpermission)) {
-                                $this->context
-                                    ->buildViolation($constraint->subpermissionNotObject)
-                                    ->setParameter('{{ service }}', '"'.$service.'"')
-                                    ->atPath('permissions.'.$service.'['.$index.'].permissions['.$subindex.']')
-                                    ->addViolation();
-
-                                continue;
-                            }
-
-                            foreach (['key', 'attributes'] as $subattribute) {
-                                if (!array_key_exists($subattribute, $subpermission)) {
-                                    $this->context
-                                        ->buildViolation($constraint->subpermissionAttributeMissing)
-                                        ->setParameter('{{ service }}', '"'.$service.'"')
-                                        ->setParameter('{{ attribute }}', '"'.$subattribute.'"')
-                                        ->atPath('permissions.'.$service.'['.$index.'].'.$attribute.'['.$subindex.'].'.$subattribute)
-                                        ->addViolation();
-
-                                    continue;
-                                }
-
-                                if ('attributes' === $subattribute) {
-                                    foreach ($subpermission['attributes'] as $item) {
-                                        if (!in_array($item, [Permission::BROWSE, Permission::READ, Permission::EDIT, Permission::ADD, Permission::DELETE, Permission::EXECUTE])) {
-                                            $this->context
-                                                ->buildViolation($constraint->subpermissionUndefined)
-                                                ->setParameter('{{ service }}', '"'.$service.'"')
-                                                ->setParameter('{{ attribute }}', '"'.$item.'"')
-                                                ->atPath('permissions.'.$service.'['.$index.'].'.$attribute.'['.$subindex.'].attributes')
-                                                ->addViolation();
+                        },
+                        "permissions": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "required": ["key", "attributes"],
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "attributes": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "enum": ["BROWSE", "READ", "EDIT", "ADD", "DELETE", "EXECUTE"]
                                         }
                                     }
                                 }
@@ -172,6 +120,36 @@ final class ValidValidator extends ConstraintValidator
                         }
                     }
                 }
+            }
+        ';
+        $schema = json_decode('
+            {
+                "type": "array",
+                "additionalProperties": false,
+                "properties": {
+                    "assets": ' . $property . ',
+                    "authentication": ' . $property . ',
+                    "cases": ' . $property . ',
+                    "cms": ' . $property . ',
+                    "forms": ' . $property . ',
+                    "identities": ' . $property . ',
+                    "microservice": ' . $property . ',
+                    "records": ' . $property . ',
+                    "services": ' . $property . ',
+                    "tasks": ' . $property . ',
+                    "tenants": ' . $property . '
+                }
+            }
+        ');
+        $permissions = $role->getPermissions();
+        $validator->validate($permissions, $schema);
+
+        if (!$validator->isValid()) {
+            foreach ($validator->getErrors() as $error) {
+                $this->context
+                    ->buildViolation($error['message'])
+                    ->atPath('permissions.' . $error['property'])
+                    ->addViolation();
             }
         }
     }
