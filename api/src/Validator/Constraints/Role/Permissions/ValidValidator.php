@@ -85,7 +85,7 @@ final class ValidValidator extends ConstraintValidator
                                 "entity": {
                                     "type": "string"
                                 },
-                                "entityUuid": {
+                                "entity_uuid": {
                                     "type": ["string", "null"]
                                 },
                                 "property": {
@@ -93,7 +93,7 @@ final class ValidValidator extends ConstraintValidator
                                 },
                                 "comparison": {
                                     "type": "string",
-                                    "enum": ["eq", "neq"]
+                                    "enum": ["eq", "neq", "like"]
                                 },
                                 "value": {}
                             }
