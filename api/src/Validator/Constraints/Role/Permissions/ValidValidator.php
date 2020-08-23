@@ -83,7 +83,7 @@ final class ValidValidator extends ConstraintValidator
                                     "enum": ["generic", "object", "identity", "owner", "session", "property"]
                                 },
                                 "entity": {
-                                    "type": "string"
+                                    "type": ["string", "null"]
                                 },
                                 "entity_uuid": {
                                     "type": ["string", "null"]
