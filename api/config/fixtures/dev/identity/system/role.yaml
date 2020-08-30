@@ -3,6 +3,7 @@ objects: []
 prototype:
   system: ~
   uuid: ~
+  created_at: ~
   owner: System
   owner_uuid: ~
   role: ~

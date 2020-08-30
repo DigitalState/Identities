@@ -3,6 +3,7 @@ objects: []
 prototype:
   business_unit: ~
   uuid: ~
+  created_at: ~
   owner: BusinessUnit
   owner_uuid: ~
   role: ~
