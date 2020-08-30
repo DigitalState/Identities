@@ -83,8 +83,9 @@ class Anonymous implements Identifiable, Uuidentifiable, Ownable, Identitiable, 
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"anonymous_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"anonymous_output", "anonymous_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

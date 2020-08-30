@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\Staff as StaffEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
@@ -33,6 +34,12 @@ trait Staff
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $staff->setCreatedAt($date);
+            }
 
             foreach ($object->business_units as $uuid) {
                 $businessUnit = $this->getReference($uuid);

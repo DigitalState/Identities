@@ -88,8 +88,9 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"business_unit_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"business_unit_output", "business_unit_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

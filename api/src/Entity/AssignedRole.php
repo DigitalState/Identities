@@ -56,8 +56,9 @@ abstract class AssignedRole implements Identifiable, Uuidentifiable, Ownable, Ve
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"assigned_role_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"assigned_role_output", "assigned_role_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

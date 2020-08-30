@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\BusinessUnitRole as BusinessUnitRoleEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
@@ -41,6 +42,12 @@ trait BusinessUnitRole
                 ->setOwnerUuid($object->owner_uuid)
                 ->setEntityUuids((array) $object->entity_uuids)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $businessUnitRole->setCreatedAt($date);
+            }
 
             $role = $this->getReference($object->role);
 

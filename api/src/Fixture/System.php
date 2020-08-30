@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\System as SystemEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -32,6 +33,13 @@ trait System
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $system->setCreatedAt($date);
+            }
+
             $manager->persist($system);
             $this->setReference($object->uuid, $system);
         }

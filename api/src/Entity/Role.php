@@ -95,8 +95,9 @@ class Role implements Identifiable, Uuidentifiable, Sluggable, Ownable, Translat
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"role_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"role_output", "role_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

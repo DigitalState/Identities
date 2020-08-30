@@ -4,6 +4,7 @@ namespace App\Fixture;
 
 use App\Entity\Role as RoleEntity;
 use App\EventListener\Entity\Role\PropagationListener;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -49,6 +50,13 @@ trait Role
                 ->setData((array) $object->data)
                 ->setPermissions((array) $object->permissions)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $role->setCreatedAt($date);
+            }
+
             $manager->persist($role);
             $this->setReference($object->uuid, $role);
         }

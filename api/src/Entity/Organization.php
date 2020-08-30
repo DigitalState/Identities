@@ -83,8 +83,9 @@ class Organization implements Identifiable, Uuidentifiable, Ownable, Identitiabl
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"organization_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"organization_output", "organization_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 
