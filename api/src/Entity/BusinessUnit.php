@@ -63,7 +63,6 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     use TranslationAccessor\Title;
     use Accessor\Data;
     use EntityAccessor\Staffs;
-    use EntityAccessor\Individuals;
     use Accessor\Deleted;
     use Accessor\Version;
     use TenantAccessor\Tenant;
@@ -89,8 +88,9 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"business_unit_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"business_unit_output", "business_unit_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 
@@ -161,12 +161,13 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
     private $staffs;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Doctrine\Common\Collections\ArrayCollection
      * @ApiProperty(writable=false)
-     * @ORM\ManyToMany(targetEntity="Individual", mappedBy="businessUnits")
+     * @Serializer\Groups({"business_unit_output"})
+     * @ORM\OneToMany(targetEntity="BusinessUnitRole", mappedBy="businessUnit", cascade={"persist", "remove"})
      * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
-    private $individuals;
+    private $roles;
 
     /**
      * @var integer
@@ -196,6 +197,6 @@ class BusinessUnit implements Identifiable, Uuidentifiable, Ownable, Translatabl
         $this->title = [];
         $this->data = [];
         $this->staffs = new ArrayCollection;
-        $this->individuals = new ArrayCollection;
+        $this->roles = new ArrayCollection;
     }
 }

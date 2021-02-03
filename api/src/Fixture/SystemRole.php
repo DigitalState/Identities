@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\SystemRole as SystemRoleEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
@@ -39,7 +40,14 @@ trait SystemRole
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
+                ->setEntityUuids((array) $object->entity_uuids)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $systemRole->setCreatedAt($date);
+            }
 
             $role = $this->getReference($object->role);
 
@@ -48,17 +56,6 @@ trait SystemRole
             }
 
             $systemRole->setRole($role);
-
-            foreach ($object->business_units as $uuid) {
-                $businessUnit = $this->getReference($uuid);
-
-                if (!$businessUnit) {
-                    throw new LogicException('Business Unit "'.$uuid.'" does not exist.');
-                }
-
-                $systemRole->addBusinessUnit($businessUnit);
-            }
-
             $manager->persist($systemRole);
         }
 

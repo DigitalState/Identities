@@ -3,8 +3,9 @@ objects: []
 prototype:
   anonymous: ~
   uuid: ~
+  created_at: ~
   owner: BusinessUnit
   owner_uuid: ~
   role: ~
-  business_units: []
+  entity_uuids: []
   tenant: ~

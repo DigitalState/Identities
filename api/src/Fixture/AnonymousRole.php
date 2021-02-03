@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\AnonymousRole as AnonymousRoleEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
@@ -39,7 +40,14 @@ trait AnonymousRole
                 ->setUuid($object->uuid)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
+                ->setEntityUuids((array) $object->entity_uuids)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $anonymousRole->setCreatedAt($date);
+            }
 
             $role = $this->getReference($object->role);
 
@@ -48,17 +56,6 @@ trait AnonymousRole
             }
 
             $anonymousRole->setRole($role);
-
-            foreach ($object->business_units as $uuid) {
-                $businessUnit = $this->getReference($uuid);
-
-                if (!$businessUnit) {
-                    throw new LogicException('Business Unit "'.$uuid.'" does not exist.');
-                }
-
-                $anonymousRole->addBusinessUnit($businessUnit);
-            }
-
             $manager->persist($anonymousRole);
         }
 

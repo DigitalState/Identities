@@ -85,8 +85,9 @@ class Staff implements Identifiable, Uuidentifiable, Ownable, Identitiable, Dele
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"staff_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"staff_output", "staff_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

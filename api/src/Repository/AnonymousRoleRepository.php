@@ -5,6 +5,6 @@ namespace App\Repository;
 /**
  * Class AnonymousRoleRepository
  */
-final class AnonymousRoleRepository extends BusinessUnitRoleRepository
+final class AnonymousRoleRepository extends AssignedRoleRepository
 {
 }

@@ -79,8 +79,9 @@ class System implements Identifiable, Uuidentifiable, Ownable, Deletable, Versio
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"system_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"system_output", "system_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

@@ -36,6 +36,7 @@ objects:
 prototype:
   individual: ~
   uuid: ~
+  created_at: ~
   owner: BusinessUnit
   owner_uuid: ~
   title:

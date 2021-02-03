@@ -68,8 +68,9 @@ abstract class Persona implements Identifiable, Uuidentifiable, Ownable, Identit
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"persona_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"persona_output", "persona_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

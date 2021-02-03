@@ -10,6 +10,7 @@ Feature: Edit anonymous identities
     And I send a "PUT" request to "/anonymouses/ad1a4ee4-b707-4135-b8e9-498286d5830c" with body:
     """
     {
+      "createdAt": "2000-01-01 12:00:00",
       "owner": "BusinessUnit",
       "ownerUuid": "e51aea66-ba28-4718-9644-e5fc35ad7a45",
       "roles": [],
@@ -19,6 +20,7 @@ Feature: Edit anonymous identities
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
+    And the JSON node "createdAt" should be equal to the string "2000-01-01T12:00:00+00:00"
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should be equal to the string "e51aea66-ba28-4718-9644-e5fc35ad7a45"
     And the JSON node "roles" should exist
@@ -31,6 +33,7 @@ Feature: Edit anonymous identities
     Then the response status code should be 200
     And the header "Content-Type" should be equal to "application/json; charset=utf-8"
     And the response should be in JSON
+    And the JSON node "createdAt" should be equal to the string "2000-01-01T12:00:00+00:00"
     And the JSON node "owner" should be equal to the string "BusinessUnit"
     And the JSON node "ownerUuid" should be equal to the string "e51aea66-ba28-4718-9644-e5fc35ad7a45"
     And the JSON node "roles" should exist
@@ -45,7 +48,6 @@ Feature: Edit anonymous identities
     {
       "id": 9999,
       "uuid": "421aebbb-e62e-4b87-bced-42921456131b",
-      "createdAt":"2000-01-01T12:00:00+00:00",
       "updatedAt":"2000-01-01T12:00:00+00:00",
       "version": 2,
       "tenant": "93377748-2abb-4e33-9027-5d8a5c281a41"
@@ -56,7 +58,6 @@ Feature: Edit anonymous identities
     And the response should be in JSON
     And the JSON node "id" should be equal to the number 1
     And the JSON node "uuid" should be equal to the string "ad1a4ee4-b707-4135-b8e9-498286d5830c"
-    And the JSON node "createdAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "updatedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 
@@ -68,7 +69,6 @@ Feature: Edit anonymous identities
     And the response should be in JSON
     And the JSON node "id" should be equal to the number 1
     And the JSON node "uuid" should be equal to the string "ad1a4ee4-b707-4135-b8e9-498286d5830c"
-    And the JSON node "createdAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "updatedAt" should not contain "2000-01-01T12:00:00+00:00"
     And the JSON node "tenant" should be equal to "b6ac25fe-3cd6-4100-a054-6bba2fc9ef18"
 

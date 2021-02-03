@@ -39,6 +39,7 @@ trait StaffRole
                 ->setStaff($staff)
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
+                ->setEntityUuids((array) $object->entity_uuids)
                 ->setRole($role)
                 ->setTenant($object->tenant);
             $manager->persist($staffRole);

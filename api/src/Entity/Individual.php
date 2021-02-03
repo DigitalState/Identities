@@ -83,8 +83,9 @@ class Individual implements Identifiable, Uuidentifiable, Ownable, Identitiable,
 
     /**
      * @var \DateTime
-     * @ApiProperty(writable=false)
-     * @Serializer\Groups({"individual_output"})
+     * @ApiProperty
+     * @Serializer\Groups({"individual_output", "individual_input"})
+     * @Assert\DateTime
      */
     protected $createdAt;
 

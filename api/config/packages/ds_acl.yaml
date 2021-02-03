@@ -4,6 +4,7 @@ ds_acl:
     - App\Entity\AnonymousPersona
     - App\Entity\AnonymousRole
     - App\Entity\BusinessUnit
+    - App\Entity\BusinessUnitRole
     - App\Entity\Individual
     - App\Entity\IndividualPersona
     - App\Entity\IndividualRole
@@ -47,13 +48,13 @@ ds_acl:
     anonymous_role_property:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.*,                 title: app.permissions.anonymous_role.property           }
     anonymous_role_id:                { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.id,                title: app.permissions.anonymous_role.id                 }
     anonymous_role_uuid:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.uuid,              title: app.permissions.anonymous_role.uuid               }
-    anonymous_role_created_at:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.created_at,        title: app.permissions.anonymous_role.created_at         }
-    anonymous_role_updated_at:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.updated_at,        title: app.permissions.anonymous_role.updated_at         }
+    anonymous_role_created_at:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.createdAt,         title: app.permissions.anonymous_role.created_at         }
+    anonymous_role_updated_at:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.updatedAt,         title: app.permissions.anonymous_role.updated_at         }
     anonymous_role_owner:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.owner,             title: app.permissions.anonymous_role.owner              }
-    anonymous_role_owner_uuid:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.owner_uuid,        title: app.permissions.anonymous_role.owner_uuid         }
+    anonymous_role_owner_uuid:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.ownerUuid,         title: app.permissions.anonymous_role.owner_uuid         }
     anonymous_role_anonymous:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.anonymous,         title: app.permissions.anonymous_role.anonymous          }
     anonymous_role_role:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.role,              title: app.permissions.anonymous_role.role               }
-    anonymous_role_business_units:    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.business_units,    title: app.permissions.anonymous_role.business_units     }
+    anonymous_role_entity_uuids:      { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.entityUuids,       title: app.permissions.anonymous_role.entity_uuids       }
     anonymous_role_version:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.version,           title: app.permissions.anonymous_role.version            }
     anonymous_role_tenant:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\AnonymousRole.tenant,            title: app.permissions.anonymous_role.tenant             }
     business_unit:                    { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\BusinessUnit,                    title: app.permissions.business_unit                     }
@@ -68,8 +69,22 @@ ds_acl:
     business_unit_title:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.title,              title: app.permissions.business_unit.title               }
     business_unit_data:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.data,               title: app.permissions.business_unit.data                }
     business_unit_staffs:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.staffs,             title: app.permissions.business_unit.staffs              }
+    business_unit_roles:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.roles,              title: app.permissions.business_unit.roles               }
     business_unit_version:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.version,            title: app.permissions.business_unit.version             }
     business_unit_tenant:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnit.tenant,             title: app.permissions.business_unit.tenant              }
+    business_unit_role:               { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\BusinessUnitRole,                title: app.permissions.business_unit_role                }
+    business_unit_role_property:      { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.*,              title: app.permissions.business_unit_role.property       }
+    business_unit_role_id:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.id,             title: app.permissions.business_unit_role.id             }
+    business_unit_role_uuid:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.uuid,           title: app.permissions.business_unit_role.uuid           }
+    business_unit_role_created_at:    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.createdAt,      title: app.permissions.business_unit_role.created_at     }
+    business_unit_role_updated_at:    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.updatedAt,      title: app.permissions.business_unit_role.updated_at     }
+    business_unit_role_owner:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.owner,          title: app.permissions.business_unit_role.owner          }
+    business_unit_role_owner_uuid:    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.ownerUuid,      title: app.permissions.business_unit_role.owner_uuid     }
+    business_unit_role_anonymous:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.businessUnit,   title: app.permissions.business_unit_role.business_unit  }
+    business_unit_role_role:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.role,           title: app.permissions.business_unit_role.role           }
+    business_unit_role_entity_uuids:  { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.entityUuids,    title: app.permissions.business_unit_role.entity_uuids   }
+    business_unit_role_version:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.version,        title: app.permissions.business_unit_role.version        }
+    business_unit_role_tenant:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\BusinessUnitRole.tenant,         title: app.permissions.business_unit_role.tenant         }
     individual:                       { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\Individual,                      title: app.permissions.individual                        }
     individual_property:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\Individual.*,                    title: app.permissions.individual.property               }
     individual_id:                    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\Individual.id,                   title: app.permissions.individual.id                     }
@@ -100,13 +115,13 @@ ds_acl:
     individual_role_property:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.*,                title: app.permissions.individual_role.property          }
     individual_role_id:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.id,               title: app.permissions.individual_role.id                }
     individual_role_uuid:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.uuid,             title: app.permissions.individual_role.uuid              }
-    individual_role_created_at:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.created_at,       title: app.permissions.individual_role.created_at        }
-    individual_role_updated_at:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.updated_at,       title: app.permissions.individual_role.updated_at        }
+    individual_role_created_at:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.createdAt,        title: app.permissions.individual_role.created_at        }
+    individual_role_updated_at:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.updatedAt,        title: app.permissions.individual_role.updated_at        }
     individual_role_owner:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.owner,            title: app.permissions.individual_role.owner             }
-    individual_role_owner_uuid:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.owner_uuid,       title: app.permissions.individual_role.owner_uuid        }
+    individual_role_owner_uuid:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.ownerUuid,        title: app.permissions.individual_role.owner_uuid        }
     individual_role_individual:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.individual,       title: app.permissions.individual_role.individual        }
     individual_role_role:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.role,             title: app.permissions.individual_role.role              }
-    individual_role_business_units:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.business_units,   title: app.permissions.individual_role.business_units    }
+    individual_role_entity_uuids:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.entityUuids,      title: app.permissions.individual_role.entity_uuids      }
     individual_role_version:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.version,          title: app.permissions.individual_role.version           }
     individual_role_tenant:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\IndividualRole.tenant,           title: app.permissions.individual_role.tenant            }
     organization:                     { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\Organization,                    title: app.permissions.organization                      }
@@ -139,13 +154,13 @@ ds_acl:
     organization_role_property:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.*,              title: app.permissions.organization_role.property        }
     organization_role_id:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.id,             title: app.permissions.organization_role.id              }
     organization_role_uuid:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.uuid,           title: app.permissions.organization_role.uuid            }
-    organization_role_created_at:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.created_at,     title: app.permissions.organization_role.created_at      }
-    organization_role_updated_at:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.updated_at,     title: app.permissions.organization_role.updated_at      }
+    organization_role_created_at:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.createdAt,      title: app.permissions.organization_role.created_at      }
+    organization_role_updated_at:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.updatedAt,      title: app.permissions.organization_role.updated_at      }
     organization_role_owner:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.owner,          title: app.permissions.organization_role.owner           }
-    organization_role_owner_uuid:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.owner_uuid,     title: app.permissions.organization_role.owner_uuid      }
+    organization_role_owner_uuid:     { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.ownerUuid,      title: app.permissions.organization_role.owner_uuid      }
     organization_role_organization:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.organization,   title: app.permissions.organization_role.organization    }
     organization_role_role:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.role,           title: app.permissions.organization_role.role            }
-    organization_role_business_units: { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.business_units, title: app.permissions.organization_role.business_units  }
+    organization_role_entity_uuids:   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.entityUuids,    title: app.permissions.organization_role.entity_uuids    }
     organization_role_version:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.version,        title: app.permissions.organization_role.version         }
     organization_role_tenant:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\OrganizationRole.tenant,         title: app.permissions.organization_role.tenant          }
     role:                             { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\Role,                            title: app.permissions.role                              }
@@ -194,13 +209,13 @@ ds_acl:
     staff_role_property:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.*,                     title: app.permissions.staff_role.property               }
     staff_role_id:                    { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.id,                    title: app.permissions.staff_role.id                     }
     staff_role_uuid:                  { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.uuid,                  title: app.permissions.staff_role.uuid                   }
-    staff_role_created_at:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.created_at,            title: app.permissions.staff_role.created_at             }
-    staff_role_updated_at:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.updated_at,            title: app.permissions.staff_role.updated_at             }
+    staff_role_created_at:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.createdAt,             title: app.permissions.staff_role.created_at             }
+    staff_role_updated_at:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.updatedAt,             title: app.permissions.staff_role.updated_at             }
     staff_role_owner:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.owner,                 title: app.permissions.staff_role.owner                  }
-    staff_role_owner_uuid:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.owner_uuid,            title: app.permissions.staff_role.owner_uuid             }
+    staff_role_owner_uuid:            { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.ownerUuid,             title: app.permissions.staff_role.owner_uuid             }
     staff_role_staff:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.staff,                 title: app.permissions.staff_role.staff                  }
     staff_role_role:                  { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.role,                  title: app.permissions.staff_role.role                   }
-    staff_role_business_units:        { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.business_units,        title: app.permissions.staff_role.business_units         }
+    staff_role_entity_uuids:          { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.entityUuids,           title: app.permissions.staff_role.entity_uuids           }
     staff_role_version:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.version,               title: app.permissions.staff_role.version                }
     staff_role_tenant:                { attributes: [BROWSE, READ, EDIT],              property: App\Entity\StaffRole.tenant,                title: app.permissions.staff_role.tenant                 }
     system:                           { attributes: [BROWSE, READ, EDIT, ADD, DELETE], entity:   App\Entity\System,                          title: app.permissions.system                            }
@@ -219,12 +234,12 @@ ds_acl:
     system_role_property:             { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.*,                    title: app.permissions.system_role.property              }
     system_role_id:                   { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.id,                   title: app.permissions.system_role.id                    }
     system_role_uuid:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.uuid,                 title: app.permissions.system_role.uuid                  }
-    system_role_created_at:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.created_at,           title: app.permissions.system_role.created_at            }
-    system_role_updated_at:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.updated_at,           title: app.permissions.system_role.updated_at            }
+    system_role_created_at:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.createdAt,            title: app.permissions.system_role.created_at            }
+    system_role_updated_at:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.updatedAt,            title: app.permissions.system_role.updated_at            }
     system_role_owner:                { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.owner,                title: app.permissions.system_role.owner                 }
-    system_role_owner_uuid:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.owner_uuid,           title: app.permissions.system_role.owner_uuid            }
-    system_role_system:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.system,               title: app.permissions.system_role.system                 }
+    system_role_owner_uuid:           { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.ownerUuid,            title: app.permissions.system_role.owner_uuid            }
+    system_role_system:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.system,               title: app.permissions.system_role.system                }
     system_role_role:                 { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.role,                 title: app.permissions.system_role.role                  }
-    system_role_business_units:       { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.business_units,       title: app.permissions.system_role.business_units        }
+    system_role_entity_uuids:         { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.entityUuids,          title: app.permissions.system_role.entity_uuids          }
     system_role_version:              { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.version,              title: app.permissions.system_role.version               }
     system_role_tenant:               { attributes: [BROWSE, READ, EDIT],              property: App\Entity\SystemRole.tenant,               title: app.permissions.system_role.tenant                }

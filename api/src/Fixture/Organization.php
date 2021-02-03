@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\Organization as OrganizationEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -32,6 +33,13 @@ trait Organization
                 ->setOwner($object->owner)
                 ->setOwnerUuid($object->owner_uuid)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $organization->setCreatedAt($date);
+            }
+
             $manager->persist($organization);
             $this->setReference($object->uuid, $organization);
         }

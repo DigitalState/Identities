@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\IndividualPersona as IndividualPersonaEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 use LogicException;
@@ -42,6 +43,13 @@ trait IndividualPersona
                 ->setTitle((array) $object->title)
                 ->setData((array) $object->data)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $persona->setCreatedAt($date);
+            }
+
             $manager->persist($persona);
         }
 

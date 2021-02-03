@@ -3,6 +3,7 @@
 namespace App\Fixture;
 
 use App\Entity\BusinessUnit as BusinessUnitEntity;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ds\Component\Database\Fixture\Yaml;
 
@@ -34,6 +35,13 @@ trait BusinessUnit
                 ->setTitle((array) $object->title)
                 ->setData((array) $object->data)
                 ->setTenant($object->tenant);
+
+            if (null !== $object->created_at) {
+                $date = new DateTime;
+                $date->setTimestamp($object->created_at);
+                $businessUnit->setCreatedAt($date);
+            }
+
             $manager->persist($businessUnit);
             $this->setReference($object->uuid, $businessUnit);
         }
